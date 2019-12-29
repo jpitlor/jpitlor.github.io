@@ -14,6 +14,13 @@ module.exports = {
 				path: `${__dirname}/src/images`,
 			},
 		},
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `data`,
+				path: `${__dirname}/src/data`,
+			},
+		},
 		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
 		{
@@ -32,7 +39,28 @@ module.exports = {
 			resolve: `gatsby-source-github-api`,
 			options: {
 				token: process.env.GITHUB_API_TOKEN,
-				variables: {}
+				variables: {},
+				graphQLQuery: `
+					query {
+						user(login: "piticent123") {
+							pinnedItems(first: 6) {
+								nodes {
+									... on Repository {
+										name
+										url
+										description
+										homepageUrl
+										object(expression: "master:README.md") {
+											... on Blob {
+												text
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				`
 			}
 		},
 		{

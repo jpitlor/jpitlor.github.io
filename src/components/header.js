@@ -1,42 +1,51 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import PropTypes from "prop-types";
+import React from "react";
+import styled from "styled-components";
+import {Link, useStaticQuery, graphql} from "gatsby";
 
-const Header = ({ siteTitle }) => (
-    <header
-        style={{
-            background: `rebeccapurple`,
-            marginBottom: `1.45rem`,
-        }}
-    >
-        <div
-            style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `1.45rem 1.0875rem`,
-            }}
-        >
-            <h1 style={{margin: 0}}>
-                <Link
-                    to="/"
-                    style={{
-                        color: `white`,
-                        textDecoration: `none`,
-                    }}
-                >
-                    {siteTitle}
-                </Link>
-            </h1>
-        </div>
-    </header>
-)
+import pages from "../data/pages";
 
-Header.propTypes = {
-    siteTitle: PropTypes.string,
-}
+const Container = styled.header`
+    background: rebeccapurple;
+    margin-bottom: 1.45rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+`;
 
-Header.defaultProps = {
-    siteTitle: ``,
-}
+const Image = styled.img`
+    border-radius: 100%;
+    max-height: 3rem;
+`;
 
-export default Header
+const IconLink = ({icon, link}) => (
+    <Link to={link}>
+        <i className={`far fa-${icon} fa-3x`} />
+    </Link>
+);
+
+const Header = () => {
+    const {file: {childImageSharp: {fixed: {src: profile}}}} = useStaticQuery(graphql`
+        query MyQuery {
+            file(relativePath: {eq: "me.jpg"}) {
+                childImageSharp {
+                    fixed(height: 100) {
+                        src
+                    }
+                }
+            }
+        }
+    `);
+    
+    return (
+        <Container>
+            <Link to="/">
+                <Image src={profile} />
+            </Link>
+            {pages.map(({route, icon}) => <IconLink icon={icon} link={route} />)}
+        </Container>
+    );
+};
+
+export default Header;

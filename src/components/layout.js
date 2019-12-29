@@ -2,16 +2,31 @@ import React from "react";
 import PropTypes from "prop-types";
 import {useStaticQuery, graphql} from "gatsby";
 import styled, {createGlobalStyle} from "styled-components";
+import Helmet from "react-helmet";
 
 import Header from "./header";
+import Store from './store';
 
-const GlobalStyles = createGlobalStyle `
+const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
     }
 `;
 
+const ContentWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+`;
 
+const Main = styled.main`
+    flex: 1;
+`;
 
 const Layout = ({children}) => {
     const {site: {siteMetadata: {title}}} = useStaticQuery(graphql`
@@ -24,21 +39,17 @@ const Layout = ({children}) => {
         }
     `);
 
-    return (<React.Fragment>
+    return (<Store>
         <GlobalStyles />
-        <Header siteTitle={title}/>
-        <div 
-            style={{
-                margin: `0 auto`,
-                maxWidth: 960,
-                padding: `0px 1.0875rem 1.45rem`,
-                paddingTop: 0,
-            }} 
-        >
-            <main>{children}</main>
+        <Helmet>
+            <script src="https://kit.fontawesome.com/02a7477264.js" crossorigin="anonymous"></script>
+        </Helmet>
+        <ContentWrapper>
+            <Header siteTitle={title}/>
+            <Main>{children}</Main>
             <footer>© Jordan Pitlor {new Date().getFullYear()}</footer> 
-        </div>
-    </React.Fragment>);
+        </ContentWrapper>
+    </Store>);
 };
 
 Layout.propTypes = {
