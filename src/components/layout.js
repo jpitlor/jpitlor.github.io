@@ -42,7 +42,7 @@ const Layout = ({children}) => {
     return (<Store>
         <GlobalStyles />
         <Helmet>
-            <script src="https://kit.fontawesome.com/02a7477264.js" crossorigin="anonymous"></script>
+            <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous"/>
         </Helmet>
         <ContentWrapper>
             <Header siteTitle={title}/>
