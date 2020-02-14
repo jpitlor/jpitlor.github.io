@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import {graphql, Link} from "gatsby";
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -13,4 +13,23 @@ const SecondPage = () => (
     </Layout>
 );
 
-export default SecondPage
+export const query = graphql`
+    query EducationQuery {
+        allContentfulSchool {
+            nodes {
+                endDate
+                startDate
+                name,
+                gpa,
+                inProgress,
+                # Major/minor??
+                location {
+                    lat,
+                    lon
+                },
+            }
+        }
+    }
+`;
+
+export default SecondPage;
