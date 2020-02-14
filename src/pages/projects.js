@@ -3,7 +3,21 @@ import {graphql} from 'gatsby';
 import Layout from '../components/layout';
 import Repository from '../components/repository'
 
-const Projects = ({data: {allGithubData: {nodes: [{data: {user: {pinnedItems: {nodes: pinnedRepositories}}}}]}}}) => (
+const Projects = ({
+	data: {
+		allGithubData: {
+			nodes: [{
+				data: {
+					user: {
+						pinnedItems: {
+							nodes: pinnedRepositories,
+						},
+					},
+				},
+			}],
+		},
+	},
+}) => (
 	<Layout>
 		{pinnedRepositories.map(repo => <Repository data={repo} />)}
 	</Layout>

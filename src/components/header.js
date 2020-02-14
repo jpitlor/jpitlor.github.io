@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import {Link, useStaticQuery, graphql} from "gatsby";
@@ -26,7 +25,15 @@ const IconLink = ({icon, link}) => (
 );
 
 const Header = () => {
-    const {file: {childImageSharp: {fixed: {src: profile}}}} = useStaticQuery(graphql`
+    const {
+        file: {
+            childImageSharp: {
+                fixed: {
+                    src: profile,
+                },
+            },
+        },
+    } = useStaticQuery(graphql`
         query MyQuery {
             file(relativePath: {eq: "me.jpg"}) {
                 childImageSharp {
@@ -37,13 +44,15 @@ const Header = () => {
             }
         }
     `);
-    
+
     return (
         <Container>
             <Link to="/">
                 <Image src={profile} />
             </Link>
-            {pages.map(({route, icon}) => <IconLink icon={icon} link={route} />)}
+            {pages.map(({route, icon}) => (
+                <IconLink icon={icon} link={route} />
+            ))}
         </Container>
     );
 };

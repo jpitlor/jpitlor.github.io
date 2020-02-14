@@ -8,8 +8,8 @@ export const SiteContext = React.createContext([
 	{
 		showFull: () => null,
 		showRecent: () => null,
-	},	
-])
+	},
+]);
 
 const Store = ({children}) => {
 	const [showFullHistory, setShowFullHistory] = useState(false);
@@ -21,7 +21,7 @@ const Store = ({children}) => {
 			{children}
 		</SiteContext.Provider>
 	);
-}
+};
 
 Store.propTypes = {
 	children: PropTypes.node.isRequired,
