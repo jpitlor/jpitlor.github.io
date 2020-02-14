@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import styled from "styled-components";
 import {Link, useStaticQuery, graphql} from "gatsby";
 
@@ -18,7 +18,12 @@ const Image = styled.img`
     max-height: 3rem;
 `;
 
-const IconLink = ({icon, link}) => (
+interface IconLinkProps {
+    icon: string;
+    link: string;
+}
+
+const IconLink = ({icon, link}: IconLinkProps) => (
     <Link to={link}>
         <i className={`far fa-${icon} fa-3x`} />
     </Link>

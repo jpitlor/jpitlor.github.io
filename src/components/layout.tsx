@@ -1,5 +1,4 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 import {useStaticQuery, graphql} from "gatsby";
 import styled, {createGlobalStyle} from "styled-components";
 import Helmet from "react-helmet";
@@ -47,13 +46,9 @@ const Layout = ({children}) => {
         <ContentWrapper>
             <Header siteTitle={title}/>
             <Main>{children}</Main>
-            <footer>© Jordan Pitlor {new Date().getFullYear()}</footer> 
+            <footer>© Jordan Pitlor {new Date().getFullYear()}</footer>
         </ContentWrapper>
     </Store>);
-};
-
-Layout.propTypes = {
-    children: PropTypes.node.isRequired,
 };
 
 export default Layout;
