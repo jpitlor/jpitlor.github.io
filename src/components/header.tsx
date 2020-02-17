@@ -3,17 +3,6 @@ import styled from "styled-components";
 import {Link, useStaticQuery, graphql} from "gatsby";
 
 import pages from "../data/pages";
-import {ChangeEvent, useContext} from "react";
-import {SiteContext} from "./store";
-
-const Container = styled.header`
-    background: lightgray;
-    margin-bottom: 1.45rem;
-    padding: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-`;
 
 const Image = styled.img`
     border-radius: 100%;
@@ -23,11 +12,12 @@ const Image = styled.img`
 interface IconLinkProps {
     icon: string;
     link: string;
+    className: string;
 }
 
-const IconLink = ({icon, link}: IconLinkProps) => (
-    <Link to={link}>
-        <i className={`far fa-${icon} fa-3x`} />
+const IconLink = ({icon, link, className}: IconLinkProps) => (
+    <Link to={link} className={className}>
+        <i className={`far fa-${icon} fa-2x`} />
     </Link>
 );
 
@@ -52,36 +42,38 @@ const Header = () => {
         }
     `);
 
-    const [{showFullHistory}, {showFull, showRecent}] = useContext(SiteContext);
-    const onSwitchToggle = (e: ChangeEvent<HTMLInputElement>) =>
-        e.target.checked ? showFull() : showRecent();
-
     return (
-        <Container className="level">
-            <div className="level-left">
-                <Link to="/">
+        <nav
+            className="navbar is-primary section-end"
+            role="navigation"
+            aria-label="main navigation"
+        >
+            <div className="navbar-brand">
+                <Link to="/" className="navbar-item">
                     <Image src={profile} />
                 </Link>
-                {pages.map(({route, icon}) => (
-                    <IconLink icon={icon} link={route} key={route} />
-                ))}
+
+                <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                   data-target="navbarBasicExample">
+                    <span aria-hidden="true" />
+                    <span aria-hidden="true" />
+                    <span aria-hidden="true" />
+                </a>
             </div>
-            <div className="level-right">
-                <div className="field">
-                    <input
-                        id="switch"
-                        type="checkbox"
-                        name="switch"
-                        className="switch is-rounded"
-                        checked={showFullHistory}
-                        onChange={onSwitchToggle}
-                    />
-                    <label htmlFor="switch">
-                        Show All Experience
-                    </label>
+
+            <div id="navbarBasicExample" className="navbar-menu">
+                <div className="navbar-start">
+                    {pages.map(({route, icon}) => (
+                        <IconLink
+                            icon={icon}
+                            link={route}
+                            key={route}
+                            className="navbar-item"
+                        />
+                    ))}
                 </div>
             </div>
-        </Container>
+        </nav>
     );
 };
 

@@ -28,7 +28,7 @@ const Main = styled.main`
 
 const Title = styled.h1`
     margin-top: 0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     font-size: 18px;
     text-align: center;
 `;
