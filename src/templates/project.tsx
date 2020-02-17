@@ -1,18 +1,17 @@
 import {graphql} from "gatsby";
 import * as React from "react";
+import Layout from "../components/layout";
 
 export default ({
     data: {
         githubData: {
-            nodes: [{
-                data: {
-                    user: {
-                        pinnedItems: {
-                            nodes: [repo],
-                        },
+            data: {
+                user: {
+                    pinnedItems: {
+                        nodes: [repo],
                     },
                 },
-            }],
+            },
         },
     },
 }) => {
@@ -24,11 +23,15 @@ export default ({
         object: {text: readme},
     } = repo;
 
-    return <p>{name} - {description}</p>;
+    return (
+        <Layout title={name}>
+            <p>{name} - {description}</p>
+        </Layout>
+    );
 };
 
 export const query = graphql`
-    query ProjectsQuery($name: String!) {
+    query ProjectQuery($name: String!) {
         githubData(data: {
             user: {
                 pinnedItems: {
@@ -40,18 +43,16 @@ export const query = graphql`
                 }
             }
         }) {
-            nodes {
-                data {
-                    user {
-                        pinnedItems {
-                            nodes {
-                                name
-                                description
-                                homepageUrl
-                                url
-                                object {
-                                    text
-                                }
+            data {
+                user {
+                    pinnedItems {
+                        nodes {
+                            name
+                            description
+                            homepageUrl
+                            url
+                            object {
+                                text
                             }
                         }
                     }

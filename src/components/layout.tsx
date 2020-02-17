@@ -52,7 +52,6 @@ const Layout = ({title, children}: LayoutProps) => {
                     <Title>{title}</Title>
                     {children}
                 </Main>
-                <footer>© Jordan Pitlor {new Date().getFullYear()}</footer>
             </ContentWrapper>
         </Store>
     );

@@ -26,11 +26,6 @@ const CardDescription = styled.p`
 const CardBody = styled.p`
 	flex: 1;
 	margin: 0 0 1.5rem;
-	
-	// Marked puts its own p tag inside ours
-	p {
-		margin: 0;
-	}
 `;
 
 const IconContainer = styled.div`
@@ -61,7 +56,11 @@ const Repository = ({
 		<Card>
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
-			<CardBody dangerouslySetInnerHTML={{__html: marked(longDescription)}}/>
+			<CardBody
+				dangerouslySetInnerHTML={{
+					__html: marked(longDescription).slice(3, -5)
+				}}
+			/>
 			<IconContainer>
 				<a href={url}>
 					<Icon className="fab fa-github" />
@@ -69,9 +68,9 @@ const Repository = ({
 				<a href={`/projects/${name}`}>
 					<Icon className="fas fa-book-open" />
 				</a>
-				<a href={homepageUrl}>
+				{homepageUrl && <a href={homepageUrl}>
 					<Icon className="fas fa-external-link" />
-				</a>
+				</a>}
 			</IconContainer>
 		</Card>
 	);

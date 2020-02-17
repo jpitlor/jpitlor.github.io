@@ -16,8 +16,8 @@ exports.createPages = async ({graphql, actions}) => {
                 }],
             },
         },
-    } = await graphql`
-        query ProjectsQuery {
+    } = await graphql(`
+        query {
             allGithubData {
                 nodes {
                     data {
@@ -38,10 +38,10 @@ exports.createPages = async ({graphql, actions}) => {
                 }
             }
         }
-    `;
+    `);
 
     pinnedRepositories.forEach(repo => createPage({
-        path: repo.name,
+        path: `projects/${repo.name}`,
         component: path.resolve('./src/templates/project.tsx'),
         context: {name: repo.name},
     }))
