@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,700,700i&display=swap');
+
+$primary: hsl(262, 100%, 51%);
+$family-sans-serif: "Rubik", sans-serif;
+
+@import "~bulma";
+@import "~bulma-extensions";
+
+.section-end {
+    margin-bottom: 1.5rem;
+}

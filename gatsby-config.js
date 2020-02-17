@@ -6,6 +6,7 @@ module.exports = {
 		author: `Jordan Pitlor`,
 	},
 	plugins: [
+		`gatsby-plugin-sass`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-react-helmet`,
 		{

@@ -3,7 +3,6 @@ import styled, {createGlobalStyle} from "styled-components";
 import Helmet from "react-helmet";
 
 import Header from "./header";
-import Store from './store';
 import SEO from "./seo";
 
 const GlobalStyles = createGlobalStyle`
@@ -29,6 +28,7 @@ const Main = styled.main`
 
 const Title = styled.h1`
     margin-top: 0;
+    margin-bottom: 1.5rem;
     font-size: 18px;
     text-align: center;
 `;
@@ -38,23 +38,21 @@ interface LayoutProps {
     title: string;
 }
 
-const Layout = ({title, children}: LayoutProps) => {
-    return (
-        <Store>
-            <SEO title={title} />
-            <GlobalStyles />
-            <Helmet>
-                <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous"/>
-            </Helmet>
-            <ContentWrapper>
-                <Header />
-                <Main>
-                    <Title>{title}</Title>
-                    {children}
-                </Main>
-            </ContentWrapper>
-        </Store>
-    );
-};
+const Layout = ({title, children}: LayoutProps) => (
+    <React.Fragment>
+        <SEO title={title} />
+        <GlobalStyles />
+        <Helmet>
+            <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous"/>
+        </Helmet>
+        <ContentWrapper>
+            <Header />
+            <Main>
+                <Title className="has-text-grey">{title}</Title>
+                {children}
+            </Main>
+        </ContentWrapper>
+    </React.Fragment>
+);
 
 export default Layout;

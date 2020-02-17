@@ -1,13 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = () => (
     <Layout title="Jordan Pitlor">
-        <SEO title="Home" />
-        <Link to="/education/">Go to page 2</Link>
+
     </Layout>
 );
 
