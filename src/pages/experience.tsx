@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Job from '../components/job';
 
 const Experience = ({data: {allContentfulJob: {nodes: jobs}}}) => (
-	<Layout>
+	<Layout title="Experience">
 		{jobs.map(job => <Job data={job} />)}
 	</Layout>
 );

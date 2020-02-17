@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-    <Layout>
+    <Layout title="Jordan Pitlor">
         <SEO title="Home" />
         <Link to="/education/">Go to page 2</Link>
     </Layout>

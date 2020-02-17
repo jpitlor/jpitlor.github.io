@@ -1,3 +1,7 @@
-export default readme => ({
-	name: /^# (.*)\n?/.exec(readme)[1],
-});
+export default readme => {
+	const [,title, longDescription] = /^# (.*)\n([^#]+)/.exec(readme);
+	return {
+		title,
+		longDescription,
+	};
+};
