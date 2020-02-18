@@ -3,11 +3,14 @@ import {graphql} from "gatsby";
 
 import Layout from "../components/layout"
 
-const SecondPage = () => (
-    <Layout title="Education">
+const Education = ({data: {allContentfulSchool: {nodes}}}) => {
+    console.log(nodes);
+    return (
+        <Layout title="Education">
 
-    </Layout>
-);
+        </Layout>
+    )
+};
 
 export const query = graphql`
     query EducationQuery {
@@ -28,4 +31,4 @@ export const query = graphql`
     }
 `;
 
-export default SecondPage;
+export default Education;
