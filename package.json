@@ -50,6 +50,7 @@
     "graphql-config": "^3.0.0-alpha.17",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.1.0",
+    "jest-runner-eslint": "^0.7.6",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0"
   },
