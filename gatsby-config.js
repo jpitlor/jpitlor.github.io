@@ -6,6 +6,12 @@ module.exports = {
 		author: `Jordan Pitlor`,
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-eslint`,
+			options: {
+				test: /\.ts$|\.tsx$/
+			}
+		},
 		`gatsby-plugin-sass`,
 		`gatsby-plugin-typescript`,
 		`gatsby-plugin-react-helmet`,

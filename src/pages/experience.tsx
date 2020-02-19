@@ -23,8 +23,18 @@ interface ExperienceProps {
 type GroupedJobs = [number, TransformedJob[]][];
 
 const Months = [
-	"January", "February", "March", "April", "May", "June", "July", "August",
-	"September", "October", "November", "December"
+	"January",
+	"February",
+	"March",
+	"April",
+	"May",
+	"June",
+	"July",
+	"August",
+	"September",
+	"October",
+	"November",
+	"December"
 ];
 
 const TimelineContent = styled.div`

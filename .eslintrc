@@ -1,0 +1,167 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "plugins": [
+        "jest",
+        "no-for-of-loops",
+        "react"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "jest": true
+    },
+    "rules": {
+        "no-console": "off",
+        "accessor-pairs": "off",
+        "arrow-spacing": "error",
+        "brace-style": [
+            "error",
+            "1tbs"
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "consistent-return": "off",
+        "dot-location": [
+            "error",
+            "property"
+        ],
+        "dot-notation": "error",
+        "eol-last": "error",
+        "eqeqeq": [
+            "error",
+            "allow-null"
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "jsx-quotes": [
+            "error",
+            "prefer-double"
+        ],
+        "key-spacing": [
+            "error"
+        ],
+        "keyword-spacing": [
+            "error",
+            {
+                "after": true,
+                "before": true
+            }
+        ],
+        "no-bitwise": "off",
+        "no-inner-declarations": [
+            "error",
+            "functions"
+        ],
+        "no-multi-spaces": "error",
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1
+            }
+        ],
+        "no-restricted-syntax": [
+            "error",
+            "WithStatement"
+        ],
+        "no-shadow": "warn",
+        "no-unused-expressions": "error",
+        "no-unused-vars": [
+            "error",
+            {
+                "args": "none"
+            }
+        ],
+        "no-use-before-define": [
+            "error",
+            {
+                "functions": false,
+                "variables": false
+            }
+        ],
+        "no-useless-concat": "off",
+        "object-curly-spacing": [
+            "error",
+            "never"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "space-before-blocks": "error",
+        "space-before-function-paren": "off",
+        "space-infix-ops": [
+            "error"
+        ],
+        "space-in-parens": [
+            "error",
+            "never"
+        ],
+        "spaced-comment": [
+            "error",
+            "always",
+            {
+                "exceptions": [
+                    "-",
+                    "+"
+                ]
+            }
+        ],
+        "valid-typeof": [
+            "error",
+            {
+                "requireStringLiterals": true
+            }
+        ],
+        "no-var": "error",
+        "strict": "error",
+        "valid-jsdoc": "warn",
+        "react/jsx-boolean-value": [
+            "error",
+            "always"
+        ],
+        "react/jsx-no-undef": "error",
+        "react/jsx-sort-prop-types": "off",
+        "react/jsx-tag-spacing": "error",
+        "react/jsx-uses-react": "error",
+        "react/no-is-mounted": "off",
+        "react/react-in-jsx-scope": "error",
+        "react/self-closing-comp": "error",
+        "react/jsx-wrap-multilines": [
+            "error",
+            {
+                "declaration": false,
+                "assignment": false
+            }
+        ],
+        "react/no-direct-mutation-state": "error",
+        "react/jsx-no-duplicate-props": [
+            "error",
+            {
+                "ignoreCase": true
+            }
+        ],
+        "react/forbid-prop-types": [
+            "warn"
+        ],
+        // Prevent for...of loops because they require a Symbol polyfill.
+        // You can disable this rule for code that isn't shipped (e.g. build scripts and tests).
+        "no-for-of-loops/no-for-of-loops": "error",
+        "react/destructuring-assignment": "error"
+    }
+}
