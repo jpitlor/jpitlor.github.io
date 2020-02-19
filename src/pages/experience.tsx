@@ -1,11 +1,11 @@
 import * as React from "react";
-import {useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import groupBy from "lodash.groupby";
 
 import Layout from "../components/layout";
 import {graphql} from "gatsby";
 import JobDetails from "../components/job-details";
-import {Job, TransformedJob} from "../utils/types";
+import {Job, TransformedJob, Location} from "../utils/types";
 import styled from "styled-components";
 
 interface AllContentfulJob {
@@ -39,38 +39,79 @@ const TimelineContent = styled.div`
 	}
 `;
 
+async function getGoogleMapLocation({lat, lon}: Location): Promise<string> {
+	const route = "https://maps.googleapis.com/maps/api/geocode/json";
+	const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
+	const fetchResult = await fetch(route + queryString);
+	const apiResult = await fetchResult.json();
+
+	return apiResult.results[0].place_id;
+}
+
 const Experience = ({data: {allContentfulJob: {nodes}}}: ExperienceProps) => {
 	const [moreDetailsJob, setMoreDetailsJob] = useState<TransformedJob | null>(null);
+	const [locations, setLocations] = useState<Record<string, string>>({});
 	const onClickJob = (job: TransformedJob) => () => setMoreDetailsJob(job);
-	const jobs: GroupedJobs = Object.entries(
-		groupBy(nodes, job =>
-			Math.floor(Number(job.startDate.substr(0, 4)) / 5)))
-		.map(([year, jobs]) => ([
-			Number(year) * 5,
-			jobs.map(j => ({
-				...j,
-				startDate: new Date(j.startDate),
-				endDate: j.endDate ? new Date(j.endDate) : null
-			})),
-		]));
-	jobs.sort((a, b) => {
-		const x = Number(a[0]);
-		const y = Number(b[0]);
+	const jobs: GroupedJobs = useMemo(() => {
+		const result: GroupedJobs = Object
+			.entries(
+				groupBy(
+					nodes,
+					job => Math.floor(Number(job.startDate.substr(0, 4)) / 5)
+				)
+			)
+			.map(([year, jobs]) => ([
+				Number(year) * 5,
+				jobs.map(j => ({
+					...j,
+					startDate: new Date(j.startDate),
+					endDate: j.endDate ? new Date(j.endDate) : null
+				})),
+			]));
 
-		if (x < y) return 1;
-		if (x === y) return 0;
-		return -1;
-	});
-	jobs.forEach(([_, jobs]) => {
-		jobs.sort((a, b) => {
-			const x = a.startDate.getTime();
-			const y = b.startDate.getTime();
+		result.sort((a, b) => {
+			const x = Number(a[0]);
+			const y = Number(b[0]);
 
 			if (x < y) return 1;
 			if (x === y) return 0;
 			return -1;
 		});
-	});
+		result.forEach(([_, j]) => {
+			j.sort((a, b) => {
+				const x = a.startDate.getTime();
+				const y = b.startDate.getTime();
+
+				if (x < y) return 1;
+				if (x === y) return 0;
+				return -1;
+			});
+		});
+
+		return result;
+	}, []);
+	useEffect(() => {
+		async function doEffect() {
+			const locationIds = (await Promise
+				.all(jobs.map(async ([, jobDetails]) =>
+					await Promise.all(
+						jobDetails.map(async j => ([
+							`${j.location.lat},${j.location.lon}`,
+							await getGoogleMapLocation(j.location)
+						]))
+					)
+				)))
+				.flat()
+				.reduce((acc, [key, value]) => ({
+					...acc,
+					[key]: value,
+				}), {});
+
+			setLocations(locationIds);
+		}
+
+		doEffect();
+	}, []);
 
 	return (
 		<Layout title="Experience">
@@ -113,7 +154,10 @@ const Experience = ({data: {allContentfulJob: {nodes}}}: ExperienceProps) => {
 							</span>
 						</div>
 					</div>
-					<JobDetails job={moreDetailsJob} />
+					<JobDetails
+						job={moreDetailsJob}
+						locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
+					/>
 				</div>
 			</div>
 		</Layout>
@@ -133,6 +177,10 @@ export const query = graphql`
 				startPay
 				title
 				company
+				location {
+					lat
+					lon
+				}
 				description {
 					json
 				}

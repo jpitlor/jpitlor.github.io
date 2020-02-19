@@ -10,6 +10,14 @@ $family-sans-serif: "Rubik", sans-serif;
     margin-bottom: 1.5rem;
 }
 
+.centered-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 html {
     overflow: auto;
 }

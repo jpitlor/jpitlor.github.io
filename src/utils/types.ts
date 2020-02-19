@@ -26,7 +26,7 @@ export interface TransformedJob {
     endDate: Date | null
     endPay: number
     isHourly: boolean
-    location: Location
+    location: Location;
     node_locale: string
     parent: Node
     spaceId: string
