@@ -1,8 +1,8 @@
-import * as React from "react";
-import marked from "marked";
-import {Link} from "gatsby";
+import * as React from 'react';
+import marked from 'marked';
+import {Link} from 'gatsby';
 
-import useReadme from "../utils/useReadme";
+import useReadme from '../utils/useReadme';
 
 const Repository = ({
     repo: {
@@ -28,36 +28,36 @@ const Repository = ({
                         className="level-item"
                         aria-label="github"
                     >
-						<span className="icon">
-							<i
-								className="fab fa-github"
-								aria-hidden="true"
-							/>
-						</span>
+                        <span className="icon">
+                            <i
+                                className="fab fa-github"
+                                aria-hidden="true"
+                            />
+                        </span>
                     </a>
                     <Link
                         to={`/projects/${name}`}
                         className="level-item"
                         aria-label="read me"
                     >
-						<span className="icon">
-							<i
-								className="fas fa-book-open"
-								aria-hidden="true"
-							/>
-						</span>
+                        <span className="icon">
+                            <i
+                                className="fas fa-book-open"
+                                aria-hidden="true"
+                            />
+                        </span>
                     </Link>
                     {homepageUrl && <a
                         href={homepageUrl}
                         className="level-item"
                         aria-label="homepage"
                     >
-						<span className="icon">
-							<i
-								className="fas fa-external-link"
-								aria-hidden="true"
-							/>
-						</span>
+                        <span className="icon">
+                            <i
+                                className="fas fa-external-link"
+                                aria-hidden="true"
+                            />
+                        </span>
                     </a>}
                 </div>
             </nav>

@@ -1,1 +1,1 @@
-require("./src/sass/theme.scss");
+require('./src/sass/theme.scss');

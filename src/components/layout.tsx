@@ -1,9 +1,9 @@
-import * as React from "react";
-import styled, {createGlobalStyle} from "styled-components";
-import Helmet from "react-helmet";
+import * as React from 'react';
+import styled, {createGlobalStyle} from 'styled-components';
+import Helmet from 'react-helmet';
 
-import Header from "./header";
-import SEO from "./seo";
+import Header from './header';
+import SEO from './seo';
 
 const GlobalStyles = createGlobalStyle`
     body {
@@ -43,7 +43,7 @@ const Layout = ({title, children}: LayoutProps) => (
         <SEO title={title} />
         <GlobalStyles />
         <Helmet>
-            <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous"/>
+            <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous" />
         </Helmet>
         <ContentWrapper>
             <Header />

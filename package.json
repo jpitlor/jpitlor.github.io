@@ -65,7 +65,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest",
+    "test": "jest --ci --coverage --verbose || echo \"Ignoring Tests\"",
+    "test-local": "jest --watch --coverage --verbose",
     "generate-schema": "graphql get-schema && graphql-codegen"
   },
   "repository": {

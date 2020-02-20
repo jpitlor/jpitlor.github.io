@@ -1,7 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 // import marked from "marked";
 
-import {TransformedJob} from "../utils/types";
+import {TransformedJob} from '../utils/types';
 
 interface JobDetailsProps {
     job: TransformedJob | null;
@@ -15,7 +15,7 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
                 <strong>{job?.title}</strong>
                 <small>{job?.company}</small>
 
-                {/*<p dangerouslySetInnerHTML={{__html: marked()}}*/}
+                {/* <p dangerouslySetInnerHTML={{__html: marked()}}*/}
 
                 <iframe
                     width="600"
@@ -23,7 +23,7 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
                     frameBorder="0"
                     style={{border: 0}}
                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:${locationId}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`}
-                    allowFullScreen
+                    allowFullScreen={true}
                 />
             </div>
         ) : (

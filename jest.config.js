@@ -1,3 +1,10 @@
+const testPathIgnorePatterns = [
+    'node_modules',
+    '<rootDir>/public',
+    '<rootDir>/coverage',
+    '<rootDir>/.cache',
+];
+
 module.exports = {
     projects: [
         {
@@ -9,7 +16,7 @@ module.exports = {
                 '.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
                 '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
             },
-            testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>/public`],
+            testPathIgnorePatterns,
             transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
             globals: {
                 __PATH_PREFIX__: ``,
@@ -18,9 +25,11 @@ module.exports = {
             setupFiles: [`<rootDir>/loader-shim.js`],
         },
         {
-            displayName: 'Linter',
+            displayName: 'ESLint',
             runner: 'jest-runner-eslint',
-            watchPlugins: ['jest-runner-eslint/watch-fix'],
+            testRegex: ['\\.[jt]sx?$'],
+            testPathIgnorePatterns,
         },
     ],
+    watchPlugins: ['jest-runner-eslint/watch-fix'],
 };

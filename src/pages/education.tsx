@@ -1,14 +1,12 @@
-import * as React from "react"
-import {graphql} from "gatsby";
+import * as React from 'react'
+import {graphql} from 'gatsby';
 
-import Layout from "../components/layout"
+import Layout from '../components/layout'
 
 const Education = ({data: {allContentfulSchool: {nodes}}}) => {
     console.log(nodes);
     return (
-        <Layout title="Education">
-
-        </Layout>
+        <Layout title="Education" />
     )
 };
 

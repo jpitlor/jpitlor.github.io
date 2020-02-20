@@ -1,8 +1,8 @@
-import * as React from "react";
-import styled from "styled-components";
-import {Link, useStaticQuery, graphql} from "gatsby";
+import * as React from 'react';
+import styled from 'styled-components';
+import {Link, useStaticQuery, graphql} from 'gatsby';
 
-import pages from "../data/pages";
+import pages from '../data/pages';
 
 const Image = styled.img`
     border-radius: 100%;
@@ -54,7 +54,7 @@ const Header = () => {
                 </Link>
 
                 <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                   data-target="navbarBasicExample">
+                    data-target="navbarBasicExample">
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />
                     <span aria-hidden="true" />
