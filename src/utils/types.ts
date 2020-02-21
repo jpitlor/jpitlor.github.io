@@ -1,36 +1,15 @@
-export interface Location {
-    lat: number;
-    lon: number;
+interface Data<T> {
+    [k: string]: T;
 }
 
-export interface Job {
-    company: string
-    contentful_id: string
-    description: object // It's...complicated
-    endDate: string
-    endPay: number
-    isHourly: boolean
-    location: Location
-    node_locale: string
-    parent: Node
-    spaceId: string
-    startDate: string
-    startPay: number
-    title: string
+interface Nodes<T> {
+    nodes: T[];
 }
 
-export interface TransformedJob {
-    company: string
-    contentful_id: string
-    description: object // It's...complicated
-    endDate: Date | null
-    endPay: number
-    isHourly: boolean
-    location: Location;
-    node_locale: string
-    parent: Node
-    spaceId: string
-    startDate: Date
-    startPay: number
-    title: string
+export interface GatsbyArrayQuery<T> {
+    data: Data<Nodes<T>>;
+}
+
+export interface GatsbyQuery<T> {
+    data: Data<T>;
 }
