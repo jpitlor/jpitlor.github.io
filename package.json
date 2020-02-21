@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "personal-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "My personal website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jordan Pitlor <jordan@pitlor.dev>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "bulma": "^0.8.0",
@@ -65,8 +65,6 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest --ci --coverage --verbose || echo \"Ignoring Tests\"",
-    "test-local": "jest --watch --coverage --verbose",
     "generate-schema": "graphql get-schema && graphql-codegen"
   },
   "repository": {
