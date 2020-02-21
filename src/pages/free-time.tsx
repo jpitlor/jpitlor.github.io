@@ -2,6 +2,10 @@ import * as React from 'react';
 
 import Layout from '../components/layout';
 
-export default () => (
-    <Layout title="Free Time" />
+const FreeTime = () => (
+    <Layout title="Free Time">
+        <span />
+    </Layout>
 );
+
+export default FreeTime;

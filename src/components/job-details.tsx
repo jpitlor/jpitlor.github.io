@@ -1,10 +1,9 @@
 import * as React from 'react';
+import {ContentfulJob} from '../utils/schema';
 // import marked from "marked";
 
-import {TransformedJob} from '../utils/types';
-
 interface JobDetailsProps {
-    job: TransformedJob | null;
+    job: ContentfulJob | null;
     locationId: string;
 }
 

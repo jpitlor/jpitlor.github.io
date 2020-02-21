@@ -5,22 +5,11 @@ import groupBy from 'lodash.groupby';
 import Layout from '../components/layout';
 import {graphql} from 'gatsby';
 import JobDetails from '../components/job-details';
-import {Job, TransformedJob, Location} from '../utils/types';
 import styled from 'styled-components';
+import {GatsbyArrayQuery} from '../utils/types';
+import {ContentfulJob} from '../utils/schema';
 
-interface AllContentfulJob {
-	nodes: Job[];
-}
-
-interface Data {
-	allContentfulJob: AllContentfulJob;
-}
-
-interface ExperienceProps {
-	data: Data;
-}
-
-type GroupedJobs = [number, TransformedJob[]][];
+type GroupedJobs = [number, any[]][];
 
 const Months = [
     'January',
@@ -49,7 +38,7 @@ const TimelineContent = styled.div`
 	}
 `;
 
-async function getGoogleMapLocation({lat, lon}: Location): Promise<string> {
+async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
     const route = 'https://maps.googleapis.com/maps/api/geocode/json';
     const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
     const fetchResult = await fetch(route + queryString);
@@ -58,10 +47,10 @@ async function getGoogleMapLocation({lat, lon}: Location): Promise<string> {
     return apiResult.results[0].place_id;
 }
 
-const Experience = ({data: {allContentfulJob: {nodes}}}: ExperienceProps) => {
-    const [moreDetailsJob, setMoreDetailsJob] = useState<TransformedJob | null>(null);
+const Experience = ({data: {allContentfulJob: {nodes}}}: GatsbyArrayQuery<ContentfulJob>) => {
+    const [moreDetailsJob, setMoreDetailsJob] = useState<any | null>(null);
     const [locations, setLocations] = useState<Record<string, string>>({});
-    const onClickJob = (job: TransformedJob) => () => setMoreDetailsJob(job);
+    const onClickJob = (job: any) => () => setMoreDetailsJob(job);
     const jobs: GroupedJobs = useMemo(() => {
         const result: GroupedJobs = Object
             .entries(
@@ -70,9 +59,9 @@ const Experience = ({data: {allContentfulJob: {nodes}}}: ExperienceProps) => {
                     job => Math.floor(Number(job.startDate.substr(0, 4)) / 5)
                 )
             )
-            .map(([year, jobs]) => ([
+            .map(([year, jobGroups]) => ([
                 Number(year) * 5,
-                jobs.map(j => ({
+                jobGroups.map(j => ({
                     ...j,
                     startDate: new Date(j.startDate),
                     endDate: j.endDate ? new Date(j.endDate) : null,
@@ -133,10 +122,10 @@ const Experience = ({data: {allContentfulJob: {nodes}}}: ExperienceProps) => {
 								Today
                             </span>
                         </header>
-                        {jobs.map(([year, jobs]) => (
-                            <React.Fragment>
-                                {jobs.map(job => (
-                                    <div className="timeline-item">
+                        {jobs.map(([year, jobGroup], i) => (
+                            <React.Fragment key={i}>
+                                {jobGroup.map(job => (
+                                    <div className="timeline-item" key={job.startDate.getTime()}>
                                         <div className="timeline-marker" />
                                         <div className="timeline-content">
                                             <TimelineContent onClick={onClickJob(job)}>

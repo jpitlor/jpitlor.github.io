@@ -2,7 +2,7 @@ import {graphql} from 'gatsby';
 import * as React from 'react';
 import Layout from '../components/layout';
 
-export default ({
+const Project = ({
     data: {
         githubData: {
             data: {
@@ -14,13 +14,13 @@ export default ({
             },
         },
     },
-}) => {
+}: any) => {
     const {
         name,
         description,
-        homepageUrl,
-        url,
-        object: {text: readme},
+        // homepageUrl,
+        // url,
+        // object: {text: readme},
     } = repo;
 
     return (
@@ -29,6 +29,8 @@ export default ({
         </Layout>
     );
 };
+
+export default Project;
 
 export const query = graphql`
     query ProjectQuery($name: String!) {

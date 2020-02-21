@@ -3,6 +3,11 @@ import marked from 'marked';
 import {Link} from 'gatsby';
 
 import useReadme from '../utils/useReadme';
+import {GithubDataDataUserPinnedItemsNodes} from '../utils/schema';
+
+interface RepositoryProps {
+    repo: GithubDataDataUserPinnedItemsNodes;
+}
 
 const Repository = ({
     repo: {
@@ -12,7 +17,7 @@ const Repository = ({
         url,
         object: {text: readme},
     },
-}) => {
+}: RepositoryProps) => {
     const {title, longDescription} = useReadme(readme);
 
     return (

@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import Repository from '../components/repository';
+import {GatsbyArrayQuery} from '../utils/types';
+import {GithubData} from '../utils/schema';
 
 const Grid = styled.div`
 	display: grid;
@@ -29,13 +31,13 @@ const Projects = ({
             }],
         },
     },
-}) => (
+}: GatsbyArrayQuery<GithubData>) => (
     <Layout title="Projects">
         <div className="section-end container">
             <p>
-				These are some of the projects I've been working on that I want to
+				These are some of the projects I&apos;ve been working on that I want to
 				showcase! This page is generated from my list of pinned repositories
-				on Github, but if you want to see other things I've done, you can
+				on Github, but if you want to see other things I&apos;ve done, you can
 				visit <a href="https://github.com/piticent123">my profile</a>.
             </p>
             <br />
@@ -48,7 +50,7 @@ const Projects = ({
         <section className="hero is-light">
             <div className="hero-body">
                 <Grid className="container">
-                    {pinnedRepositories.map((repo, i) => (
+                    {pinnedRepositories.map((repo: any, i: any) => (
                         <Repository repo={repo} key={i} />
                     ))}
                 </Grid>

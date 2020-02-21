@@ -3,3 +3,6 @@ generates:
   ./src/utils/schema.ts:
     plugins:
       - typescript
+    config:
+      avoidOptionals: true
+      maybeValue: T
