@@ -46,9 +46,11 @@ const Layout = ({title, children}: LayoutProps) => (
             <script src="https://kit.fontawesome.com/02a7477264.js" crossOrigin="anonymous" />
         </Helmet>
         <ContentWrapper>
-            <Header />
+            {title !== 'Home' && <Header />}
             <Main>
-                <Title className="has-text-grey">{title}</Title>
+                {title !== 'Home' && <Title className="has-text-grey">
+                    {title}
+                </Title>}
                 {children}
             </Main>
         </ContentWrapper>
