@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {ContentfulJob} from '../utils/schema';
-// import marked from "marked";
+import useDescription from '../utils/useDescription';
 
 interface JobDetailsProps {
     job: ContentfulJob | null;
@@ -8,13 +8,12 @@ interface JobDetailsProps {
 }
 
 const JobDetails = ({job, locationId}: JobDetailsProps) => (
-    <div className="panel is-grey column">
+    <div className="box">
         {job ? (
-            <div>
-                <strong>{job?.title}</strong>
-                <small>{job?.company}</small>
-
-                {/* <p dangerouslySetInnerHTML={{__html: marked()}}*/}
+            <React.Fragment>
+                <p className="title is-2">{job?.company}</p>
+                <p className="subtitle is-4">{job?.title}</p>
+                {useDescription(job?.description.json)}
 
                 <iframe
                     width="600"
@@ -24,7 +23,7 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:${locationId}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`}
                     allowFullScreen={true}
                 />
-            </div>
+            </React.Fragment>
         ) : (
             <div className="centered-container">
                 <span className="has-text-grey is-size-4">

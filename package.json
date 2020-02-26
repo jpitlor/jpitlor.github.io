@@ -24,7 +24,7 @@
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-source-github-api": "^0.1.4",
     "gatsby-transformer-sharp": "^2.3.9",
-    "lodash.groupby": "^4.6.0",
+    "lodash": "^4.17.15",
     "marked": "^0.8.0",
     "node-sass": "^4.13.1",
     "react": "^16.12.0",

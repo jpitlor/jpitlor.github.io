@@ -27,15 +27,15 @@ const Months = [
 ];
 
 const TimelineContent = styled.div`
-	border-radius: 6px;
-	transition: box-shadow 0.3s;
-	padding: 0.75rem;
-	margin: -0.75rem 0 -0.75rem -0.75rem;
-	cursor: pointer;
-	
-	&:hover {
-		box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
-	}
+    border-radius: 6px;
+    transition: box-shadow 0.3s;
+    padding: 0.75rem;
+    margin: -0.75rem 0 -0.75rem -0.75rem;
+    cursor: pointer;
+    
+    &:hover {
+        box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    }
 `;
 
 async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
@@ -114,51 +114,57 @@ const Experience = ({data: {allContentfulJob: {nodes}}}: GatsbyArrayQuery<Conten
 
     return (
         <Layout title="Experience">
-            <div className="container">
-                <div className="columns">
-                    <div className="timeline column">
-                        <header className="timeline-header">
-                            <span className="tag is-medium is-primary">
-								Today
-                            </span>
-                        </header>
-                        {jobs.map(([year, jobGroup], i) => (
-                            <React.Fragment key={i}>
-                                {jobGroup.map(job => (
-                                    <div className="timeline-item" key={job.startDate.getTime()}>
-                                        <div className="timeline-marker" />
-                                        <div className="timeline-content">
-                                            <TimelineContent onClick={onClickJob(job)}>
-                                                <p className="heading">
-                                                    {Months[job.startDate.getMonth()]}
-													&nbsp;
-                                                    {job.startDate.getFullYear()}
-                                                </p>
-                                                <p>{job.company} ({job.title})</p>
-                                            </TimelineContent>
-                                        </div>
-                                    </div>
-                                ))}
+            <section className="hero is-light">
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="columns">
+                            <div className="timeline column">
                                 <header className="timeline-header">
-                                    <span className="tag is-primary">
-                                        {year}
+                                    <span className="tag is-medium is-primary">
+                                        Today
                                     </span>
                                 </header>
-                            </React.Fragment>
-                        ))}
-                        <div className="timeline-item" />
-                        <div className="timeline-header">
-                            <span className="tag is-medium is-primary">
-								January 1, 1970
-                            </span>
+                                {jobs.map(([year, jobGroup], i) => (
+                                    <React.Fragment key={i}>
+                                        {jobGroup.map(job => (
+                                            <div className="timeline-item" key={job.startDate.getTime()}>
+                                                <div className="timeline-marker" />
+                                                <div className="timeline-content">
+                                                    <TimelineContent onClick={onClickJob(job)}>
+                                                        <p className="heading">
+                                                            {Months[job.startDate.getMonth()]}
+                                                            &nbsp;
+                                                            {job.startDate.getFullYear()}
+                                                        </p>
+                                                        <p>{job.company} ({job.title})</p>
+                                                    </TimelineContent>
+                                                </div>
+                                            </div>
+                                        ))}
+                                        <header className="timeline-header">
+                                            <span className="tag is-primary">
+                                                {year}
+                                            </span>
+                                        </header>
+                                    </React.Fragment>
+                                ))}
+                                <div className="timeline-item" />
+                                <div className="timeline-header">
+                                    <span className="tag is-medium is-primary">
+                                        January 1, 1970
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="column">
+                                <JobDetails
+                                    job={moreDetailsJob}
+                                    locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
+                                />
+                            </div>
                         </div>
                     </div>
-                    <JobDetails
-                        job={moreDetailsJob}
-                        locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
-                    />
                 </div>
-            </div>
+            </section>
         </Layout>
     );
 };
@@ -166,24 +172,24 @@ const Experience = ({data: {allContentfulJob: {nodes}}}: GatsbyArrayQuery<Conten
 export default Experience;
 
 export const query = graphql`
-	query ExperienceQuery {
-		allContentfulJob {
-			nodes {
-				isHourly
-				endPay
-				endDate
-				startDate
-				startPay
-				title
-				company
-				location {
-					lat
-					lon
-				}
-				description {
-					json
-				}
-			}
-		}
-	}
+    query ExperienceQuery {
+        allContentfulJob {
+            nodes {
+                isHourly
+                endPay
+                endDate
+                startDate
+                startPay
+                title
+                company
+                location {
+                    lat
+                    lon
+                }
+                description {
+                    json
+                }
+            }
+        }
+    }
 `;

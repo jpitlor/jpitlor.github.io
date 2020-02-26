@@ -1,5 +1,5 @@
 # source: http://localhost:8000/__graphql
-# timestamp: Wed Feb 19 2020 14:51:59 GMT-0500 (Eastern Standard Time)
+# timestamp: Tue Feb 25 2020 21:53:06 GMT-0500 (Eastern Standard Time)
 
 """Provides default value for input field."""
 directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
@@ -1352,6 +1352,9 @@ type ContentfulSchool implements Node {
     """Configures the locale Moment.js will use to format the date."""
     locale: String
   ): Date
+  major: [String]
+  minor: [String]
+  concentration: [String]
   gpa: Float
   inProgress: Boolean
   spaceId: String
@@ -1509,6 +1512,9 @@ enum ContentfulSchoolFieldsEnum {
   location___lat
   startDate
   endDate
+  major
+  minor
+  concentration
   gpa
   inProgress
   spaceId
@@ -1532,6 +1538,9 @@ input ContentfulSchoolFilterInput {
   location: ContentfulSchoolLocationFilterInput
   startDate: DateQueryOperatorInput
   endDate: DateQueryOperatorInput
+  major: StringQueryOperatorInput
+  minor: StringQueryOperatorInput
+  concentration: StringQueryOperatorInput
   gpa: FloatQueryOperatorInput
   inProgress: BooleanQueryOperatorInput
   spaceId: StringQueryOperatorInput
@@ -3233,7 +3242,7 @@ type Query {
   allImageSharp(filter: ImageSharpFilterInput, sort: ImageSharpSortInput, skip: Int, limit: Int): ImageSharpConnection!
   contentfulAsset(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, contentful_id: StringQueryOperatorInput, file: ContentfulAssetFileFilterInput, title: StringQueryOperatorInput, description: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, localFile: FileFilterInput, fixed: ContentfulFixedFilterInput, resolutions: ContentfulResolutionsFilterInput, fluid: ContentfulFluidFilterInput, sizes: ContentfulSizesFilterInput, resize: ContentfulResizeFilterInput): ContentfulAsset
   allContentfulAsset(filter: ContentfulAssetFilterInput, sort: ContentfulAssetSortInput, skip: Int, limit: Int): ContentfulAssetConnection!
-  contentfulSchool(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, location: ContentfulSchoolLocationFilterInput, startDate: DateQueryOperatorInput, endDate: DateQueryOperatorInput, gpa: FloatQueryOperatorInput, inProgress: BooleanQueryOperatorInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulSchoolSysFilterInput, node_locale: StringQueryOperatorInput): ContentfulSchool
+  contentfulSchool(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, location: ContentfulSchoolLocationFilterInput, startDate: DateQueryOperatorInput, endDate: DateQueryOperatorInput, major: StringQueryOperatorInput, minor: StringQueryOperatorInput, concentration: StringQueryOperatorInput, gpa: FloatQueryOperatorInput, inProgress: BooleanQueryOperatorInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulSchoolSysFilterInput, node_locale: StringQueryOperatorInput): ContentfulSchool
   allContentfulSchool(filter: ContentfulSchoolFilterInput, sort: ContentfulSchoolSortInput, skip: Int, limit: Int): ContentfulSchoolConnection!
   contentfulJobDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulJobDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulJobDescriptionRichTextNode
   allContentfulJobDescriptionRichTextNode(filter: contentfulJobDescriptionRichTextNodeFilterInput, sort: contentfulJobDescriptionRichTextNodeSortInput, skip: Int, limit: Int): contentfulJobDescriptionRichTextNodeConnection!
@@ -3598,7 +3607,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___background_color
   pluginCreator___pluginOptions___theme_color
   pluginCreator___pluginOptions___display
-  pluginCreator___pluginOptions___icon
   pluginCreator___pluginOptions___token
   pluginCreator___pluginOptions___graphQLQuery
   pluginCreator___pluginOptions___spaceId
@@ -3786,7 +3794,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___background_color
   pluginOptions___theme_color
   pluginOptions___display
-  pluginOptions___icon
   pluginOptions___token
   pluginOptions___graphQLQuery
   pluginOptions___spaceId
@@ -3913,7 +3920,6 @@ type SitePluginPluginOptions {
   background_color: String
   theme_color: String
   display: String
-  icon: String
   token: String
   graphQLQuery: String
   spaceId: String
@@ -3930,7 +3936,6 @@ input SitePluginPluginOptionsFilterInput {
   background_color: StringQueryOperatorInput
   theme_color: StringQueryOperatorInput
   display: StringQueryOperatorInput
-  icon: StringQueryOperatorInput
   token: StringQueryOperatorInput
   graphQLQuery: StringQueryOperatorInput
   spaceId: StringQueryOperatorInput

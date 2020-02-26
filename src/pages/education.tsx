@@ -1,14 +1,16 @@
 import * as React from 'react'
 import {graphql} from 'gatsby';
+import _ from 'lodash';
 
 import Layout from '../components/layout'
 import {GatsbyArrayQuery} from '../utils/types';
 import {ContentfulSchool} from '../utils/schema';
 
 const Education = ({data: {allContentfulSchool: {nodes}}}: GatsbyArrayQuery<ContentfulSchool>) => {
-    console.log(nodes);
+    const [universities, highSchool] = _.partition(nodes, 'major');
+
     return (
-        <Layout title="Education">
+        <Layout title="Resume">
             <span />
         </Layout>
     )
@@ -20,14 +22,16 @@ export const query = graphql`
             nodes {
                 endDate
                 startDate
-                name,
-                gpa,
-                inProgress,
-                # Major/minor??
+                name
+                gpa
+                inProgress
+                major
+                minor
+                concentration
                 location {
-                    lat,
+                    lat
                     lon
-                },
+                }
             }
         }
     }
