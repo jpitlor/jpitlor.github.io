@@ -1,18 +1,8 @@
 export default [
     {
-        route: '/education',
-        title: 'Education',
-        icon: 'graduation-cap',
-    },
-    {
-        route: '/experience',
-        title: 'Experience',
+        route: '/',
+        title: 'Resume',
         icon: 'briefcase',
-    },
-    {
-        route: '/projects',
-        title: 'Projects',
-        icon: 'code',
     },
     {
         route: '/free-time',
