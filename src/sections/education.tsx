@@ -33,8 +33,12 @@ export default function Education() {
         <React.Fragment>
             <h2 className="title has-text-centered">Education</h2>
             <div className="container">
-                {universities.map(x => x.name)}
-                {highSchool.map(x => x.name)}
+                <ul>
+                    {universities.map(x => <li key={x.name}>{x.name}</li>)}
+                </ul>
+                <ul>
+                    {highSchool.map(x => <li key={x.name}>{x.name}</li>)}
+                </ul>
             </div>
         </React.Fragment>
     );
