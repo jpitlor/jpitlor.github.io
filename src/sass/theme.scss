@@ -1,23 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,700,700i&display=swap');
 
-$primary: hsl(262, 100%, 80%);
+//$primary: hsl(262, 100%, 80%);
 $family-sans-serif: "Rubik", sans-serif;
 
 @import "~bulma";
 @import "~bulma-extensions";
 
-.section-end {
-    margin-bottom: 1.5rem;
+.sm-column {
+    max-width: 40rem;
+    line-height: 1.5;
+    margin: 0 auto;
 }
 
-.centered-container {
+// This makes columns take up all of the vertical space
+.column {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-html {
-    overflow: auto;
 }

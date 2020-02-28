@@ -1,25 +1,11 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import {Link, useStaticQuery, graphql} from 'gatsby';
-
-import pages from '../data/pages';
+import * as React from "react";
+import styled from "styled-components";
+import {Link, useStaticQuery, graphql} from "gatsby";
 
 const Image = styled.img`
     border-radius: 100%;
-    max-height: 3rem;
+    max-height: 200px;
 `;
-
-interface IconLinkProps {
-    icon: string;
-    link: string;
-    className: string;
-}
-
-const IconLink = ({icon, link, className}: IconLinkProps) => (
-    <Link to={link} className={className}>
-        <i className={`far fa-${icon} fa-2x`} />
-    </Link>
-);
 
 const Header = () => {
     const {
@@ -34,7 +20,7 @@ const Header = () => {
         query MyQuery {
             file(relativePath: {eq: "me.jpg"}) {
                 childImageSharp {
-                    fixed(height: 100) {
+                    fixed(height: 1000, width: 1000) {
                         src
                     }
                 }
@@ -43,35 +29,27 @@ const Header = () => {
     `);
 
     return (
-        <nav
-            className="navbar is-primary section-end"
-            role="navigation"
-            aria-label="main navigation"
-        >
-            <div className="navbar-brand">
-                <Link to="/" className="navbar-item">
-                    <Image src={profile} />
-                </Link>
-
-                <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbarBasicExample">
-                    <span aria-hidden="true" />
-                    <span aria-hidden="true" />
-                    <span aria-hidden="true" />
-                </a>
-            </div>
-
-            <div id="navbarBasicExample" className="navbar-menu">
-                <div className="navbar-start">
-                    {pages.map(({route, icon}) => (
-                        <IconLink
-                            icon={icon}
-                            link={route}
-                            key={route}
-                            className="navbar-item"
-                        />
-                    ))}
-                </div>
+        <nav role="navigation" aria-label="main navigation" className="section">
+            <div className="level is-mobile sm-column">
+                {/*
+                    Wrapping each of these in spans ensures only the button is a link,
+                    not the entire container (which makes what is a link ambiguous)
+                 */}
+                <span>
+                    <Link to="/" className="level-item button is-white is-medium">
+                        Resume
+                    </Link>
+                </span>
+                <span>
+                    <Link to="/about" className="level-item">
+                        <Image src={profile} />
+                    </Link>
+                </span>
+                <span>
+                    <Link to="/music" className="level-item button is-white is-medium">
+                        Music
+                    </Link>
+                </span>
             </div>
         </nav>
     );

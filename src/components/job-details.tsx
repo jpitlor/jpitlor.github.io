@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {ContentfulJob} from '../utils/schema';
-import useDescription from '../utils/useDescription';
+import * as React from "react";
+import {ContentfulJob} from "../utils/schema";
+import useDescription from "../utils/useDescription";
 
 interface JobDetailsProps {
     job: ContentfulJob | null;
@@ -8,7 +8,7 @@ interface JobDetailsProps {
 }
 
 const JobDetails = ({job, locationId}: JobDetailsProps) => (
-    <div className="box">
+    <div className="box" style={{width: "100%"}}>
         {job ? (
             <React.Fragment>
                 <p className="title is-2">{job?.company}</p>
@@ -25,7 +25,15 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
                 />
             </React.Fragment>
         ) : (
-            <div className="centered-container">
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    height: "100%",
+                }}
+            >
                 <span className="has-text-grey is-size-4">
                     Select a job to see more details
                 </span>
