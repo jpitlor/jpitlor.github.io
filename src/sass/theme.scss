@@ -1,10 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Rubik:400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900&Rubik:400,400i,700,700i&display=swap');
 
-//$primary: hsl(262, 100%, 80%);
+$bright-blue: hsl(191, 100%, 55%);
+$dark-blue: hsl(209, 72%, 21%);
+
+$primary: $dark-blue;
+$link: $bright-blue;
+$link-hover: $dark-blue;
 $family-sans-serif: "Rubik", sans-serif;
+$title-family: "Merriweather", serif;
+$title-color: $dark-blue;
 
 @import "~bulma";
 @import "~bulma-extensions";
+
+//p a {
+//    border-bottom: 1px solid $bright-blue;
+//    box-shadow: 0px -4px 0px $bright-blue inset;
+//}
 
 .sm-column {
     max-width: 40rem;
@@ -15,4 +27,10 @@ $family-sans-serif: "Rubik", sans-serif;
 // This makes columns take up all of the vertical space
 .column {
     display: flex;
+}
+
+// For some reason they override title colors inside heroes,
+// but we don't want this
+.hero.is-light .title {
+    color: $dark-blue;
 }

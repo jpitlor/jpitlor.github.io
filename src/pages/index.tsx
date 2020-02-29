@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
+import ContactMe from "../components/contact-me";
 
 const IndexPage = () => {
     function removeNotification() {
@@ -24,7 +25,7 @@ const IndexPage = () => {
 
             <section className="hero">
                 <div className="hero-body">
-                    <Education />
+                    <Experience />
                 </div>
             </section>
             <section className="hero is-light">
@@ -34,8 +35,11 @@ const IndexPage = () => {
             </section>
             <section className="hero">
                 <div className="hero-body">
-                    <Experience />
+                    <Education />
                 </div>
+            </section>
+            <section>
+                <ContactMe />
             </section>
         </Layout>
     );
