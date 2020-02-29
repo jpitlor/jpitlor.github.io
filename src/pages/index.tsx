@@ -14,12 +14,6 @@ const IndexPage = () => {
         }
     }
 
-    const documentUrl = encodeURIComponent("https://pitlor.dev/printable-resume");
-    const resumeUrl = `http://api.pdflayer.com/api/convert
-        ?access_key=${process.env.GATSBY_PDF_LAYER_API_TOKEN}
-        &document_url=${documentUrl}
-    `.replace(/[\n ]/g, "");
-
     return (
         <Layout title="Resume">
             <div className="container" style={{maxWidth: "calc(100% - 3rem)"}}>
@@ -27,7 +21,7 @@ const IndexPage = () => {
                     <button className="delete" onClick={removeNotification} />
                     Looking for a PDF version?&nbsp;
                     <a
-                        href={resumeUrl}
+                        href="/Jordan%20Pitlor%20Resume.pdf"
                         target="_blank"
                         rel="noreferrer noopener"
                     >
