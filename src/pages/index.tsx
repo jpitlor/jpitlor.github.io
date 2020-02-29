@@ -14,12 +14,26 @@ const IndexPage = () => {
         }
     }
 
+    const documentUrl = encodeURIComponent("https://pitlor.dev/printable-resume");
+    const resumeUrl = `http://api.pdflayer.com/api/convert
+        ?access_key=${process.env.GATSBY_PDF_LAYER_API_TOKEN}
+        &document_url=${documentUrl}
+    `.replace(/[\n ]/g, "");
+
     return (
         <Layout title="Resume">
-            <div className="container">
+            <div className="container" style={{maxWidth: "calc(100% - 3rem)"}}>
                 <div className="notification is-info">
                     <button className="delete" onClick={removeNotification} />
-                    Looking for a PDF version? <a href="#">Click here</a>!
+                    Looking for a PDF version?&nbsp;
+                    <a
+                        href={resumeUrl}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        Click here
+                    </a>
+                    !
                 </div>
             </div>
 
@@ -38,8 +52,10 @@ const IndexPage = () => {
                     <Education />
                 </div>
             </section>
-            <section>
-                <ContactMe />
+            <section className="hero is-light">
+                <div className="hero-body">
+                    <ContactMe />
+                </div>
             </section>
         </Layout>
     );

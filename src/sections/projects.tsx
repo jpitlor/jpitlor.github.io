@@ -1,17 +1,6 @@
 import * as React from "react";
-import Repository from "../components/repository";
-import styled from "styled-components";
+import Project from "../components/project";
 import {graphql, useStaticQuery} from "gatsby";
-
-const Grid = styled.div`
-	display: grid;
-	grid-template-columns: repeat(2, 50%);
-	grid-column-gap: 1rem;
-	
-	@media(max-width: 576px) {
-		grid-template-columns: auto;
-	}
-`;
 
 export default function Projects() {
     const {
@@ -70,7 +59,7 @@ export default function Projects() {
             <div className="container">
                 <div className="columns is-multiline">
                     {pinnedRepositories.map((repo: any, i: any) => (
-                        <Repository repo={repo} key={i} />
+                        <Project repo={repo} key={i} />
                     ))}
                 </div>
             </div>

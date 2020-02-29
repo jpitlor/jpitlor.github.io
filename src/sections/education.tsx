@@ -1,6 +1,6 @@
 import * as React from "react";
 import {graphql, useStaticQuery} from "gatsby";
-import _ from "lodash";
+import {ContentfulSchool} from "../utils/schema";
 
 export default function Education() {
     const {
@@ -27,18 +27,27 @@ export default function Education() {
             }
         }
     `);
-    const [universities, highSchool] = _.partition(schools, "major");
+    schools.sort((a: ContentfulSchool, b: ContentfulSchool) => {
+        const x = new Date(a.startDate).getTime();
+        const y = new Date(b.startDate).getTime();
+
+        if (x > y) return -1;
+        else if (x < y) return 1;
+        else return 0;
+    });
 
     return (
         <React.Fragment>
             <h2 className="title has-text-centered">Education</h2>
             <div className="container">
-                <ul>
-                    {universities.map(x => <li key={x.name}>{x.name}</li>)}
-                </ul>
-                <ul>
-                    {highSchool.map(x => <li key={x.name}>{x.name}</li>)}
-                </ul>
+                <div className="columns is-wrapped">
+                    {schools.map((s: ContentfulSchool) => (
+                        <div key={s.name} className="column">
+                            <h3 className="title is-1">{s.name}</h3>
+                            <p className="subtitle is-3">{s.city}, {s.state}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </React.Fragment>
     );

@@ -711,6 +711,8 @@ export type ContentfulJob = Node & {
   startPay: Maybe<Scalars['Float']>,
   endPay: Maybe<Scalars['Int']>,
   isHourly: Maybe<Scalars['Boolean']>,
+  city: Maybe<Scalars['String']>,
+  state: Maybe<Scalars['String']>,
   description: Maybe<ContentfulJobDescriptionRichTextNode>,
   spaceId: Maybe<Scalars['String']>,
   contentful_id: Maybe<Scalars['String']>,
@@ -818,9 +820,9 @@ export type ContentfulJobDescriptionRichTextNodeContent = {
 
 export type ContentfulJobDescriptionRichTextNodeContentContent = {
    __typename?: 'contentfulJobDescriptionRichTextNodeContentContent',
-  content: Maybe<Array<Maybe<ContentfulJobDescriptionRichTextNodeContentContentContent>>>,
-  nodeType: Maybe<Scalars['String']>,
   value: Maybe<Scalars['String']>,
+  nodeType: Maybe<Scalars['String']>,
+  content: Maybe<Array<Maybe<ContentfulJobDescriptionRichTextNodeContentContentContent>>>,
 };
 
 export type ContentfulJobDescriptionRichTextNodeContentContentContent = {
@@ -854,9 +856,9 @@ export type ContentfulJobDescriptionRichTextNodeContentContentContentFilterListI
 };
 
 export type ContentfulJobDescriptionRichTextNodeContentContentFilterInput = {
-  content: Maybe<ContentfulJobDescriptionRichTextNodeContentContentContentFilterListInput>,
-  nodeType: Maybe<StringQueryOperatorInput>,
   value: Maybe<StringQueryOperatorInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  content: Maybe<ContentfulJobDescriptionRichTextNodeContentContentContentFilterListInput>,
 };
 
 export type ContentfulJobDescriptionRichTextNodeContentContentFilterListInput = {
@@ -968,11 +970,11 @@ export enum ContentfulJobDescriptionRichTextNodeFieldsEnum {
   InternalType = 'internal___type',
   Content = 'content',
   ContentContent = 'content___content',
+  ContentContentValue = 'content___content___value',
+  ContentContentNodeType = 'content___content___nodeType',
   ContentContentContent = 'content___content___content',
   ContentContentContentContent = 'content___content___content___content',
   ContentContentContentNodeType = 'content___content___content___nodeType',
-  ContentContentNodeType = 'content___content___nodeType',
-  ContentContentValue = 'content___content___value',
   ContentNodeType = 'content___nodeType',
   NodeType = 'nodeType',
   Description = 'description',
@@ -1107,6 +1109,8 @@ export enum ContentfulJobFieldsEnum {
   StartPay = 'startPay',
   EndPay = 'endPay',
   IsHourly = 'isHourly',
+  City = 'city',
+  State = 'state',
   DescriptionId = 'description___id',
   DescriptionParentId = 'description___parent___id',
   DescriptionParentParentId = 'description___parent___parent___id',
@@ -1147,9 +1151,9 @@ export enum ContentfulJobFieldsEnum {
   DescriptionInternalType = 'description___internal___type',
   DescriptionContent = 'description___content',
   DescriptionContentContent = 'description___content___content',
-  DescriptionContentContentContent = 'description___content___content___content',
-  DescriptionContentContentNodeType = 'description___content___content___nodeType',
   DescriptionContentContentValue = 'description___content___content___value',
+  DescriptionContentContentNodeType = 'description___content___content___nodeType',
+  DescriptionContentContentContent = 'description___content___content___content',
   DescriptionContentNodeType = 'description___content___nodeType',
   DescriptionNodeType = 'description___nodeType',
   DescriptionDescription = 'description___description',
@@ -1205,9 +1209,9 @@ export enum ContentfulJobFieldsEnum {
   ChildContentfulJobDescriptionRichTextNodeInternalType = 'childContentfulJobDescriptionRichTextNode___internal___type',
   ChildContentfulJobDescriptionRichTextNodeContent = 'childContentfulJobDescriptionRichTextNode___content',
   ChildContentfulJobDescriptionRichTextNodeContentContent = 'childContentfulJobDescriptionRichTextNode___content___content',
-  ChildContentfulJobDescriptionRichTextNodeContentContentContent = 'childContentfulJobDescriptionRichTextNode___content___content___content',
-  ChildContentfulJobDescriptionRichTextNodeContentContentNodeType = 'childContentfulJobDescriptionRichTextNode___content___content___nodeType',
   ChildContentfulJobDescriptionRichTextNodeContentContentValue = 'childContentfulJobDescriptionRichTextNode___content___content___value',
+  ChildContentfulJobDescriptionRichTextNodeContentContentNodeType = 'childContentfulJobDescriptionRichTextNode___content___content___nodeType',
+  ChildContentfulJobDescriptionRichTextNodeContentContentContent = 'childContentfulJobDescriptionRichTextNode___content___content___content',
   ChildContentfulJobDescriptionRichTextNodeContentNodeType = 'childContentfulJobDescriptionRichTextNode___content___nodeType',
   ChildContentfulJobDescriptionRichTextNodeNodeType = 'childContentfulJobDescriptionRichTextNode___nodeType',
   ChildContentfulJobDescriptionRichTextNodeDescription = 'childContentfulJobDescriptionRichTextNode___description',
@@ -1226,6 +1230,8 @@ export type ContentfulJobFilterInput = {
   startPay: Maybe<FloatQueryOperatorInput>,
   endPay: Maybe<IntQueryOperatorInput>,
   isHourly: Maybe<BooleanQueryOperatorInput>,
+  city: Maybe<StringQueryOperatorInput>,
+  state: Maybe<StringQueryOperatorInput>,
   description: Maybe<ContentfulJobDescriptionRichTextNodeFilterInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
@@ -1357,6 +1363,8 @@ export type ContentfulSchool = Node & {
   concentration: Maybe<Array<Maybe<Scalars['String']>>>,
   gpa: Maybe<Scalars['Float']>,
   inProgress: Maybe<Scalars['Boolean']>,
+  city: Maybe<Scalars['String']>,
+  state: Maybe<Scalars['String']>,
   spaceId: Maybe<Scalars['String']>,
   contentful_id: Maybe<Scalars['String']>,
   createdAt: Maybe<Scalars['Date']>,
@@ -1523,6 +1531,8 @@ export enum ContentfulSchoolFieldsEnum {
   Concentration = 'concentration',
   Gpa = 'gpa',
   InProgress = 'inProgress',
+  City = 'city',
+  State = 'state',
   SpaceId = 'spaceId',
   ContentfulId = 'contentful_id',
   CreatedAt = 'createdAt',
@@ -1549,6 +1559,8 @@ export type ContentfulSchoolFilterInput = {
   concentration: Maybe<StringQueryOperatorInput>,
   gpa: Maybe<FloatQueryOperatorInput>,
   inProgress: Maybe<BooleanQueryOperatorInput>,
+  city: Maybe<StringQueryOperatorInput>,
+  state: Maybe<StringQueryOperatorInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
   createdAt: Maybe<DateQueryOperatorInput>,
@@ -3200,18 +3212,18 @@ export type Query = {
   allDirectory: DirectoryConnection,
   imageSharp: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
+  contentfulJobDescriptionRichTextNode: Maybe<ContentfulJobDescriptionRichTextNode>,
+  allContentfulJobDescriptionRichTextNode: ContentfulJobDescriptionRichTextNodeConnection,
+  githubData: Maybe<GithubData>,
+  allGithubData: GithubDataConnection,
   contentfulAsset: Maybe<ContentfulAsset>,
   allContentfulAsset: ContentfulAssetConnection,
   contentfulSchool: Maybe<ContentfulSchool>,
   allContentfulSchool: ContentfulSchoolConnection,
-  contentfulJobDescriptionRichTextNode: Maybe<ContentfulJobDescriptionRichTextNode>,
-  allContentfulJobDescriptionRichTextNode: ContentfulJobDescriptionRichTextNodeConnection,
   contentfulJob: Maybe<ContentfulJob>,
   allContentfulJob: ContentfulJobConnection,
   contentfulContentType: Maybe<ContentfulContentType>,
   allContentfulContentType: ContentfulContentTypeConnection,
-  githubData: Maybe<GithubData>,
-  allGithubData: GithubDataConnection,
   site: Maybe<Site>,
   allSite: SiteConnection,
   sitePlugin: Maybe<SitePlugin>,
@@ -3344,6 +3356,43 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryContentfulJobDescriptionRichTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  content: Maybe<ContentfulJobDescriptionRichTextNodeContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  json: Maybe<JsonQueryOperatorInput>
+};
+
+
+export type QueryAllContentfulJobDescriptionRichTextNodeArgs = {
+  filter: Maybe<ContentfulJobDescriptionRichTextNodeFilterInput>,
+  sort: Maybe<ContentfulJobDescriptionRichTextNodeSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryGithubDataArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  data: Maybe<GithubDataDataFilterInput>
+};
+
+
+export type QueryAllGithubDataArgs = {
+  filter: Maybe<GithubDataFilterInput>,
+  sort: Maybe<GithubDataSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
 export type QueryContentfulAssetArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -3385,6 +3434,8 @@ export type QueryContentfulSchoolArgs = {
   concentration: Maybe<StringQueryOperatorInput>,
   gpa: Maybe<FloatQueryOperatorInput>,
   inProgress: Maybe<BooleanQueryOperatorInput>,
+  city: Maybe<StringQueryOperatorInput>,
+  state: Maybe<StringQueryOperatorInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
   createdAt: Maybe<DateQueryOperatorInput>,
@@ -3402,26 +3453,6 @@ export type QueryAllContentfulSchoolArgs = {
 };
 
 
-export type QueryContentfulJobDescriptionRichTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  content: Maybe<ContentfulJobDescriptionRichTextNodeContentFilterListInput>,
-  nodeType: Maybe<StringQueryOperatorInput>,
-  description: Maybe<StringQueryOperatorInput>,
-  json: Maybe<JsonQueryOperatorInput>
-};
-
-
-export type QueryAllContentfulJobDescriptionRichTextNodeArgs = {
-  filter: Maybe<ContentfulJobDescriptionRichTextNodeFilterInput>,
-  sort: Maybe<ContentfulJobDescriptionRichTextNodeSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
 export type QueryContentfulJobArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -3434,6 +3465,8 @@ export type QueryContentfulJobArgs = {
   startPay: Maybe<FloatQueryOperatorInput>,
   endPay: Maybe<IntQueryOperatorInput>,
   isHourly: Maybe<BooleanQueryOperatorInput>,
+  city: Maybe<StringQueryOperatorInput>,
+  state: Maybe<StringQueryOperatorInput>,
   description: Maybe<ContentfulJobDescriptionRichTextNodeFilterInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
@@ -3468,23 +3501,6 @@ export type QueryContentfulContentTypeArgs = {
 export type QueryAllContentfulContentTypeArgs = {
   filter: Maybe<ContentfulContentTypeFilterInput>,
   sort: Maybe<ContentfulContentTypeSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
-export type QueryGithubDataArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  data: Maybe<GithubDataDataFilterInput>
-};
-
-
-export type QueryAllGithubDataArgs = {
-  filter: Maybe<GithubDataFilterInput>,
-  sort: Maybe<GithubDataSortInput>,
   skip: Maybe<Scalars['Int']>,
   limit: Maybe<Scalars['Int']>
 };

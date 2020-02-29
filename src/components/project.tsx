@@ -9,7 +9,7 @@ interface RepositoryProps {
     repo: GithubDataDataUserPinnedItemsNodes;
 }
 
-const Repository = ({
+const Project = ({
     repo: {
         name,
         description,
@@ -23,12 +23,12 @@ const Repository = ({
     return (
         <div className="column is-half">
             <div className="box" style={{width: "100%"}}>
-                <nav className="level is-mobile">
+                <nav className="level">
                     <div className="level-left">
                         <strong className="level-item">{title}</strong>
                         <small className="level-item">{description}</small>
                     </div>
-                    <div className="level-right">
+                    <div className="level-right is-mobile">
                         <a
                             href={url}
                             className="level-item"
@@ -77,4 +77,4 @@ const Repository = ({
     );
 };
 
-export default Repository;
+export default Project;

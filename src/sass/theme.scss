@@ -10,8 +10,11 @@ $family-sans-serif: "Rubik", sans-serif;
 $title-family: "Merriweather", serif;
 $title-color: $dark-blue;
 
+$fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
+
 @import "~bulma";
 @import "~bulma-extensions";
+@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
 
 //p a {
 //    border-bottom: 1px solid $bright-blue;
