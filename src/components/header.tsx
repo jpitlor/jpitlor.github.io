@@ -1,11 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
 import {Link, useStaticQuery, graphql} from "gatsby";
-
-const Image = styled.img`
-    border-radius: 100%;
-    max-height: 200px;
-`;
 
 const Header = () => {
     const {
@@ -42,7 +36,14 @@ const Header = () => {
                 </span>
                 <span>
                     <Link to="/about" className="level-item">
-                        <Image src={profile} />
+                        <img
+                            src={profile}
+                            alt="About"
+                            style={{
+                                borderRadius: "100%",
+                                maxHeight: "200px",
+                            }}
+                        />
                     </Link>
                 </span>
                 <span>

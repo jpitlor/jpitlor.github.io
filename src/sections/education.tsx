@@ -1,33 +1,10 @@
 import * as React from "react";
-import {graphql, useStaticQuery} from "gatsby";
 import {ContentfulSchool} from "../utils/schema";
+import useQuery, {DataType} from "../utils/useQuery";
 
 export default function Education() {
-    const {
-        allContentfulSchool: {
-            nodes: schools,
-        },
-    } = useStaticQuery(graphql`
-        query EducationQuery {
-            allContentfulSchool {
-                nodes {
-                    endDate
-                    startDate
-                    name
-                    gpa
-                    inProgress
-                    major
-                    minor
-                    concentration
-                    location {
-                        lat
-                        lon
-                    }
-                }
-            }
-        }
-    `);
-    schools.sort((a: ContentfulSchool, b: ContentfulSchool) => {
+    const schools = useQuery<ContentfulSchool>(DataType.SCHOOLS);
+    schools.sort((a, b) => {
         const x = new Date(a.startDate).getTime();
         const y = new Date(b.startDate).getTime();
 

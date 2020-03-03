@@ -1,43 +1,10 @@
 import * as React from "react";
 import Project from "../components/project";
-import {graphql, useStaticQuery} from "gatsby";
+import useQuery, {DataType} from "../utils/useQuery";
+import {GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
 
 export default function Projects() {
-    const {
-        allGithubData: {
-            nodes: [{
-                data: {
-                    user: {
-                        pinnedItems: {
-                            nodes: pinnedRepositories,
-                        },
-                    },
-                },
-            }],
-        },
-    } = useStaticQuery(graphql`
-        query ProjectsQuery {
-            allGithubData {
-                nodes {
-                    data {
-                        user {
-                            pinnedItems {
-                                nodes {
-                                    name
-                                    description
-                                    homepageUrl
-                                    url
-                                    object {
-                                        text
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    `);
+    const pinnedRepositories = useQuery<GithubDataDataUserPinnedItemsNodes>(DataType.PROJECTS);
 
     return (
         <React.Fragment>
@@ -58,7 +25,7 @@ export default function Projects() {
             <br />
             <div className="container">
                 <div className="columns is-multiline">
-                    {pinnedRepositories.map((repo: any, i: any) => (
+                    {pinnedRepositories.map((repo, i) => (
                         <Project repo={repo} key={i} />
                     ))}
                 </div>

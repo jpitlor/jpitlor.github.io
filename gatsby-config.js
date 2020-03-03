@@ -13,6 +13,7 @@ module.exports = {
             },
         },
         `gatsby-plugin-sass`,
+        `gatsby-plugin-purgecss`,
         `gatsby-plugin-typescript`,
         `gatsby-plugin-react-helmet`,
         {
@@ -72,6 +73,5 @@ module.exports = {
                 downloadLocal: true,
             },
         },
-        `gatsby-plugin-purgecss`,
     ],
 };

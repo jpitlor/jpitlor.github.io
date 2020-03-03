@@ -1,9 +1,9 @@
 import * as React from "react";
+import {useEffect, useMemo, useState} from "react";
 import JobDetails from "../components/job-details";
-import {useState, useMemo, useEffect} from "react";
 import _ from "lodash";
-import styled from "styled-components";
-import {graphql, useStaticQuery} from "gatsby";
+import useQuery, {DataType} from "../utils/useQuery";
+import {ContentfulJob} from "../utils/schema";
 
 type GroupedJobs = [number, any[]][];
 
@@ -22,18 +22,6 @@ const Months = [
     "December",
 ];
 
-const TimelineContent = styled.div`
-    border-radius: 6px;
-    transition: box-shadow 0.3s;
-    padding: 0.75rem;
-    margin: -0.75rem 0 -0.75rem -0.75rem;
-    cursor: pointer;
-    
-    &:hover {
-        box-shadow: 0 0.5em 1em -0.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
-    }
-`;
-
 async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
     const route = "https://maps.googleapis.com/maps/api/geocode/json";
     const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
@@ -44,32 +32,7 @@ async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
 }
 
 export default function Experience() {
-    const {
-        allContentfulJob: {
-            nodes: rawJobs,
-        },
-    } = useStaticQuery(graphql`
-        query ExperienceQuery {
-            allContentfulJob {
-                nodes {
-                    isHourly
-                    endPay
-                    endDate
-                    startDate
-                    startPay
-                    title
-                    company
-                    location {
-                        lat
-                        lon
-                    }
-                    description {
-                        json
-                    }
-                }
-            }
-        }
-    `);
+    const rawJobs = useQuery<ContentfulJob>(DataType.JOBS);
     const [moreDetailsJob, setMoreDetailsJob] = useState<any | null>(null);
     const [locations, setLocations] = useState<Record<string, string>>({});
     const onClickJob = (job: any) => () => setMoreDetailsJob(job);
@@ -133,6 +96,15 @@ export default function Experience() {
 
         doEffect();
     }, []);
+    const [[hji, hjj], setHoveredJob] = useState([-1, -1]);
+
+    function onHover(i: number, j: number) {
+        return () => setHoveredJob([i, j]);
+    }
+
+    function onExit() {
+        setHoveredJob([-1, -1]);
+    }
 
     return (
         <React.Fragment>
@@ -147,18 +119,33 @@ export default function Experience() {
                         </header>
                         {jobs.map(([year, jobGroup], i) => (
                             <React.Fragment key={i}>
-                                {jobGroup.map(job => (
+                                {jobGroup.map((job, j) => (
                                     <div className="timeline-item" key={job.startDate.getTime()}>
                                         <div className="timeline-marker" />
                                         <div className="timeline-content">
-                                            <TimelineContent onClick={onClickJob(job)}>
+                                            <div
+                                                className={i === hji && j === hjj
+                                                    ? "box"
+                                                    : "box is-shadowless"
+                                                }
+                                                style={{
+                                                    borderRadius: "6px",
+                                                    transition: "box-shadow 0.3s",
+                                                    padding: "0.75rem",
+                                                    margin: "-0.75rem 0 -0.75rem -0.75rem",
+                                                    cursor: "pointer",
+                                                }}
+                                                onClick={onClickJob(job)}
+                                                onMouseEnter={onHover(i, j)}
+                                                onMouseLeave={onExit}
+                                            >
                                                 <p className="heading">
                                                     {Months[job.startDate.getMonth()]}
                                                     &nbsp;
                                                     {job.startDate.getFullYear()}
                                                 </p>
                                                 <p>{job.company} ({job.title})</p>
-                                            </TimelineContent>
+                                            </div>
                                         </div>
                                     </div>
                                 ))}
