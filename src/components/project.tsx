@@ -21,7 +21,7 @@ const Project = ({
     const {title, longDescription} = useReadme(readme);
 
     return (
-        <div className="column is-half">
+        <div className="column is-half is-flex">
             <div className="box" style={{width: "100%"}}>
                 <nav className="level">
                     <div className="level-left">
@@ -48,7 +48,7 @@ const Project = ({
                         >
                             <span className="icon">
                                 <i
-                                    className="fas fa-book-open"
+                                    className="far fa-book-open"
                                     aria-hidden="true"
                                 />
                             </span>
@@ -60,7 +60,7 @@ const Project = ({
                         >
                             <span className="icon">
                                 <i
-                                    className="fas fa-external-link"
+                                    className="far fa-external-link"
                                     aria-hidden="true"
                                 />
                             </span>

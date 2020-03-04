@@ -46,7 +46,7 @@ const IndexPage = () => {
                     <Education />
                 </div>
             </section>
-            <section className="hero is-light">
+            <section className="hero">
                 <div className="hero-body">
                     <ContactMe />
                 </div>

@@ -24,7 +24,14 @@ const Header = () => {
 
     return (
         <nav role="navigation" aria-label="main navigation" className="section">
-            <div className="level is-mobile sm-column">
+            <div
+                className="level is-mobile"
+                style={{
+                    maxWidth: "40rem",
+                    lineHeight: "1.5",
+                    margin: "0 auto",
+                }}
+            >
                 {/*
                     Wrapping each of these in spans ensures only the button is a link,
                     not the entire container (which makes what is a link ambiguous)

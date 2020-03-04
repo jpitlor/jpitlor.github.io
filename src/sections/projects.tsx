@@ -9,14 +9,26 @@ export default function Projects() {
     return (
         <React.Fragment>
             <h2 className="title has-text-centered">Projects</h2>
-            <p className="sm-column">
+            <p
+                style={{
+                    maxWidth: "40rem",
+                    lineHeight: "1.5",
+                    margin: "0 auto",
+                }}
+            >
                 These are some of the projects I&apos;ve been working on that I want to
                 showcase! This page is generated from my list of pinned repositories
                 on Github, but if you want to see other things I&apos;ve done, you can
                 visit <a href="https://github.com/piticent123">my profile</a>.
             </p>
             <br />
-            <p className="sm-column">
+            <p
+                style={{
+                    maxWidth: "40rem",
+                    lineHeight: "1.5",
+                    margin: "0 auto",
+                }}
+            >
                 As a disclaimer, most of my projects are unfinished (as is the case
                 with most side projects). However, I try to delete the ones that
                 are practically just the boilerplate.

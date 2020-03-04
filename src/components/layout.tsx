@@ -9,12 +9,12 @@ interface LayoutProps {
 }
 
 const Layout = ({title, children}: LayoutProps) => (
-    <React.Fragment>
+    <div>
         <SEO title={title} />
         <Header />
         <h1 className="is-hidden">{title}</h1>
         {children}
-    </React.Fragment>
+    </div>
 );
 
 export default Layout;

@@ -8,7 +8,7 @@ interface JobDetailsProps {
 }
 
 const JobDetails = ({job, locationId}: JobDetailsProps) => (
-    <div className="box" style={{width: "100%"}}>
+    <div className="box is-shadowless" style={{width: "100%"}}>
         {job ? (
             <React.Fragment>
                 <p className="title is-2">{job?.company}</p>
@@ -16,10 +16,9 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
                 {useDescription(job?.description.json)}
 
                 <iframe
-                    width="600"
                     height="450"
                     frameBorder="0"
-                    style={{border: 0}}
+                    style={{border: 0, width: "100%"}}
                     src={`https://www.google.com/maps/embed/v1/place?q=place_id:${locationId}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`}
                     allowFullScreen={true}
                 />
