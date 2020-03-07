@@ -52,6 +52,13 @@ export default function useQuery<T>(dataType: DataType): T[] {
                     major
                     minor
                     concentration
+                    city
+                    state
+                    logo {
+                        file {
+                            url
+                        }
+                    }
                     location {
                         lat
                         lon

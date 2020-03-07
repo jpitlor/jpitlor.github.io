@@ -8,22 +8,34 @@ const ContactMe = () => {
                 <br />
                 <div className="level">
                     <div className="icon is-large level-item">
-                        <i className="far fa-envelope fa-3x" />
+                        <a href="mailto:jordan@pitlor.dev">
+                            <i className="far fa-envelope fa-3x" />
+                        </a>
                     </div>
                     <div className="icon is-large level-item">
-                        <i className="far fa-phone fa-3x" />
+                        <a href="tel:+12164038126">
+                            <i className="far fa-phone fa-3x" />
+                        </a>
                     </div>
                     <div className="icon is-large level-item">
-                        <i className="fab fa-facebook fa-3x" />
+                        <a href="https://www.facebook.com/jordan.pitlor">
+                            <i className="fab fa-facebook fa-3x" />
+                        </a>
                     </div>
                     <div className="icon is-large level-item">
-                        <i className="fab fa-twitter fa-3x" />
+                        <a href="https://twitter.com/j__pitty">
+                            <i className="fab fa-twitter fa-3x" />
+                        </a>
                     </div>
                     <div className="icon is-large level-item">
-                        <i className="fab fa-instagram fa-3x" />
+                        <a href="https://www.instagram.com/j__pitty/">
+                            <i className="fab fa-instagram fa-3x" />
+                        </a>
                     </div>
                     <div className="icon is-large level-item">
-                        <i className="fab fa-linkedin fa-3x" />
+                        <a href="https://www.linkedin.com/in/jordan-pitlor/">
+                            <i className="fab fa-linkedin fa-3x" />
+                        </a>
                     </div>
                 </div>
             </div>

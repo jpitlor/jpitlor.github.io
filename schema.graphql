@@ -1,5 +1,5 @@
 # source: http://localhost:8000/__graphql
-# timestamp: Sat Feb 29 2020 13:46:03 GMT-0500 (Eastern Standard Time)
+# timestamp: Fri Mar 06 2020 20:38:46 GMT-0500 (Eastern Standard Time)
 
 """Provides default value for input field."""
 directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
@@ -590,10 +590,10 @@ type ContentfulFixed {
   base64: String
   tracedSVG: String
   aspectRatio: Float
-  width: Float
-  height: Float
-  src: String
-  srcSet: String
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
 }
@@ -613,12 +613,12 @@ input ContentfulFixedFilterInput {
 type ContentfulFluid {
   base64: String
   tracedSVG: String
-  aspectRatio: Float
-  src: String
-  srcSet: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
-  sizes: String
+  sizes: String!
 }
 
 input ContentfulFluidFilterInput {
@@ -683,7 +683,6 @@ type ContentfulJob implements Node {
     locale: String
   ): Date
   startPay: Float
-  endPay: Int
   isHourly: Boolean
   city: String
   state: String
@@ -755,6 +754,7 @@ type ContentfulJob implements Node {
     """Configures the locale Moment.js will use to format the date."""
     locale: String
   ): Date
+  endPay: Int
   childContentfulJobDescriptionRichTextNode: contentfulJobDescriptionRichTextNode
 }
 
@@ -1075,7 +1075,6 @@ enum ContentfulJobFieldsEnum {
   location___lat
   startDate
   startPay
-  endPay
   isHourly
   city
   state
@@ -1137,6 +1136,7 @@ enum ContentfulJobFieldsEnum {
   sys___contentType___sys___contentful_id
   node_locale
   endDate
+  endPay
   childContentfulJobDescriptionRichTextNode___id
   childContentfulJobDescriptionRichTextNode___parent___id
   childContentfulJobDescriptionRichTextNode___parent___parent___id
@@ -1196,7 +1196,6 @@ input ContentfulJobFilterInput {
   location: ContentfulJobLocationFilterInput
   startDate: DateQueryOperatorInput
   startPay: FloatQueryOperatorInput
-  endPay: IntQueryOperatorInput
   isHourly: BooleanQueryOperatorInput
   city: StringQueryOperatorInput
   state: StringQueryOperatorInput
@@ -1208,6 +1207,7 @@ input ContentfulJobFilterInput {
   sys: ContentfulJobSysFilterInput
   node_locale: StringQueryOperatorInput
   endDate: DateQueryOperatorInput
+  endPay: IntQueryOperatorInput
   childContentfulJobDescriptionRichTextNode: contentfulJobDescriptionRichTextNodeFilterInput
 }
 
@@ -1289,10 +1289,10 @@ type ContentfulResolutions {
   base64: String
   tracedSVG: String
   aspectRatio: Float
-  width: Float
-  height: Float
-  src: String
-  srcSet: String
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
 }
@@ -1361,10 +1361,11 @@ type ContentfulSchool implements Node {
   major: [String]
   minor: [String]
   concentration: [String]
-  gpa: Float
+  gpa: Int
   inProgress: Boolean
   city: String
   state: String
+  logo: ContentfulAsset
   spaceId: String
   contentful_id: String
   createdAt(
@@ -1527,6 +1528,143 @@ enum ContentfulSchoolFieldsEnum {
   inProgress
   city
   state
+  logo___id
+  logo___parent___id
+  logo___parent___parent___id
+  logo___parent___parent___children
+  logo___parent___children
+  logo___parent___children___id
+  logo___parent___children___children
+  logo___parent___internal___content
+  logo___parent___internal___contentDigest
+  logo___parent___internal___description
+  logo___parent___internal___fieldOwners
+  logo___parent___internal___ignoreType
+  logo___parent___internal___mediaType
+  logo___parent___internal___owner
+  logo___parent___internal___type
+  logo___children
+  logo___children___id
+  logo___children___parent___id
+  logo___children___parent___children
+  logo___children___children
+  logo___children___children___id
+  logo___children___children___children
+  logo___children___internal___content
+  logo___children___internal___contentDigest
+  logo___children___internal___description
+  logo___children___internal___fieldOwners
+  logo___children___internal___ignoreType
+  logo___children___internal___mediaType
+  logo___children___internal___owner
+  logo___children___internal___type
+  logo___internal___content
+  logo___internal___contentDigest
+  logo___internal___description
+  logo___internal___fieldOwners
+  logo___internal___ignoreType
+  logo___internal___mediaType
+  logo___internal___owner
+  logo___internal___type
+  logo___contentful_id
+  logo___file___url
+  logo___file___details___size
+  logo___file___fileName
+  logo___file___contentType
+  logo___title
+  logo___description
+  logo___node_locale
+  logo___localFile___sourceInstanceName
+  logo___localFile___absolutePath
+  logo___localFile___relativePath
+  logo___localFile___extension
+  logo___localFile___size
+  logo___localFile___prettySize
+  logo___localFile___modifiedTime
+  logo___localFile___accessTime
+  logo___localFile___changeTime
+  logo___localFile___birthTime
+  logo___localFile___root
+  logo___localFile___dir
+  logo___localFile___base
+  logo___localFile___ext
+  logo___localFile___name
+  logo___localFile___relativeDirectory
+  logo___localFile___dev
+  logo___localFile___mode
+  logo___localFile___nlink
+  logo___localFile___uid
+  logo___localFile___gid
+  logo___localFile___rdev
+  logo___localFile___ino
+  logo___localFile___atimeMs
+  logo___localFile___mtimeMs
+  logo___localFile___ctimeMs
+  logo___localFile___atime
+  logo___localFile___mtime
+  logo___localFile___ctime
+  logo___localFile___birthtime
+  logo___localFile___birthtimeMs
+  logo___localFile___blksize
+  logo___localFile___blocks
+  logo___localFile___url
+  logo___localFile___publicURL
+  logo___localFile___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___localFile___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___localFile___id
+  logo___localFile___parent___id
+  logo___localFile___parent___children
+  logo___localFile___children
+  logo___localFile___children___id
+  logo___localFile___children___children
+  logo___localFile___internal___content
+  logo___localFile___internal___contentDigest
+  logo___localFile___internal___description
+  logo___localFile___internal___fieldOwners
+  logo___localFile___internal___ignoreType
+  logo___localFile___internal___mediaType
+  logo___localFile___internal___owner
+  logo___localFile___internal___type
+  logo___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resolutions___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___sizes___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  logo___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   spaceId
   contentful_id
   createdAt
@@ -1551,10 +1689,11 @@ input ContentfulSchoolFilterInput {
   major: StringQueryOperatorInput
   minor: StringQueryOperatorInput
   concentration: StringQueryOperatorInput
-  gpa: FloatQueryOperatorInput
+  gpa: IntQueryOperatorInput
   inProgress: BooleanQueryOperatorInput
   city: StringQueryOperatorInput
   state: StringQueryOperatorInput
+  logo: ContentfulAssetFilterInput
   spaceId: StringQueryOperatorInput
   contentful_id: StringQueryOperatorInput
   createdAt: DateQueryOperatorInput
@@ -1622,12 +1761,12 @@ input ContentfulSchoolSysFilterInput {
 type ContentfulSizes {
   base64: String
   tracedSVG: String
-  aspectRatio: Float
-  src: String
-  srcSet: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
-  sizes: String
+  sizes: String!
 }
 
 input ContentfulSizesFilterInput {
@@ -2997,10 +3136,10 @@ type ImageSharpFixed {
   base64: String
   tracedSVG: String
   aspectRatio: Float
-  width: Float
-  height: Float
-  src: String
-  srcSet: String
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
   originalName: String
@@ -3022,12 +3161,12 @@ input ImageSharpFixedFilterInput {
 type ImageSharpFluid {
   base64: String
   tracedSVG: String
-  aspectRatio: Float
-  src: String
-  srcSet: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
-  sizes: String
+  sizes: String!
   originalImg: String
   originalName: String
   presentationWidth: Int
@@ -3092,10 +3231,10 @@ type ImageSharpResolutions {
   base64: String
   tracedSVG: String
   aspectRatio: Float
-  width: Float
-  height: Float
-  src: String
-  srcSet: String
+  width: Float!
+  height: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
   originalName: String
@@ -3117,12 +3256,12 @@ input ImageSharpResolutionsFilterInput {
 type ImageSharpSizes {
   base64: String
   tracedSVG: String
-  aspectRatio: Float
-  src: String
-  srcSet: String
+  aspectRatio: Float!
+  src: String!
+  srcSet: String!
   srcWebp: String
   srcSetWebp: String
-  sizes: String
+  sizes: String!
   originalImg: String
   originalName: String
   presentationWidth: Int
@@ -3250,17 +3389,19 @@ type Query {
   allFile(filter: FileFilterInput, sort: FileSortInput, skip: Int, limit: Int): FileConnection!
   directory(sourceInstanceName: StringQueryOperatorInput, absolutePath: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, extension: StringQueryOperatorInput, size: IntQueryOperatorInput, prettySize: StringQueryOperatorInput, modifiedTime: DateQueryOperatorInput, accessTime: DateQueryOperatorInput, changeTime: DateQueryOperatorInput, birthTime: DateQueryOperatorInput, root: StringQueryOperatorInput, dir: StringQueryOperatorInput, base: StringQueryOperatorInput, ext: StringQueryOperatorInput, name: StringQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, dev: IntQueryOperatorInput, mode: IntQueryOperatorInput, nlink: IntQueryOperatorInput, uid: IntQueryOperatorInput, gid: IntQueryOperatorInput, rdev: IntQueryOperatorInput, ino: FloatQueryOperatorInput, atimeMs: FloatQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, atime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, ctime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): Directory
   allDirectory(filter: DirectoryFilterInput, sort: DirectorySortInput, skip: Int, limit: Int): DirectoryConnection!
+  sitePage(path: StringQueryOperatorInput, component: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
+  allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
   imageSharp(fixed: ImageSharpFixedFilterInput, resolutions: ImageSharpResolutionsFilterInput, fluid: ImageSharpFluidFilterInput, sizes: ImageSharpSizesFilterInput, original: ImageSharpOriginalFilterInput, resize: ImageSharpResizeFilterInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): ImageSharp
   allImageSharp(filter: ImageSharpFilterInput, sort: ImageSharpSortInput, skip: Int, limit: Int): ImageSharpConnection!
-  contentfulJobDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulJobDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulJobDescriptionRichTextNode
-  allContentfulJobDescriptionRichTextNode(filter: contentfulJobDescriptionRichTextNodeFilterInput, sort: contentfulJobDescriptionRichTextNodeSortInput, skip: Int, limit: Int): contentfulJobDescriptionRichTextNodeConnection!
   githubData(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, data: GithubDataDataFilterInput): GithubData
   allGithubData(filter: GithubDataFilterInput, sort: GithubDataSortInput, skip: Int, limit: Int): GithubDataConnection!
   contentfulAsset(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, contentful_id: StringQueryOperatorInput, file: ContentfulAssetFileFilterInput, title: StringQueryOperatorInput, description: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, localFile: FileFilterInput, fixed: ContentfulFixedFilterInput, resolutions: ContentfulResolutionsFilterInput, fluid: ContentfulFluidFilterInput, sizes: ContentfulSizesFilterInput, resize: ContentfulResizeFilterInput): ContentfulAsset
   allContentfulAsset(filter: ContentfulAssetFilterInput, sort: ContentfulAssetSortInput, skip: Int, limit: Int): ContentfulAssetConnection!
-  contentfulSchool(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, location: ContentfulSchoolLocationFilterInput, startDate: DateQueryOperatorInput, endDate: DateQueryOperatorInput, major: StringQueryOperatorInput, minor: StringQueryOperatorInput, concentration: StringQueryOperatorInput, gpa: FloatQueryOperatorInput, inProgress: BooleanQueryOperatorInput, city: StringQueryOperatorInput, state: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulSchoolSysFilterInput, node_locale: StringQueryOperatorInput): ContentfulSchool
+  contentfulSchool(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, location: ContentfulSchoolLocationFilterInput, startDate: DateQueryOperatorInput, endDate: DateQueryOperatorInput, major: StringQueryOperatorInput, minor: StringQueryOperatorInput, concentration: StringQueryOperatorInput, gpa: IntQueryOperatorInput, inProgress: BooleanQueryOperatorInput, city: StringQueryOperatorInput, state: StringQueryOperatorInput, logo: ContentfulAssetFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulSchoolSysFilterInput, node_locale: StringQueryOperatorInput): ContentfulSchool
   allContentfulSchool(filter: ContentfulSchoolFilterInput, sort: ContentfulSchoolSortInput, skip: Int, limit: Int): ContentfulSchoolConnection!
-  contentfulJob(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, title: StringQueryOperatorInput, company: StringQueryOperatorInput, location: ContentfulJobLocationFilterInput, startDate: DateQueryOperatorInput, startPay: FloatQueryOperatorInput, endPay: IntQueryOperatorInput, isHourly: BooleanQueryOperatorInput, city: StringQueryOperatorInput, state: StringQueryOperatorInput, description: contentfulJobDescriptionRichTextNodeFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulJobSysFilterInput, node_locale: StringQueryOperatorInput, endDate: DateQueryOperatorInput, childContentfulJobDescriptionRichTextNode: contentfulJobDescriptionRichTextNodeFilterInput): ContentfulJob
+  contentfulJobDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulJobDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulJobDescriptionRichTextNode
+  allContentfulJobDescriptionRichTextNode(filter: contentfulJobDescriptionRichTextNodeFilterInput, sort: contentfulJobDescriptionRichTextNodeSortInput, skip: Int, limit: Int): contentfulJobDescriptionRichTextNodeConnection!
+  contentfulJob(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, title: StringQueryOperatorInput, company: StringQueryOperatorInput, location: ContentfulJobLocationFilterInput, startDate: DateQueryOperatorInput, startPay: FloatQueryOperatorInput, isHourly: BooleanQueryOperatorInput, city: StringQueryOperatorInput, state: StringQueryOperatorInput, description: contentfulJobDescriptionRichTextNodeFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulJobSysFilterInput, node_locale: StringQueryOperatorInput, endDate: DateQueryOperatorInput, endPay: IntQueryOperatorInput, childContentfulJobDescriptionRichTextNode: contentfulJobDescriptionRichTextNodeFilterInput): ContentfulJob
   allContentfulJob(filter: ContentfulJobFilterInput, sort: ContentfulJobSortInput, skip: Int, limit: Int): ContentfulJobConnection!
   contentfulContentType(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, displayField: StringQueryOperatorInput, description: StringQueryOperatorInput): ContentfulContentType
   allContentfulContentType(filter: ContentfulContentTypeFilterInput, sort: ContentfulContentTypeSortInput, skip: Int, limit: Int): ContentfulContentTypeConnection!
@@ -3268,8 +3409,6 @@ type Query {
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePlugin(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, resolve: StringQueryOperatorInput, name: StringQueryOperatorInput, version: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, nodeAPIs: StringQueryOperatorInput, browserAPIs: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, pluginFilepath: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput): SitePlugin
   allSitePlugin(filter: SitePluginFilterInput, sort: SitePluginSortInput, skip: Int, limit: Int): SitePluginConnection!
-  sitePage(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, path: StringQueryOperatorInput, internalComponentName: StringQueryOperatorInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, isCreatedByStatefulCreatePages: BooleanQueryOperatorInput, context: SitePageContextFilterInput, pluginCreator: SitePluginFilterInput, pluginCreatorId: StringQueryOperatorInput, componentPath: StringQueryOperatorInput): SitePage
-  allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
 }
 
 type Site implements Node {
@@ -3440,14 +3579,15 @@ type SiteGroupConnection {
 }
 
 type SitePage implements Node {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
   id: ID!
   parent: Node
   children: [Node!]!
   internal: Internal!
-  path: String
-  internalComponentName: String
-  component: String
-  componentChunkName: String
   isCreatedByStatefulCreatePages: Boolean
   context: SitePageContext
   pluginCreator: SitePlugin
@@ -3479,6 +3619,11 @@ type SitePageEdge {
 }
 
 enum SitePageFieldsEnum {
+  path
+  component
+  internalComponentName
+  componentChunkName
+  matchPath
   id
   parent___id
   parent___parent___id
@@ -3565,10 +3710,6 @@ enum SitePageFieldsEnum {
   internal___mediaType
   internal___owner
   internal___type
-  path
-  internalComponentName
-  component
-  componentChunkName
   isCreatedByStatefulCreatePages
   context___name
   pluginCreator___id
@@ -3649,14 +3790,15 @@ enum SitePageFieldsEnum {
 }
 
 input SitePageFilterInput {
+  path: StringQueryOperatorInput
+  component: StringQueryOperatorInput
+  internalComponentName: StringQueryOperatorInput
+  componentChunkName: StringQueryOperatorInput
+  matchPath: StringQueryOperatorInput
   id: StringQueryOperatorInput
   parent: NodeFilterInput
   children: NodeFilterListInput
   internal: InternalFilterInput
-  path: StringQueryOperatorInput
-  internalComponentName: StringQueryOperatorInput
-  component: StringQueryOperatorInput
-  componentChunkName: StringQueryOperatorInput
   isCreatedByStatefulCreatePages: BooleanQueryOperatorInput
   context: SitePageContextFilterInput
   pluginCreator: SitePluginFilterInput

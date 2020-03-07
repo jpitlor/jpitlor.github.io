@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
-import ContactMe from "../components/contact-me";
 
 const IndexPage = () => {
     function removeNotification() {
@@ -16,7 +15,7 @@ const IndexPage = () => {
 
     return (
         <Layout title="Resume">
-            <div className="container" style={{maxWidth: "calc(100% - 3rem)"}}>
+            <div className="container">
                 <div className="notification is-info">
                     <button className="delete" onClick={removeNotification} />
                     Looking for a PDF version?&nbsp;
@@ -44,11 +43,6 @@ const IndexPage = () => {
             <section className="hero">
                 <div className="hero-body">
                     <Education />
-                </div>
-            </section>
-            <section className="hero">
-                <div className="hero-body">
-                    <ContactMe />
                 </div>
             </section>
         </Layout>

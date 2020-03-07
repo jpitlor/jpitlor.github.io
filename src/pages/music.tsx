@@ -1,15 +1,21 @@
 import * as React from "react";
 
 import Layout from "../components/layout";
+import Composition from "../sections/composition";
+import Performance from "../sections/performance";
 
 const Music = () => (
     <Layout title="Music">
-        <p>
-			I&apos;ve always enjoyed music. I sing, I sometimes (poorly) dance, and
-			I sometimes compose and arrange. Here are some things I&apos;ve done that
-			I&apos;m proud of!
-        </p>
-        {/*	Composing, performing, bla ba bla */}
+        <section className="hero">
+            <div className="hero-body">
+                <Performance />
+            </div>
+        </section>
+        <section className="hero">
+            <div className="hero-body">
+                <Composition />
+            </div>
+        </section>
     </Layout>
 );
 

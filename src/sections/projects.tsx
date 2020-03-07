@@ -2,13 +2,13 @@ import * as React from "react";
 import Project from "../components/project";
 import useQuery, {DataType} from "../utils/useQuery";
 import {GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
+import Section from "../components/section";
 
 export default function Projects() {
     const pinnedRepositories = useQuery<GithubDataDataUserPinnedItemsNodes>(DataType.PROJECTS);
 
     return (
-        <React.Fragment>
-            <h2 className="title has-text-centered">Projects</h2>
+        <Section title="Projects">
             <p
                 style={{
                     maxWidth: "40rem",
@@ -42,6 +42,6 @@ export default function Projects() {
                     ))}
                 </div>
             </div>
-        </React.Fragment>
+        </Section>
     );
 }

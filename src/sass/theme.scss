@@ -14,6 +14,7 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 
 @import "~bulma";
 @import "~bulma-extensions";
+@import "~bulma-block-list/src/block-list";
 
 @import "~@fortawesome/fontawesome-pro/scss/fontawesome";
 @import "~@fortawesome/fontawesome-pro/scss/brands";
@@ -24,3 +25,8 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 //.hero.is-light .title {
 //    color: $dark-blue;
 //}
+
+// To center the Instagram post - style prop isn't an option
+.has-margin-auto iframe {
+    margin: 0 auto 3rem !important;
+}

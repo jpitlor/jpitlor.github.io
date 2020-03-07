@@ -4,6 +4,7 @@ import JobDetails from "../components/job-details";
 import _ from "lodash";
 import useQuery, {DataType} from "../utils/useQuery";
 import {ContentfulJob} from "../utils/schema";
+import Section from "../components/section";
 
 type GroupedJobs = [number, any[]][];
 
@@ -107,70 +108,67 @@ export default function Experience() {
     }
 
     return (
-        <React.Fragment>
-            <h2 className="title has-text-centered">Experience</h2>
-            <div className="container">
-                <div className="columns">
-                    <div className="timeline column">
-                        <header className="timeline-header">
-                            <span className="tag is-medium is-primary">
-                                Today
-                            </span>
-                        </header>
-                        {jobs.map(([year, jobGroup], i) => (
-                            <React.Fragment key={i}>
-                                {jobGroup.map((job, j) => (
-                                    <div className="timeline-item" key={job.startDate.getTime()}>
-                                        <div className="timeline-marker" />
-                                        <div className="timeline-content">
-                                            <div
-                                                className={i === hji && j === hjj
-                                                    ? "box"
-                                                    : "box is-shadowless"
-                                                }
-                                                style={{
-                                                    borderRadius: "6px",
-                                                    transition: "box-shadow 0.3s",
-                                                    padding: "0.75rem",
-                                                    margin: "-0.75rem 0 -0.75rem -0.75rem",
-                                                    cursor: "pointer",
-                                                }}
-                                                onClick={onClickJob(job)}
-                                                onMouseEnter={onHover(i, j)}
-                                                onMouseLeave={onExit}
-                                            >
-                                                <p className="heading">
-                                                    {Months[job.startDate.getMonth()]}
-                                                    &nbsp;
-                                                    {job.startDate.getFullYear()}
-                                                </p>
-                                                <p>{job.company} ({job.title})</p>
-                                            </div>
+        <Section title="Experience">
+            <div className="columns">
+                <div className="timeline column">
+                    <header className="timeline-header">
+                        <span className="tag is-medium is-primary">
+                            Today
+                        </span>
+                    </header>
+                    {jobs.map(([year, jobGroup], i) => (
+                        <React.Fragment key={i}>
+                            {jobGroup.map((job, j) => (
+                                <div className="timeline-item" key={job.startDate.getTime()}>
+                                    <div className="timeline-marker" />
+                                    <div className="timeline-content">
+                                        <div
+                                            className={i === hji && j === hjj
+                                                ? "box"
+                                                : "box is-shadowless"
+                                            }
+                                            style={{
+                                                borderRadius: "6px",
+                                                transition: "box-shadow 0.3s",
+                                                padding: "0.75rem",
+                                                margin: "-0.75rem 0 -0.75rem -0.75rem",
+                                                cursor: "pointer",
+                                            }}
+                                            onClick={onClickJob(job)}
+                                            onMouseEnter={onHover(i, j)}
+                                            onMouseLeave={onExit}
+                                        >
+                                            <p className="heading">
+                                                {Months[job.startDate.getMonth()]}
+                                                &nbsp;
+                                                {job.startDate.getFullYear()}
+                                            </p>
+                                            <p>{job.company} ({job.title})</p>
                                         </div>
                                     </div>
-                                ))}
-                                <header className="timeline-header">
-                                    <span className="tag is-primary">
-                                        {year}
-                                    </span>
-                                </header>
-                            </React.Fragment>
-                        ))}
-                        <div className="timeline-item" />
-                        <div className="timeline-header">
-                            <span className="tag is-medium is-primary">
-                                January 1, 1970
-                            </span>
-                        </div>
-                    </div>
-                    <div className="column">
-                        <JobDetails
-                            job={moreDetailsJob}
-                            locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
-                        />
+                                </div>
+                            ))}
+                            <header className="timeline-header">
+                                <span className="tag is-primary">
+                                    {year}
+                                </span>
+                            </header>
+                        </React.Fragment>
+                    ))}
+                    <div className="timeline-item" />
+                    <div className="timeline-header">
+                        <span className="tag is-medium is-primary">
+                            January 1, 1970
+                        </span>
                     </div>
                 </div>
+                <div className="column">
+                    <JobDetails
+                        job={moreDetailsJob}
+                        locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
+                    />
+                </div>
             </div>
-        </React.Fragment>
+        </Section>
     );
 }
