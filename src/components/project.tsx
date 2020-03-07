@@ -28,43 +28,45 @@ const Project = ({
                         <strong className="level-item">{title}</strong>
                         <small className="level-item">{description}</small>
                     </div>
-                    <div className="level-right is-mobile">
-                        <a
-                            href={url}
-                            className="level-item"
-                            aria-label="github"
-                        >
-                            <span className="icon">
-                                <i
-                                    className="fab fa-github"
-                                    aria-hidden="true"
-                                />
-                            </span>
-                        </a>
-                        <Link
-                            to={`/projects/${name}`}
-                            className="level-item"
-                            aria-label="read me"
-                        >
-                            <span className="icon">
-                                <i
-                                    className="far fa-book-open"
-                                    aria-hidden="true"
-                                />
-                            </span>
-                        </Link>
-                        {homepageUrl && <a
-                            href={homepageUrl}
-                            className="level-item"
-                            aria-label="homepage"
-                        >
-                            <span className="icon">
-                                <i
-                                    className="far fa-external-link"
-                                    aria-hidden="true"
-                                />
-                            </span>
-                        </a>}
+                    <div className="level-right">
+                        <div className="level is-mobile">
+                            <a
+                                href={url}
+                                className="level-item"
+                                aria-label="github"
+                            >
+                                <span className="icon">
+                                    <i
+                                        className="fab fa-github"
+                                        aria-hidden="true"
+                                    />
+                                </span>
+                            </a>
+                            <Link
+                                to={`/projects/${name}`}
+                                className="level-item"
+                                aria-label="read me"
+                            >
+                                <span className="icon">
+                                    <i
+                                        className="far fa-book-open"
+                                        aria-hidden="true"
+                                    />
+                                </span>
+                            </Link>
+                            {homepageUrl && <a
+                                href={homepageUrl}
+                                className="level-item"
+                                aria-label="homepage"
+                            >
+                                <span className="icon">
+                                    <i
+                                        className="far fa-external-link"
+                                        aria-hidden="true"
+                                    />
+                                </span>
+                            </a>}
+                        </div>
                     </div>
                 </nav>
                 <p

@@ -15,7 +15,7 @@ const IndexPage = () => {
 
     return (
         <Layout title="Resume">
-            <div className="container">
+            <div className="container" style={{maxWidth: "calc(100% - 2rem)"}}>
                 <div className="notification is-info">
                     <button className="delete" onClick={removeNotification} />
                     Looking for a PDF version?&nbsp;

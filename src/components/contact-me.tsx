@@ -6,7 +6,7 @@ const ContactMe = () => {
             <h2 className="title has-text-centered">Contact Me</h2>
             <div className="container">
                 <br />
-                <div className="level">
+                <div className="level is-mobile">
                     <div className="icon is-large level-item">
                         <a href="mailto:jordan@pitlor.dev">
                             <i className="far fa-envelope fa-3x" />
