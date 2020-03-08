@@ -15,7 +15,7 @@ const Layout = ({title, children}: LayoutProps) => (
         <Header />
         <h1 className="sr-only">{title}</h1>
         {children}
-        <footer className="footer">
+        <footer className="footer" style={{background: "white"}}>
             <ContactMe />
         </footer>
     </React.Fragment>

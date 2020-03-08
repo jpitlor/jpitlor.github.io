@@ -16,8 +16,11 @@ const School = ({school}: SchoolProps) => {
                 <p className="subtitle is-4">{school.city} Campus</p>
                 <p className="subtitle is-4" style={{marginTop: "-1.25rem"}}>
                     Fall {new Date(school.startDate).getFullYear()}
-                    &nbsp;-&nbsp;
+                    &nbsp;-
                     Spring {new Date(school.endDate).getFullYear()}
+                </p>
+                <p className="subtitle is-4" style={{marginTop: "-1.25rem"}}>
+                    GPA: {school.gpa.toFixed(1)}
                 </p>
             </div>
             <div className="column">

@@ -1,5 +1,4 @@
 const path = require("path");
-const http = require("http");
 const fs = require("fs");
 const pdf = require("html-pdf");
 
@@ -46,7 +45,7 @@ exports.createPages = async ({graphql, actions}) => {
     pinnedRepositories.forEach(repo => createPage({
         path: `projects/${repo.name}`,
         component: path.resolve("./src/templates/project.tsx"),
-        context: {name: repo.name},
+        context: {repo},
     }));
 };
 

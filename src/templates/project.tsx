@@ -1,65 +1,35 @@
-import {graphql} from "gatsby";
 import * as React from "react";
+import marked from "marked";
+
 import Layout from "../components/layout";
 
 const Project = ({
-    data: {
-        githubData: {
-            data: {
-                user: {
-                    pinnedItems: {
-                        nodes: [repo],
-                    },
-                },
-            },
-        },
+    pageContext: {
+        repo,
     },
 }: any) => {
     const {
         name,
-        description,
+        // description,
         // homepageUrl,
         // url,
-        // object: {text: readme},
+        object: {text: readme},
     } = repo;
+
+    // For SEO reasons, headers need to be knocked down one level,
+    // but they can keep their styles
+    const __html = marked(readme)
+        .replace(/<h(\d) /g, (_, n) => `<h${Number(n) + 1} class="is-${n}"`);
 
     return (
         <Layout title={name}>
-            <p>{name} - {description}</p>
+            <div
+                className="content container"
+                style={{maxWidth: "40rem"}}
+                dangerouslySetInnerHTML={{__html}}
+            />
         </Layout>
     );
 };
 
 export default Project;
-
-export const query = graphql`
-    query ProjectQuery($name: String!) {
-        githubData(data: {
-            user: {
-                pinnedItems: {
-                    nodes: {
-                        elemMatch: {
-                            name: {eq: $name}
-                        }
-                    }   
-                }
-            }
-        }) {
-            data {
-                user {
-                    pinnedItems {
-                        nodes {
-                            name
-                            description
-                            homepageUrl
-                            url
-                            object {
-                                text
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-`;
