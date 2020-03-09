@@ -1,11 +1,10 @@
 import * as React from "react";
-import useQuery, {DataType} from "../utils/useQuery";
-import {ContentfulJob, ContentfulSchool, GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
+import {useJobs, useProjects, useSchools} from "../utils/useData";
 
 const PrintableResume = () => {
-    const jobs = useQuery<ContentfulJob>(DataType.JOBS);
-    const schools = useQuery<ContentfulSchool>(DataType.SCHOOLS);
-    const pinnedRepositories = useQuery<GithubDataDataUserPinnedItemsNodes>(DataType.PROJECTS);
+    const jobs = useJobs();
+    const schools = useSchools();
+    const pinnedRepositories = useProjects();
     console.log(jobs, schools, pinnedRepositories);
 
     return (

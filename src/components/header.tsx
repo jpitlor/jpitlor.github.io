@@ -24,25 +24,18 @@ const Header = () => {
 
     return (
         <nav role="navigation" aria-label="main navigation" className="section">
-            <div
-                className="level is-mobile"
-                style={{
-                    maxWidth: "40rem",
-                    lineHeight: "1.5",
-                    margin: "0 auto",
-                }}
-            >
+            <div className="level is-mobile is-tight-desktop">
                 {/*
                     Wrapping each of these in spans ensures only the button is a link,
                     not the entire container (which makes what is a link ambiguous)
                  */}
-                <span>
-                    <Link to="/" className="level-item button is-white is-medium">
+                <span className="level-item">
+                    <Link to="/" className="button is-white is-medium">
                         Resume
                     </Link>
                 </span>
-                <span>
-                    <Link to="/about" className="level-item">
+                <span className="level-item">
+                    <Link to="/about">
                         <img
                             src={profile}
                             alt="About"
@@ -53,8 +46,8 @@ const Header = () => {
                         />
                     </Link>
                 </span>
-                <span>
-                    <Link to="/music" className="level-item button is-white is-medium">
+                <span className="level-item">
+                    <Link to="/music" className="button is-white is-medium">
                         Music
                     </Link>
                 </span>

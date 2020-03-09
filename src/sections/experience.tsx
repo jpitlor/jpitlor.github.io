@@ -2,8 +2,7 @@ import * as React from "react";
 import {useEffect, useMemo, useState} from "react";
 import JobDetails from "../components/job-details";
 import _ from "lodash";
-import useQuery, {DataType} from "../utils/useQuery";
-import {ContentfulJob} from "../utils/schema";
+import {useJobs} from "../utils/useData";
 import Section from "../components/section";
 
 type GroupedJobs = [number, any[]][];
@@ -33,7 +32,7 @@ async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
 }
 
 export default function Experience() {
-    const rawJobs = useQuery<ContentfulJob>(DataType.JOBS);
+    const rawJobs = useJobs();
     const [moreDetailsJob, setMoreDetailsJob] = useState<any | null>(null);
     const [locations, setLocations] = useState<Record<string, string>>({});
     const onClickJob = (job: any) => () => setMoreDetailsJob(job);

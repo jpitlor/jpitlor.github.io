@@ -30,3 +30,12 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 .has-margin-auto iframe {
     margin: 0 auto 3rem !important;
 }
+
+p.is-tight-desktop {
+    line-height: 1.5;
+}
+
+.is-tight-desktop {
+    max-width: 40rem;
+    margin: 0 auto;
+}

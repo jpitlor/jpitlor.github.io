@@ -7,13 +7,7 @@ import Section from "../components/section";
 const NotFoundPage = () => (
     <Layout title="404: Not Found">
         <Section title="This route doesn't exist">
-            <p
-                style={{
-                    maxWidth: "40rem",
-                    lineHeight: "1.5",
-                    margin: "0 auto",
-                }}
-            >
+            <p className="is-tight-desktop">
                 You can use any of the 3 links at the top of the page to find a page
                 that does exist. As a consolation for a lack of content, please enjoy
                 a picture of my dog.

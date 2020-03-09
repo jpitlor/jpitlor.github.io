@@ -472,6 +472,659 @@ export type ContentfulAssetSortInput = {
   order: Maybe<Array<Maybe<SortOrderEnum>>>,
 };
 
+export type ContentfulComposition = Node & {
+   __typename?: 'ContentfulComposition',
+  id: Scalars['ID'],
+  parent: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  title: Maybe<Scalars['String']>,
+  recording: Maybe<ContentfulAsset>,
+  description: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+  spaceId: Maybe<Scalars['String']>,
+  contentful_id: Maybe<Scalars['String']>,
+  createdAt: Maybe<Scalars['Date']>,
+  updatedAt: Maybe<Scalars['Date']>,
+  sys: Maybe<ContentfulCompositionSys>,
+  node_locale: Maybe<Scalars['String']>,
+  childContentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+};
+
+
+export type ContentfulCompositionCreatedAtArgs = {
+  formatString: Maybe<Scalars['String']>,
+  fromNow: Maybe<Scalars['Boolean']>,
+  difference: Maybe<Scalars['String']>,
+  locale: Maybe<Scalars['String']>
+};
+
+
+export type ContentfulCompositionUpdatedAtArgs = {
+  formatString: Maybe<Scalars['String']>,
+  fromNow: Maybe<Scalars['Boolean']>,
+  difference: Maybe<Scalars['String']>,
+  locale: Maybe<Scalars['String']>
+};
+
+export type ContentfulCompositionConnection = {
+   __typename?: 'ContentfulCompositionConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ContentfulCompositionEdge>,
+  nodes: Array<ContentfulComposition>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ContentfulCompositionGroupConnection>,
+};
+
+
+export type ContentfulCompositionConnectionDistinctArgs = {
+  field: ContentfulCompositionFieldsEnum
+};
+
+
+export type ContentfulCompositionConnectionGroupArgs = {
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>,
+  field: ContentfulCompositionFieldsEnum
+};
+
+export type ContentfulCompositionDescriptionRichTextNode = Node & {
+   __typename?: 'contentfulCompositionDescriptionRichTextNode',
+  id: Scalars['ID'],
+  parent: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  content: Maybe<Array<Maybe<ContentfulCompositionDescriptionRichTextNodeContent>>>,
+  nodeType: Maybe<Scalars['String']>,
+  description: Maybe<Scalars['String']>,
+  json: Maybe<Scalars['JSON']>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeConnection = {
+   __typename?: 'contentfulCompositionDescriptionRichTextNodeConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ContentfulCompositionDescriptionRichTextNodeEdge>,
+  nodes: Array<ContentfulCompositionDescriptionRichTextNode>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<ContentfulCompositionDescriptionRichTextNodeGroupConnection>,
+};
+
+
+export type ContentfulCompositionDescriptionRichTextNodeConnectionDistinctArgs = {
+  field: ContentfulCompositionDescriptionRichTextNodeFieldsEnum
+};
+
+
+export type ContentfulCompositionDescriptionRichTextNodeConnectionGroupArgs = {
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>,
+  field: ContentfulCompositionDescriptionRichTextNodeFieldsEnum
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContent = {
+   __typename?: 'contentfulCompositionDescriptionRichTextNodeContent',
+  content: Maybe<Array<Maybe<ContentfulCompositionDescriptionRichTextNodeContentContent>>>,
+  nodeType: Maybe<Scalars['String']>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContentContent = {
+   __typename?: 'contentfulCompositionDescriptionRichTextNodeContentContent',
+  value: Maybe<Scalars['String']>,
+  nodeType: Maybe<Scalars['String']>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContentContentFilterInput = {
+  value: Maybe<StringQueryOperatorInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContentContentFilterListInput = {
+  elemMatch: Maybe<ContentfulCompositionDescriptionRichTextNodeContentContentFilterInput>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContentFilterInput = {
+  content: Maybe<ContentfulCompositionDescriptionRichTextNodeContentContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeContentFilterListInput = {
+  elemMatch: Maybe<ContentfulCompositionDescriptionRichTextNodeContentFilterInput>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeEdge = {
+   __typename?: 'contentfulCompositionDescriptionRichTextNodeEdge',
+  next: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+  node: ContentfulCompositionDescriptionRichTextNode,
+  previous: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+};
+
+export enum ContentfulCompositionDescriptionRichTextNodeFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Content = 'content',
+  ContentContent = 'content___content',
+  ContentContentValue = 'content___content___value',
+  ContentContentNodeType = 'content___content___nodeType',
+  ContentNodeType = 'content___nodeType',
+  NodeType = 'nodeType',
+  Description = 'description',
+  Json = 'json'
+}
+
+export type ContentfulCompositionDescriptionRichTextNodeFilterInput = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  content: Maybe<ContentfulCompositionDescriptionRichTextNodeContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  json: Maybe<JsonQueryOperatorInput>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeGroupConnection = {
+   __typename?: 'contentfulCompositionDescriptionRichTextNodeGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ContentfulCompositionDescriptionRichTextNodeEdge>,
+  nodes: Array<ContentfulCompositionDescriptionRichTextNode>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue: Maybe<Scalars['String']>,
+};
+
+export type ContentfulCompositionDescriptionRichTextNodeSortInput = {
+  fields: Maybe<Array<Maybe<ContentfulCompositionDescriptionRichTextNodeFieldsEnum>>>,
+  order: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type ContentfulCompositionEdge = {
+   __typename?: 'ContentfulCompositionEdge',
+  next: Maybe<ContentfulComposition>,
+  node: ContentfulComposition,
+  previous: Maybe<ContentfulComposition>,
+};
+
+export enum ContentfulCompositionFieldsEnum {
+  Id = 'id',
+  ParentId = 'parent___id',
+  ParentParentId = 'parent___parent___id',
+  ParentParentParentId = 'parent___parent___parent___id',
+  ParentParentParentChildren = 'parent___parent___parent___children',
+  ParentParentChildren = 'parent___parent___children',
+  ParentParentChildrenId = 'parent___parent___children___id',
+  ParentParentChildrenChildren = 'parent___parent___children___children',
+  ParentParentInternalContent = 'parent___parent___internal___content',
+  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
+  ParentParentInternalDescription = 'parent___parent___internal___description',
+  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
+  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
+  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
+  ParentParentInternalOwner = 'parent___parent___internal___owner',
+  ParentParentInternalType = 'parent___parent___internal___type',
+  ParentChildren = 'parent___children',
+  ParentChildrenId = 'parent___children___id',
+  ParentChildrenParentId = 'parent___children___parent___id',
+  ParentChildrenParentChildren = 'parent___children___parent___children',
+  ParentChildrenChildren = 'parent___children___children',
+  ParentChildrenChildrenId = 'parent___children___children___id',
+  ParentChildrenChildrenChildren = 'parent___children___children___children',
+  ParentChildrenInternalContent = 'parent___children___internal___content',
+  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
+  ParentChildrenInternalDescription = 'parent___children___internal___description',
+  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
+  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
+  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
+  ParentChildrenInternalOwner = 'parent___children___internal___owner',
+  ParentChildrenInternalType = 'parent___children___internal___type',
+  ParentInternalContent = 'parent___internal___content',
+  ParentInternalContentDigest = 'parent___internal___contentDigest',
+  ParentInternalDescription = 'parent___internal___description',
+  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
+  ParentInternalIgnoreType = 'parent___internal___ignoreType',
+  ParentInternalMediaType = 'parent___internal___mediaType',
+  ParentInternalOwner = 'parent___internal___owner',
+  ParentInternalType = 'parent___internal___type',
+  Children = 'children',
+  ChildrenId = 'children___id',
+  ChildrenParentId = 'children___parent___id',
+  ChildrenParentParentId = 'children___parent___parent___id',
+  ChildrenParentParentChildren = 'children___parent___parent___children',
+  ChildrenParentChildren = 'children___parent___children',
+  ChildrenParentChildrenId = 'children___parent___children___id',
+  ChildrenParentChildrenChildren = 'children___parent___children___children',
+  ChildrenParentInternalContent = 'children___parent___internal___content',
+  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
+  ChildrenParentInternalDescription = 'children___parent___internal___description',
+  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
+  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
+  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
+  ChildrenParentInternalOwner = 'children___parent___internal___owner',
+  ChildrenParentInternalType = 'children___parent___internal___type',
+  ChildrenChildren = 'children___children',
+  ChildrenChildrenId = 'children___children___id',
+  ChildrenChildrenParentId = 'children___children___parent___id',
+  ChildrenChildrenParentChildren = 'children___children___parent___children',
+  ChildrenChildrenChildren = 'children___children___children',
+  ChildrenChildrenChildrenId = 'children___children___children___id',
+  ChildrenChildrenChildrenChildren = 'children___children___children___children',
+  ChildrenChildrenInternalContent = 'children___children___internal___content',
+  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
+  ChildrenChildrenInternalDescription = 'children___children___internal___description',
+  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
+  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
+  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
+  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
+  ChildrenChildrenInternalType = 'children___children___internal___type',
+  ChildrenInternalContent = 'children___internal___content',
+  ChildrenInternalContentDigest = 'children___internal___contentDigest',
+  ChildrenInternalDescription = 'children___internal___description',
+  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
+  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
+  ChildrenInternalMediaType = 'children___internal___mediaType',
+  ChildrenInternalOwner = 'children___internal___owner',
+  ChildrenInternalType = 'children___internal___type',
+  InternalContent = 'internal___content',
+  InternalContentDigest = 'internal___contentDigest',
+  InternalDescription = 'internal___description',
+  InternalFieldOwners = 'internal___fieldOwners',
+  InternalIgnoreType = 'internal___ignoreType',
+  InternalMediaType = 'internal___mediaType',
+  InternalOwner = 'internal___owner',
+  InternalType = 'internal___type',
+  Title = 'title',
+  RecordingId = 'recording___id',
+  RecordingParentId = 'recording___parent___id',
+  RecordingParentParentId = 'recording___parent___parent___id',
+  RecordingParentParentChildren = 'recording___parent___parent___children',
+  RecordingParentChildren = 'recording___parent___children',
+  RecordingParentChildrenId = 'recording___parent___children___id',
+  RecordingParentChildrenChildren = 'recording___parent___children___children',
+  RecordingParentInternalContent = 'recording___parent___internal___content',
+  RecordingParentInternalContentDigest = 'recording___parent___internal___contentDigest',
+  RecordingParentInternalDescription = 'recording___parent___internal___description',
+  RecordingParentInternalFieldOwners = 'recording___parent___internal___fieldOwners',
+  RecordingParentInternalIgnoreType = 'recording___parent___internal___ignoreType',
+  RecordingParentInternalMediaType = 'recording___parent___internal___mediaType',
+  RecordingParentInternalOwner = 'recording___parent___internal___owner',
+  RecordingParentInternalType = 'recording___parent___internal___type',
+  RecordingChildren = 'recording___children',
+  RecordingChildrenId = 'recording___children___id',
+  RecordingChildrenParentId = 'recording___children___parent___id',
+  RecordingChildrenParentChildren = 'recording___children___parent___children',
+  RecordingChildrenChildren = 'recording___children___children',
+  RecordingChildrenChildrenId = 'recording___children___children___id',
+  RecordingChildrenChildrenChildren = 'recording___children___children___children',
+  RecordingChildrenInternalContent = 'recording___children___internal___content',
+  RecordingChildrenInternalContentDigest = 'recording___children___internal___contentDigest',
+  RecordingChildrenInternalDescription = 'recording___children___internal___description',
+  RecordingChildrenInternalFieldOwners = 'recording___children___internal___fieldOwners',
+  RecordingChildrenInternalIgnoreType = 'recording___children___internal___ignoreType',
+  RecordingChildrenInternalMediaType = 'recording___children___internal___mediaType',
+  RecordingChildrenInternalOwner = 'recording___children___internal___owner',
+  RecordingChildrenInternalType = 'recording___children___internal___type',
+  RecordingInternalContent = 'recording___internal___content',
+  RecordingInternalContentDigest = 'recording___internal___contentDigest',
+  RecordingInternalDescription = 'recording___internal___description',
+  RecordingInternalFieldOwners = 'recording___internal___fieldOwners',
+  RecordingInternalIgnoreType = 'recording___internal___ignoreType',
+  RecordingInternalMediaType = 'recording___internal___mediaType',
+  RecordingInternalOwner = 'recording___internal___owner',
+  RecordingInternalType = 'recording___internal___type',
+  RecordingContentfulId = 'recording___contentful_id',
+  RecordingFileUrl = 'recording___file___url',
+  RecordingFileDetailsSize = 'recording___file___details___size',
+  RecordingFileFileName = 'recording___file___fileName',
+  RecordingFileContentType = 'recording___file___contentType',
+  RecordingTitle = 'recording___title',
+  RecordingDescription = 'recording___description',
+  RecordingNodeLocale = 'recording___node_locale',
+  RecordingLocalFileSourceInstanceName = 'recording___localFile___sourceInstanceName',
+  RecordingLocalFileAbsolutePath = 'recording___localFile___absolutePath',
+  RecordingLocalFileRelativePath = 'recording___localFile___relativePath',
+  RecordingLocalFileExtension = 'recording___localFile___extension',
+  RecordingLocalFileSize = 'recording___localFile___size',
+  RecordingLocalFilePrettySize = 'recording___localFile___prettySize',
+  RecordingLocalFileModifiedTime = 'recording___localFile___modifiedTime',
+  RecordingLocalFileAccessTime = 'recording___localFile___accessTime',
+  RecordingLocalFileChangeTime = 'recording___localFile___changeTime',
+  RecordingLocalFileBirthTime = 'recording___localFile___birthTime',
+  RecordingLocalFileRoot = 'recording___localFile___root',
+  RecordingLocalFileDir = 'recording___localFile___dir',
+  RecordingLocalFileBase = 'recording___localFile___base',
+  RecordingLocalFileExt = 'recording___localFile___ext',
+  RecordingLocalFileName = 'recording___localFile___name',
+  RecordingLocalFileRelativeDirectory = 'recording___localFile___relativeDirectory',
+  RecordingLocalFileDev = 'recording___localFile___dev',
+  RecordingLocalFileMode = 'recording___localFile___mode',
+  RecordingLocalFileNlink = 'recording___localFile___nlink',
+  RecordingLocalFileUid = 'recording___localFile___uid',
+  RecordingLocalFileGid = 'recording___localFile___gid',
+  RecordingLocalFileRdev = 'recording___localFile___rdev',
+  RecordingLocalFileIno = 'recording___localFile___ino',
+  RecordingLocalFileAtimeMs = 'recording___localFile___atimeMs',
+  RecordingLocalFileMtimeMs = 'recording___localFile___mtimeMs',
+  RecordingLocalFileCtimeMs = 'recording___localFile___ctimeMs',
+  RecordingLocalFileAtime = 'recording___localFile___atime',
+  RecordingLocalFileMtime = 'recording___localFile___mtime',
+  RecordingLocalFileCtime = 'recording___localFile___ctime',
+  RecordingLocalFileBirthtime = 'recording___localFile___birthtime',
+  RecordingLocalFileBirthtimeMs = 'recording___localFile___birthtimeMs',
+  RecordingLocalFileBlksize = 'recording___localFile___blksize',
+  RecordingLocalFileBlocks = 'recording___localFile___blocks',
+  RecordingLocalFileUrl = 'recording___localFile___url',
+  RecordingLocalFilePublicUrl = 'recording___localFile___publicURL',
+  RecordingLocalFileChildImageSharpId = 'recording___localFile___childImageSharp___id',
+  RecordingLocalFileChildImageSharpChildren = 'recording___localFile___childImageSharp___children',
+  RecordingLocalFileId = 'recording___localFile___id',
+  RecordingLocalFileParentId = 'recording___localFile___parent___id',
+  RecordingLocalFileParentChildren = 'recording___localFile___parent___children',
+  RecordingLocalFileChildren = 'recording___localFile___children',
+  RecordingLocalFileChildrenId = 'recording___localFile___children___id',
+  RecordingLocalFileChildrenChildren = 'recording___localFile___children___children',
+  RecordingLocalFileInternalContent = 'recording___localFile___internal___content',
+  RecordingLocalFileInternalContentDigest = 'recording___localFile___internal___contentDigest',
+  RecordingLocalFileInternalDescription = 'recording___localFile___internal___description',
+  RecordingLocalFileInternalFieldOwners = 'recording___localFile___internal___fieldOwners',
+  RecordingLocalFileInternalIgnoreType = 'recording___localFile___internal___ignoreType',
+  RecordingLocalFileInternalMediaType = 'recording___localFile___internal___mediaType',
+  RecordingLocalFileInternalOwner = 'recording___localFile___internal___owner',
+  RecordingLocalFileInternalType = 'recording___localFile___internal___type',
+  RecordingFixedBase64 = 'recording___fixed___base64',
+  RecordingFixedTracedSvg = 'recording___fixed___tracedSVG',
+  RecordingFixedAspectRatio = 'recording___fixed___aspectRatio',
+  RecordingFixedWidth = 'recording___fixed___width',
+  RecordingFixedHeight = 'recording___fixed___height',
+  RecordingFixedSrc = 'recording___fixed___src',
+  RecordingFixedSrcSet = 'recording___fixed___srcSet',
+  RecordingFixedSrcWebp = 'recording___fixed___srcWebp',
+  RecordingFixedSrcSetWebp = 'recording___fixed___srcSetWebp',
+  RecordingResolutionsBase64 = 'recording___resolutions___base64',
+  RecordingResolutionsTracedSvg = 'recording___resolutions___tracedSVG',
+  RecordingResolutionsAspectRatio = 'recording___resolutions___aspectRatio',
+  RecordingResolutionsWidth = 'recording___resolutions___width',
+  RecordingResolutionsHeight = 'recording___resolutions___height',
+  RecordingResolutionsSrc = 'recording___resolutions___src',
+  RecordingResolutionsSrcSet = 'recording___resolutions___srcSet',
+  RecordingResolutionsSrcWebp = 'recording___resolutions___srcWebp',
+  RecordingResolutionsSrcSetWebp = 'recording___resolutions___srcSetWebp',
+  RecordingFluidBase64 = 'recording___fluid___base64',
+  RecordingFluidTracedSvg = 'recording___fluid___tracedSVG',
+  RecordingFluidAspectRatio = 'recording___fluid___aspectRatio',
+  RecordingFluidSrc = 'recording___fluid___src',
+  RecordingFluidSrcSet = 'recording___fluid___srcSet',
+  RecordingFluidSrcWebp = 'recording___fluid___srcWebp',
+  RecordingFluidSrcSetWebp = 'recording___fluid___srcSetWebp',
+  RecordingFluidSizes = 'recording___fluid___sizes',
+  RecordingSizesBase64 = 'recording___sizes___base64',
+  RecordingSizesTracedSvg = 'recording___sizes___tracedSVG',
+  RecordingSizesAspectRatio = 'recording___sizes___aspectRatio',
+  RecordingSizesSrc = 'recording___sizes___src',
+  RecordingSizesSrcSet = 'recording___sizes___srcSet',
+  RecordingSizesSrcWebp = 'recording___sizes___srcWebp',
+  RecordingSizesSrcSetWebp = 'recording___sizes___srcSetWebp',
+  RecordingSizesSizes = 'recording___sizes___sizes',
+  RecordingResizeBase64 = 'recording___resize___base64',
+  RecordingResizeTracedSvg = 'recording___resize___tracedSVG',
+  RecordingResizeSrc = 'recording___resize___src',
+  RecordingResizeWidth = 'recording___resize___width',
+  RecordingResizeHeight = 'recording___resize___height',
+  RecordingResizeAspectRatio = 'recording___resize___aspectRatio',
+  DescriptionId = 'description___id',
+  DescriptionParentId = 'description___parent___id',
+  DescriptionParentParentId = 'description___parent___parent___id',
+  DescriptionParentParentChildren = 'description___parent___parent___children',
+  DescriptionParentChildren = 'description___parent___children',
+  DescriptionParentChildrenId = 'description___parent___children___id',
+  DescriptionParentChildrenChildren = 'description___parent___children___children',
+  DescriptionParentInternalContent = 'description___parent___internal___content',
+  DescriptionParentInternalContentDigest = 'description___parent___internal___contentDigest',
+  DescriptionParentInternalDescription = 'description___parent___internal___description',
+  DescriptionParentInternalFieldOwners = 'description___parent___internal___fieldOwners',
+  DescriptionParentInternalIgnoreType = 'description___parent___internal___ignoreType',
+  DescriptionParentInternalMediaType = 'description___parent___internal___mediaType',
+  DescriptionParentInternalOwner = 'description___parent___internal___owner',
+  DescriptionParentInternalType = 'description___parent___internal___type',
+  DescriptionChildren = 'description___children',
+  DescriptionChildrenId = 'description___children___id',
+  DescriptionChildrenParentId = 'description___children___parent___id',
+  DescriptionChildrenParentChildren = 'description___children___parent___children',
+  DescriptionChildrenChildren = 'description___children___children',
+  DescriptionChildrenChildrenId = 'description___children___children___id',
+  DescriptionChildrenChildrenChildren = 'description___children___children___children',
+  DescriptionChildrenInternalContent = 'description___children___internal___content',
+  DescriptionChildrenInternalContentDigest = 'description___children___internal___contentDigest',
+  DescriptionChildrenInternalDescription = 'description___children___internal___description',
+  DescriptionChildrenInternalFieldOwners = 'description___children___internal___fieldOwners',
+  DescriptionChildrenInternalIgnoreType = 'description___children___internal___ignoreType',
+  DescriptionChildrenInternalMediaType = 'description___children___internal___mediaType',
+  DescriptionChildrenInternalOwner = 'description___children___internal___owner',
+  DescriptionChildrenInternalType = 'description___children___internal___type',
+  DescriptionInternalContent = 'description___internal___content',
+  DescriptionInternalContentDigest = 'description___internal___contentDigest',
+  DescriptionInternalDescription = 'description___internal___description',
+  DescriptionInternalFieldOwners = 'description___internal___fieldOwners',
+  DescriptionInternalIgnoreType = 'description___internal___ignoreType',
+  DescriptionInternalMediaType = 'description___internal___mediaType',
+  DescriptionInternalOwner = 'description___internal___owner',
+  DescriptionInternalType = 'description___internal___type',
+  DescriptionContent = 'description___content',
+  DescriptionContentContent = 'description___content___content',
+  DescriptionContentContentValue = 'description___content___content___value',
+  DescriptionContentContentNodeType = 'description___content___content___nodeType',
+  DescriptionContentNodeType = 'description___content___nodeType',
+  DescriptionNodeType = 'description___nodeType',
+  DescriptionDescription = 'description___description',
+  DescriptionJson = 'description___json',
+  SpaceId = 'spaceId',
+  ContentfulId = 'contentful_id',
+  CreatedAt = 'createdAt',
+  UpdatedAt = 'updatedAt',
+  SysRevision = 'sys___revision',
+  SysContentTypeSysType = 'sys___contentType___sys___type',
+  SysContentTypeSysLinkType = 'sys___contentType___sys___linkType',
+  SysContentTypeSysId = 'sys___contentType___sys___id',
+  SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
+  NodeLocale = 'node_locale',
+  ChildContentfulCompositionDescriptionRichTextNodeId = 'childContentfulCompositionDescriptionRichTextNode___id',
+  ChildContentfulCompositionDescriptionRichTextNodeParentId = 'childContentfulCompositionDescriptionRichTextNode___parent___id',
+  ChildContentfulCompositionDescriptionRichTextNodeParentParentId = 'childContentfulCompositionDescriptionRichTextNode___parent___parent___id',
+  ChildContentfulCompositionDescriptionRichTextNodeParentParentChildren = 'childContentfulCompositionDescriptionRichTextNode___parent___parent___children',
+  ChildContentfulCompositionDescriptionRichTextNodeParentChildren = 'childContentfulCompositionDescriptionRichTextNode___parent___children',
+  ChildContentfulCompositionDescriptionRichTextNodeParentChildrenId = 'childContentfulCompositionDescriptionRichTextNode___parent___children___id',
+  ChildContentfulCompositionDescriptionRichTextNodeParentChildrenChildren = 'childContentfulCompositionDescriptionRichTextNode___parent___children___children',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalContent = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___content',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalContentDigest = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___contentDigest',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalDescription = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___description',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalFieldOwners = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___fieldOwners',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalIgnoreType = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___ignoreType',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalMediaType = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___mediaType',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalOwner = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___owner',
+  ChildContentfulCompositionDescriptionRichTextNodeParentInternalType = 'childContentfulCompositionDescriptionRichTextNode___parent___internal___type',
+  ChildContentfulCompositionDescriptionRichTextNodeChildren = 'childContentfulCompositionDescriptionRichTextNode___children',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenId = 'childContentfulCompositionDescriptionRichTextNode___children___id',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenParentId = 'childContentfulCompositionDescriptionRichTextNode___children___parent___id',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenParentChildren = 'childContentfulCompositionDescriptionRichTextNode___children___parent___children',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenChildren = 'childContentfulCompositionDescriptionRichTextNode___children___children',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenChildrenId = 'childContentfulCompositionDescriptionRichTextNode___children___children___id',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenChildrenChildren = 'childContentfulCompositionDescriptionRichTextNode___children___children___children',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalContent = 'childContentfulCompositionDescriptionRichTextNode___children___internal___content',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalContentDigest = 'childContentfulCompositionDescriptionRichTextNode___children___internal___contentDigest',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalDescription = 'childContentfulCompositionDescriptionRichTextNode___children___internal___description',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalFieldOwners = 'childContentfulCompositionDescriptionRichTextNode___children___internal___fieldOwners',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalIgnoreType = 'childContentfulCompositionDescriptionRichTextNode___children___internal___ignoreType',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalMediaType = 'childContentfulCompositionDescriptionRichTextNode___children___internal___mediaType',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalOwner = 'childContentfulCompositionDescriptionRichTextNode___children___internal___owner',
+  ChildContentfulCompositionDescriptionRichTextNodeChildrenInternalType = 'childContentfulCompositionDescriptionRichTextNode___children___internal___type',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalContent = 'childContentfulCompositionDescriptionRichTextNode___internal___content',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalContentDigest = 'childContentfulCompositionDescriptionRichTextNode___internal___contentDigest',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalDescription = 'childContentfulCompositionDescriptionRichTextNode___internal___description',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalFieldOwners = 'childContentfulCompositionDescriptionRichTextNode___internal___fieldOwners',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalIgnoreType = 'childContentfulCompositionDescriptionRichTextNode___internal___ignoreType',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalMediaType = 'childContentfulCompositionDescriptionRichTextNode___internal___mediaType',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalOwner = 'childContentfulCompositionDescriptionRichTextNode___internal___owner',
+  ChildContentfulCompositionDescriptionRichTextNodeInternalType = 'childContentfulCompositionDescriptionRichTextNode___internal___type',
+  ChildContentfulCompositionDescriptionRichTextNodeContent = 'childContentfulCompositionDescriptionRichTextNode___content',
+  ChildContentfulCompositionDescriptionRichTextNodeContentContent = 'childContentfulCompositionDescriptionRichTextNode___content___content',
+  ChildContentfulCompositionDescriptionRichTextNodeContentContentValue = 'childContentfulCompositionDescriptionRichTextNode___content___content___value',
+  ChildContentfulCompositionDescriptionRichTextNodeContentContentNodeType = 'childContentfulCompositionDescriptionRichTextNode___content___content___nodeType',
+  ChildContentfulCompositionDescriptionRichTextNodeContentNodeType = 'childContentfulCompositionDescriptionRichTextNode___content___nodeType',
+  ChildContentfulCompositionDescriptionRichTextNodeNodeType = 'childContentfulCompositionDescriptionRichTextNode___nodeType',
+  ChildContentfulCompositionDescriptionRichTextNodeDescription = 'childContentfulCompositionDescriptionRichTextNode___description',
+  ChildContentfulCompositionDescriptionRichTextNodeJson = 'childContentfulCompositionDescriptionRichTextNode___json'
+}
+
+export type ContentfulCompositionFilterInput = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  title: Maybe<StringQueryOperatorInput>,
+  recording: Maybe<ContentfulAssetFilterInput>,
+  description: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+  spaceId: Maybe<StringQueryOperatorInput>,
+  contentful_id: Maybe<StringQueryOperatorInput>,
+  createdAt: Maybe<DateQueryOperatorInput>,
+  updatedAt: Maybe<DateQueryOperatorInput>,
+  sys: Maybe<ContentfulCompositionSysFilterInput>,
+  node_locale: Maybe<StringQueryOperatorInput>,
+  childContentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+};
+
+export type ContentfulCompositionGroupConnection = {
+   __typename?: 'ContentfulCompositionGroupConnection',
+  totalCount: Scalars['Int'],
+  edges: Array<ContentfulCompositionEdge>,
+  nodes: Array<ContentfulComposition>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue: Maybe<Scalars['String']>,
+};
+
+export type ContentfulCompositionSortInput = {
+  fields: Maybe<Array<Maybe<ContentfulCompositionFieldsEnum>>>,
+  order: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
+export type ContentfulCompositionSys = {
+   __typename?: 'ContentfulCompositionSys',
+  revision: Maybe<Scalars['Int']>,
+  contentType: Maybe<ContentfulCompositionSysContentType>,
+};
+
+export type ContentfulCompositionSysContentType = {
+   __typename?: 'ContentfulCompositionSysContentType',
+  sys: Maybe<ContentfulCompositionSysContentTypeSys>,
+};
+
+export type ContentfulCompositionSysContentTypeFilterInput = {
+  sys: Maybe<ContentfulCompositionSysContentTypeSysFilterInput>,
+};
+
+export type ContentfulCompositionSysContentTypeSys = {
+   __typename?: 'ContentfulCompositionSysContentTypeSys',
+  type: Maybe<Scalars['String']>,
+  linkType: Maybe<Scalars['String']>,
+  id: Maybe<Scalars['String']>,
+  contentful_id: Maybe<Scalars['String']>,
+};
+
+export type ContentfulCompositionSysContentTypeSysFilterInput = {
+  type: Maybe<StringQueryOperatorInput>,
+  linkType: Maybe<StringQueryOperatorInput>,
+  id: Maybe<StringQueryOperatorInput>,
+  contentful_id: Maybe<StringQueryOperatorInput>,
+};
+
+export type ContentfulCompositionSysFilterInput = {
+  revision: Maybe<IntQueryOperatorInput>,
+  contentType: Maybe<ContentfulCompositionSysContentTypeFilterInput>,
+};
+
 export type ContentfulContentType = Node & {
    __typename?: 'ContentfulContentType',
   id: Scalars['ID'],
@@ -3353,8 +4006,12 @@ export type Query = {
   allSitePage: SitePageConnection,
   imageSharp: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
+  contentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+  allContentfulCompositionDescriptionRichTextNode: ContentfulCompositionDescriptionRichTextNodeConnection,
   githubData: Maybe<GithubData>,
   allGithubData: GithubDataConnection,
+  contentfulComposition: Maybe<ContentfulComposition>,
+  allContentfulComposition: ContentfulCompositionConnection,
   contentfulAsset: Maybe<ContentfulAsset>,
   allContentfulAsset: ContentfulAssetConnection,
   contentfulSchool: Maybe<ContentfulSchool>,
@@ -3521,6 +4178,26 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryContentfulCompositionDescriptionRichTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  content: Maybe<ContentfulCompositionDescriptionRichTextNodeContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  json: Maybe<JsonQueryOperatorInput>
+};
+
+
+export type QueryAllContentfulCompositionDescriptionRichTextNodeArgs = {
+  filter: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+  sort: Maybe<ContentfulCompositionDescriptionRichTextNodeSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
 export type QueryGithubDataArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -3533,6 +4210,32 @@ export type QueryGithubDataArgs = {
 export type QueryAllGithubDataArgs = {
   filter: Maybe<GithubDataFilterInput>,
   sort: Maybe<GithubDataSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryContentfulCompositionArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  title: Maybe<StringQueryOperatorInput>,
+  recording: Maybe<ContentfulAssetFilterInput>,
+  description: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+  spaceId: Maybe<StringQueryOperatorInput>,
+  contentful_id: Maybe<StringQueryOperatorInput>,
+  createdAt: Maybe<DateQueryOperatorInput>,
+  updatedAt: Maybe<DateQueryOperatorInput>,
+  sys: Maybe<ContentfulCompositionSysFilterInput>,
+  node_locale: Maybe<StringQueryOperatorInput>,
+  childContentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>
+};
+
+
+export type QueryAllContentfulCompositionArgs = {
+  filter: Maybe<ContentfulCompositionFilterInput>,
+  sort: Maybe<ContentfulCompositionSortInput>,
   skip: Maybe<Scalars['Int']>,
   limit: Maybe<Scalars['Int']>
 };
@@ -3931,11 +4634,37 @@ export type SitePageConnectionGroupArgs = {
 
 export type SitePageContext = {
    __typename?: 'SitePageContext',
-  name: Maybe<Scalars['String']>,
+  repo: Maybe<SitePageContextRepo>,
 };
 
 export type SitePageContextFilterInput = {
+  repo: Maybe<SitePageContextRepoFilterInput>,
+};
+
+export type SitePageContextRepo = {
+   __typename?: 'SitePageContextRepo',
+  name: Maybe<Scalars['String']>,
+  description: Maybe<Scalars['String']>,
+  homepageUrl: Maybe<Scalars['String']>,
+  url: Maybe<Scalars['String']>,
+  object: Maybe<SitePageContextRepoObject>,
+};
+
+export type SitePageContextRepoFilterInput = {
   name: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  homepageUrl: Maybe<StringQueryOperatorInput>,
+  url: Maybe<StringQueryOperatorInput>,
+  object: Maybe<SitePageContextRepoObjectFilterInput>,
+};
+
+export type SitePageContextRepoObject = {
+   __typename?: 'SitePageContextRepoObject',
+  text: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextRepoObjectFilterInput = {
+  text: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageEdge = {
@@ -4038,7 +4767,11 @@ export enum SitePageFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   IsCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  ContextName = 'context___name',
+  ContextRepoName = 'context___repo___name',
+  ContextRepoDescription = 'context___repo___description',
+  ContextRepoHomepageUrl = 'context___repo___homepageUrl',
+  ContextRepoUrl = 'context___repo___url',
+  ContextRepoObjectText = 'context___repo___object___text',
   PluginCreatorId = 'pluginCreator___id',
   PluginCreatorParentId = 'pluginCreator___parent___id',
   PluginCreatorParentParentId = 'pluginCreator___parent___parent___id',

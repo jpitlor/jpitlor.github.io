@@ -24,8 +24,7 @@ const Project = ({
     return (
         <Layout title={name}>
             <div
-                className="content container"
-                style={{maxWidth: "40rem"}}
+                className="content container is-tight-desktop"
                 dangerouslySetInnerHTML={{__html}}
             />
         </Layout>

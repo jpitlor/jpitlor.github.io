@@ -1,28 +1,18 @@
 import {graphql, useStaticQuery} from "gatsby";
+import {ContentfulComposition, ContentfulJob, ContentfulSchool, GithubDataDataUserPinnedItemsNodes} from "./schema";
 
 export enum DataType {
     JOBS,
     SCHOOLS,
-    PROJECTS
+    PROJECTS,
+    COMPOSITIONS
 }
 
-export default function useQuery<T>(dataType: DataType): T[] {
+export function useJobs(): ContentfulJob[] {
     const {
         allContentfulJob: {nodes: jobs},
-        allContentfulSchool: {nodes: schools},
-        allGithubData: {
-            nodes: [{
-                data: {
-                    user: {
-                        pinnedItems: {
-                            nodes: repositories,
-                        },
-                    },
-                },
-            }],
-        },
     } = useStaticQuery(graphql`
-        query ExperienceQuery {
+        query {
             allContentfulJob {
                 nodes {
                     isHourly
@@ -41,7 +31,17 @@ export default function useQuery<T>(dataType: DataType): T[] {
                     }
                 }
             }
+        }
+    `);
 
+    return jobs;
+}
+
+export function useSchools(): ContentfulSchool[] {
+    const {
+        allContentfulSchool: {nodes: schools},
+    } = useStaticQuery(graphql`
+        query {
             allContentfulSchool {
                 nodes {
                     endDate
@@ -65,7 +65,27 @@ export default function useQuery<T>(dataType: DataType): T[] {
                     }
                 }
             }
+        }
+    `);
 
+    return schools;
+}
+
+export function useProjects(): GithubDataDataUserPinnedItemsNodes[] {
+    const {
+        allGithubData: {
+            nodes: [{
+                data: {
+                    user: {
+                        pinnedItems: {
+                            nodes: repositories,
+                        },
+                    },
+                },
+            }],
+        },
+    } = useStaticQuery(graphql`
+        query {
             allGithubData {
                 nodes {
                     data {
@@ -88,12 +108,27 @@ export default function useQuery<T>(dataType: DataType): T[] {
         }
     `);
 
-    switch (dataType) {
-        case DataType.JOBS:
-            return jobs;
-        case DataType.SCHOOLS:
-            return schools;
-        case DataType.PROJECTS:
-            return repositories;
-    }
+    return repositories;
+}
+
+export function useCompositions(): ContentfulComposition[] {
+    const {
+        allContentfulComposition: {nodes: compositions},
+    } = useStaticQuery(graphql`
+        query ExperienceQuery {
+            allContentfulComposition {
+                nodes {
+                    title
+                    description
+                    recording {
+                        file {
+                            url
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    return compositions;
 }
