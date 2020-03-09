@@ -1,6 +1,6 @@
 import * as React from "react";
 import {ContentfulJob} from "../utils/schema";
-import useDescription from "../utils/useDescription";
+import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 interface JobDetailsProps {
     job: ContentfulJob | null;
@@ -13,7 +13,7 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
             <React.Fragment>
                 <p className="title is-2">{job?.company}</p>
                 <p className="subtitle is-4">{job?.title}</p>
-                {useDescription(job?.description.json)}
+                {documentToReactComponents(job?.description.json)}
 
                 <iframe
                     height="450"

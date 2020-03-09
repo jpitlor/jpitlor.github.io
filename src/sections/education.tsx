@@ -1,5 +1,5 @@
 import * as React from "react";
-import {useSchools} from "../utils/useData";
+import useSchools from "../utils/useSchools";
 import Section from "../components/section";
 import School from "../components/school";
 

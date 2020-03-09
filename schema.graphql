@@ -1,5 +1,5 @@
 # source: http://localhost:8000/__graphql
-# timestamp: Sun Mar 08 2020 21:57:59 GMT-0400 (Eastern Daylight Time)
+# timestamp: Sun Mar 08 2020 23:09:12 GMT-0400 (Eastern Daylight Time)
 
 """Provides default value for input field."""
 directive @default(value: JSON!) on INPUT_FIELD_DEFINITION
@@ -451,7 +451,7 @@ type ContentfulComposition implements Node {
   children: [Node!]!
   internal: Internal!
   title: String
-  recording: ContentfulAsset
+  recording: String
   description: contentfulCompositionDescriptionRichTextNode
   spaceId: String
   contentful_id: String
@@ -781,143 +781,7 @@ enum ContentfulCompositionFieldsEnum {
   internal___owner
   internal___type
   title
-  recording___id
-  recording___parent___id
-  recording___parent___parent___id
-  recording___parent___parent___children
-  recording___parent___children
-  recording___parent___children___id
-  recording___parent___children___children
-  recording___parent___internal___content
-  recording___parent___internal___contentDigest
-  recording___parent___internal___description
-  recording___parent___internal___fieldOwners
-  recording___parent___internal___ignoreType
-  recording___parent___internal___mediaType
-  recording___parent___internal___owner
-  recording___parent___internal___type
-  recording___children
-  recording___children___id
-  recording___children___parent___id
-  recording___children___parent___children
-  recording___children___children
-  recording___children___children___id
-  recording___children___children___children
-  recording___children___internal___content
-  recording___children___internal___contentDigest
-  recording___children___internal___description
-  recording___children___internal___fieldOwners
-  recording___children___internal___ignoreType
-  recording___children___internal___mediaType
-  recording___children___internal___owner
-  recording___children___internal___type
-  recording___internal___content
-  recording___internal___contentDigest
-  recording___internal___description
-  recording___internal___fieldOwners
-  recording___internal___ignoreType
-  recording___internal___mediaType
-  recording___internal___owner
-  recording___internal___type
-  recording___contentful_id
-  recording___file___url
-  recording___file___details___size
-  recording___file___fileName
-  recording___file___contentType
-  recording___title
-  recording___description
-  recording___node_locale
-  recording___localFile___sourceInstanceName
-  recording___localFile___absolutePath
-  recording___localFile___relativePath
-  recording___localFile___extension
-  recording___localFile___size
-  recording___localFile___prettySize
-  recording___localFile___modifiedTime
-  recording___localFile___accessTime
-  recording___localFile___changeTime
-  recording___localFile___birthTime
-  recording___localFile___root
-  recording___localFile___dir
-  recording___localFile___base
-  recording___localFile___ext
-  recording___localFile___name
-  recording___localFile___relativeDirectory
-  recording___localFile___dev
-  recording___localFile___mode
-  recording___localFile___nlink
-  recording___localFile___uid
-  recording___localFile___gid
-  recording___localFile___rdev
-  recording___localFile___ino
-  recording___localFile___atimeMs
-  recording___localFile___mtimeMs
-  recording___localFile___ctimeMs
-  recording___localFile___atime
-  recording___localFile___mtime
-  recording___localFile___ctime
-  recording___localFile___birthtime
-  recording___localFile___birthtimeMs
-  recording___localFile___blksize
-  recording___localFile___blocks
-  recording___localFile___url
-  recording___localFile___publicURL
-  recording___localFile___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___localFile___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___localFile___id
-  recording___localFile___parent___id
-  recording___localFile___parent___children
-  recording___localFile___children
-  recording___localFile___children___id
-  recording___localFile___children___children
-  recording___localFile___internal___content
-  recording___localFile___internal___contentDigest
-  recording___localFile___internal___description
-  recording___localFile___internal___fieldOwners
-  recording___localFile___internal___ignoreType
-  recording___localFile___internal___mediaType
-  recording___localFile___internal___owner
-  recording___localFile___internal___type
-  recording___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resolutions___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___sizes___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  recording___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  recording
   description___id
   description___parent___id
   description___parent___parent___id
@@ -1028,7 +892,7 @@ input ContentfulCompositionFilterInput {
   children: NodeFilterListInput
   internal: InternalFilterInput
   title: StringQueryOperatorInput
-  recording: ContentfulAssetFilterInput
+  recording: StringQueryOperatorInput
   description: contentfulCompositionDescriptionRichTextNodeFilterInput
   spaceId: StringQueryOperatorInput
   contentful_id: StringQueryOperatorInput
@@ -4033,14 +3897,12 @@ type Query {
   allSitePage(filter: SitePageFilterInput, sort: SitePageSortInput, skip: Int, limit: Int): SitePageConnection!
   imageSharp(fixed: ImageSharpFixedFilterInput, resolutions: ImageSharpResolutionsFilterInput, fluid: ImageSharpFluidFilterInput, sizes: ImageSharpSizesFilterInput, original: ImageSharpOriginalFilterInput, resize: ImageSharpResizeFilterInput, id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput): ImageSharp
   allImageSharp(filter: ImageSharpFilterInput, sort: ImageSharpSortInput, skip: Int, limit: Int): ImageSharpConnection!
-  contentfulCompositionDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulCompositionDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulCompositionDescriptionRichTextNode
-  allContentfulCompositionDescriptionRichTextNode(filter: contentfulCompositionDescriptionRichTextNodeFilterInput, sort: contentfulCompositionDescriptionRichTextNodeSortInput, skip: Int, limit: Int): contentfulCompositionDescriptionRichTextNodeConnection!
-  githubData(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, data: GithubDataDataFilterInput): GithubData
-  allGithubData(filter: GithubDataFilterInput, sort: GithubDataSortInput, skip: Int, limit: Int): GithubDataConnection!
-  contentfulComposition(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, title: StringQueryOperatorInput, recording: ContentfulAssetFilterInput, description: contentfulCompositionDescriptionRichTextNodeFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulCompositionSysFilterInput, node_locale: StringQueryOperatorInput, childContentfulCompositionDescriptionRichTextNode: contentfulCompositionDescriptionRichTextNodeFilterInput): ContentfulComposition
-  allContentfulComposition(filter: ContentfulCompositionFilterInput, sort: ContentfulCompositionSortInput, skip: Int, limit: Int): ContentfulCompositionConnection!
   contentfulAsset(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, contentful_id: StringQueryOperatorInput, file: ContentfulAssetFileFilterInput, title: StringQueryOperatorInput, description: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, localFile: FileFilterInput, fixed: ContentfulFixedFilterInput, resolutions: ContentfulResolutionsFilterInput, fluid: ContentfulFluidFilterInput, sizes: ContentfulSizesFilterInput, resize: ContentfulResizeFilterInput): ContentfulAsset
   allContentfulAsset(filter: ContentfulAssetFilterInput, sort: ContentfulAssetSortInput, skip: Int, limit: Int): ContentfulAssetConnection!
+  contentfulCompositionDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulCompositionDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulCompositionDescriptionRichTextNode
+  allContentfulCompositionDescriptionRichTextNode(filter: contentfulCompositionDescriptionRichTextNodeFilterInput, sort: contentfulCompositionDescriptionRichTextNodeSortInput, skip: Int, limit: Int): contentfulCompositionDescriptionRichTextNodeConnection!
+  contentfulComposition(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, title: StringQueryOperatorInput, recording: StringQueryOperatorInput, description: contentfulCompositionDescriptionRichTextNodeFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulCompositionSysFilterInput, node_locale: StringQueryOperatorInput, childContentfulCompositionDescriptionRichTextNode: contentfulCompositionDescriptionRichTextNodeFilterInput): ContentfulComposition
+  allContentfulComposition(filter: ContentfulCompositionFilterInput, sort: ContentfulCompositionSortInput, skip: Int, limit: Int): ContentfulCompositionConnection!
   contentfulSchool(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, location: ContentfulSchoolLocationFilterInput, startDate: DateQueryOperatorInput, endDate: DateQueryOperatorInput, major: StringQueryOperatorInput, minor: StringQueryOperatorInput, concentration: StringQueryOperatorInput, gpa: IntQueryOperatorInput, inProgress: BooleanQueryOperatorInput, city: StringQueryOperatorInput, state: StringQueryOperatorInput, logo: ContentfulAssetFilterInput, spaceId: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, updatedAt: DateQueryOperatorInput, sys: ContentfulSchoolSysFilterInput, node_locale: StringQueryOperatorInput): ContentfulSchool
   allContentfulSchool(filter: ContentfulSchoolFilterInput, sort: ContentfulSchoolSortInput, skip: Int, limit: Int): ContentfulSchoolConnection!
   contentfulJobDescriptionRichTextNode(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, content: contentfulJobDescriptionRichTextNodeContentFilterListInput, nodeType: StringQueryOperatorInput, description: StringQueryOperatorInput, json: JSONQueryOperatorInput): contentfulJobDescriptionRichTextNode
@@ -4049,6 +3911,8 @@ type Query {
   allContentfulJob(filter: ContentfulJobFilterInput, sort: ContentfulJobSortInput, skip: Int, limit: Int): ContentfulJobConnection!
   contentfulContentType(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, name: StringQueryOperatorInput, displayField: StringQueryOperatorInput, description: StringQueryOperatorInput): ContentfulContentType
   allContentfulContentType(filter: ContentfulContentTypeFilterInput, sort: ContentfulContentTypeSortInput, skip: Int, limit: Int): ContentfulContentTypeConnection!
+  githubData(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, data: GithubDataDataFilterInput): GithubData
+  allGithubData(filter: GithubDataFilterInput, sort: GithubDataSortInput, skip: Int, limit: Int): GithubDataConnection!
   site(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, siteMetadata: SiteSiteMetadataFilterInput, port: IntQueryOperatorInput, host: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, pathPrefix: StringQueryOperatorInput, buildTime: DateQueryOperatorInput): Site
   allSite(filter: SiteFilterInput, sort: SiteSortInput, skip: Int, limit: Int): SiteConnection!
   sitePlugin(id: StringQueryOperatorInput, parent: NodeFilterInput, children: NodeFilterListInput, internal: InternalFilterInput, resolve: StringQueryOperatorInput, name: StringQueryOperatorInput, version: StringQueryOperatorInput, pluginOptions: SitePluginPluginOptionsFilterInput, nodeAPIs: StringQueryOperatorInput, browserAPIs: StringQueryOperatorInput, ssrAPIs: StringQueryOperatorInput, pluginFilepath: StringQueryOperatorInput, packageJson: SitePluginPackageJsonFilterInput): SitePlugin

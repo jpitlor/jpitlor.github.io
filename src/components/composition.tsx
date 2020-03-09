@@ -1,14 +1,27 @@
 import * as React from "react";
+import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
+import SoundCloud from "./soundcloud";
+import {ContentfulComposition} from "../utils/schema";
 
 interface CompositionProps {
-    composition: object;
+    composition: ContentfulComposition;
 }
 
 const Composition = ({composition}: CompositionProps) => {
-    console.log(composition);
-
     return (
-        <span />
+        <div className="box">
+            <div className="columns is-wrapped">
+                <div className="column">
+                    <h3 className="title is-4">{composition.title}</h3>
+                    <div className="content">
+                        {documentToReactComponents(composition.description.json)}
+                    </div>
+                </div>
+                <div className="column">
+                    <SoundCloud song={composition.recording} />
+                </div>
+            </div>
+        </div>
     );
 };
 

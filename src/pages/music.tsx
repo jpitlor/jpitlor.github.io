@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import Layout from "../components/layout";
-import Composition from "../sections/composition";
+import Compositions from "../sections/compositions";
 import Performance from "../sections/performance";
 
 const Music = () => (
@@ -13,7 +13,7 @@ const Music = () => (
         </section>
         <section className="hero">
             <div className="hero-body">
-                <Composition />
+                <Compositions />
             </div>
         </section>
     </Layout>

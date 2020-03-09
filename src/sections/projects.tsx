@@ -1,6 +1,6 @@
 import * as React from "react";
 import Project from "../components/project";
-import {useProjects} from "../utils/useData";
+import useProjects from "../utils/useProjects";
 import Section from "../components/section";
 
 export default function Projects() {

@@ -2,7 +2,7 @@ import * as React from "react";
 import {useEffect, useMemo, useState} from "react";
 import JobDetails from "../components/job-details";
 import _ from "lodash";
-import {useJobs} from "../utils/useData";
+import useJobs from "../utils/useJobs";
 import Section from "../components/section";
 
 type GroupedJobs = [number, any[]][];

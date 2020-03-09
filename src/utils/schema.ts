@@ -479,7 +479,7 @@ export type ContentfulComposition = Node & {
   children: Array<Node>,
   internal: Internal,
   title: Maybe<Scalars['String']>,
-  recording: Maybe<ContentfulAsset>,
+  recording: Maybe<Scalars['String']>,
   description: Maybe<ContentfulCompositionDescriptionRichTextNode>,
   spaceId: Maybe<Scalars['String']>,
   contentful_id: Maybe<Scalars['String']>,
@@ -817,143 +817,7 @@ export enum ContentfulCompositionFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   Title = 'title',
-  RecordingId = 'recording___id',
-  RecordingParentId = 'recording___parent___id',
-  RecordingParentParentId = 'recording___parent___parent___id',
-  RecordingParentParentChildren = 'recording___parent___parent___children',
-  RecordingParentChildren = 'recording___parent___children',
-  RecordingParentChildrenId = 'recording___parent___children___id',
-  RecordingParentChildrenChildren = 'recording___parent___children___children',
-  RecordingParentInternalContent = 'recording___parent___internal___content',
-  RecordingParentInternalContentDigest = 'recording___parent___internal___contentDigest',
-  RecordingParentInternalDescription = 'recording___parent___internal___description',
-  RecordingParentInternalFieldOwners = 'recording___parent___internal___fieldOwners',
-  RecordingParentInternalIgnoreType = 'recording___parent___internal___ignoreType',
-  RecordingParentInternalMediaType = 'recording___parent___internal___mediaType',
-  RecordingParentInternalOwner = 'recording___parent___internal___owner',
-  RecordingParentInternalType = 'recording___parent___internal___type',
-  RecordingChildren = 'recording___children',
-  RecordingChildrenId = 'recording___children___id',
-  RecordingChildrenParentId = 'recording___children___parent___id',
-  RecordingChildrenParentChildren = 'recording___children___parent___children',
-  RecordingChildrenChildren = 'recording___children___children',
-  RecordingChildrenChildrenId = 'recording___children___children___id',
-  RecordingChildrenChildrenChildren = 'recording___children___children___children',
-  RecordingChildrenInternalContent = 'recording___children___internal___content',
-  RecordingChildrenInternalContentDigest = 'recording___children___internal___contentDigest',
-  RecordingChildrenInternalDescription = 'recording___children___internal___description',
-  RecordingChildrenInternalFieldOwners = 'recording___children___internal___fieldOwners',
-  RecordingChildrenInternalIgnoreType = 'recording___children___internal___ignoreType',
-  RecordingChildrenInternalMediaType = 'recording___children___internal___mediaType',
-  RecordingChildrenInternalOwner = 'recording___children___internal___owner',
-  RecordingChildrenInternalType = 'recording___children___internal___type',
-  RecordingInternalContent = 'recording___internal___content',
-  RecordingInternalContentDigest = 'recording___internal___contentDigest',
-  RecordingInternalDescription = 'recording___internal___description',
-  RecordingInternalFieldOwners = 'recording___internal___fieldOwners',
-  RecordingInternalIgnoreType = 'recording___internal___ignoreType',
-  RecordingInternalMediaType = 'recording___internal___mediaType',
-  RecordingInternalOwner = 'recording___internal___owner',
-  RecordingInternalType = 'recording___internal___type',
-  RecordingContentfulId = 'recording___contentful_id',
-  RecordingFileUrl = 'recording___file___url',
-  RecordingFileDetailsSize = 'recording___file___details___size',
-  RecordingFileFileName = 'recording___file___fileName',
-  RecordingFileContentType = 'recording___file___contentType',
-  RecordingTitle = 'recording___title',
-  RecordingDescription = 'recording___description',
-  RecordingNodeLocale = 'recording___node_locale',
-  RecordingLocalFileSourceInstanceName = 'recording___localFile___sourceInstanceName',
-  RecordingLocalFileAbsolutePath = 'recording___localFile___absolutePath',
-  RecordingLocalFileRelativePath = 'recording___localFile___relativePath',
-  RecordingLocalFileExtension = 'recording___localFile___extension',
-  RecordingLocalFileSize = 'recording___localFile___size',
-  RecordingLocalFilePrettySize = 'recording___localFile___prettySize',
-  RecordingLocalFileModifiedTime = 'recording___localFile___modifiedTime',
-  RecordingLocalFileAccessTime = 'recording___localFile___accessTime',
-  RecordingLocalFileChangeTime = 'recording___localFile___changeTime',
-  RecordingLocalFileBirthTime = 'recording___localFile___birthTime',
-  RecordingLocalFileRoot = 'recording___localFile___root',
-  RecordingLocalFileDir = 'recording___localFile___dir',
-  RecordingLocalFileBase = 'recording___localFile___base',
-  RecordingLocalFileExt = 'recording___localFile___ext',
-  RecordingLocalFileName = 'recording___localFile___name',
-  RecordingLocalFileRelativeDirectory = 'recording___localFile___relativeDirectory',
-  RecordingLocalFileDev = 'recording___localFile___dev',
-  RecordingLocalFileMode = 'recording___localFile___mode',
-  RecordingLocalFileNlink = 'recording___localFile___nlink',
-  RecordingLocalFileUid = 'recording___localFile___uid',
-  RecordingLocalFileGid = 'recording___localFile___gid',
-  RecordingLocalFileRdev = 'recording___localFile___rdev',
-  RecordingLocalFileIno = 'recording___localFile___ino',
-  RecordingLocalFileAtimeMs = 'recording___localFile___atimeMs',
-  RecordingLocalFileMtimeMs = 'recording___localFile___mtimeMs',
-  RecordingLocalFileCtimeMs = 'recording___localFile___ctimeMs',
-  RecordingLocalFileAtime = 'recording___localFile___atime',
-  RecordingLocalFileMtime = 'recording___localFile___mtime',
-  RecordingLocalFileCtime = 'recording___localFile___ctime',
-  RecordingLocalFileBirthtime = 'recording___localFile___birthtime',
-  RecordingLocalFileBirthtimeMs = 'recording___localFile___birthtimeMs',
-  RecordingLocalFileBlksize = 'recording___localFile___blksize',
-  RecordingLocalFileBlocks = 'recording___localFile___blocks',
-  RecordingLocalFileUrl = 'recording___localFile___url',
-  RecordingLocalFilePublicUrl = 'recording___localFile___publicURL',
-  RecordingLocalFileChildImageSharpId = 'recording___localFile___childImageSharp___id',
-  RecordingLocalFileChildImageSharpChildren = 'recording___localFile___childImageSharp___children',
-  RecordingLocalFileId = 'recording___localFile___id',
-  RecordingLocalFileParentId = 'recording___localFile___parent___id',
-  RecordingLocalFileParentChildren = 'recording___localFile___parent___children',
-  RecordingLocalFileChildren = 'recording___localFile___children',
-  RecordingLocalFileChildrenId = 'recording___localFile___children___id',
-  RecordingLocalFileChildrenChildren = 'recording___localFile___children___children',
-  RecordingLocalFileInternalContent = 'recording___localFile___internal___content',
-  RecordingLocalFileInternalContentDigest = 'recording___localFile___internal___contentDigest',
-  RecordingLocalFileInternalDescription = 'recording___localFile___internal___description',
-  RecordingLocalFileInternalFieldOwners = 'recording___localFile___internal___fieldOwners',
-  RecordingLocalFileInternalIgnoreType = 'recording___localFile___internal___ignoreType',
-  RecordingLocalFileInternalMediaType = 'recording___localFile___internal___mediaType',
-  RecordingLocalFileInternalOwner = 'recording___localFile___internal___owner',
-  RecordingLocalFileInternalType = 'recording___localFile___internal___type',
-  RecordingFixedBase64 = 'recording___fixed___base64',
-  RecordingFixedTracedSvg = 'recording___fixed___tracedSVG',
-  RecordingFixedAspectRatio = 'recording___fixed___aspectRatio',
-  RecordingFixedWidth = 'recording___fixed___width',
-  RecordingFixedHeight = 'recording___fixed___height',
-  RecordingFixedSrc = 'recording___fixed___src',
-  RecordingFixedSrcSet = 'recording___fixed___srcSet',
-  RecordingFixedSrcWebp = 'recording___fixed___srcWebp',
-  RecordingFixedSrcSetWebp = 'recording___fixed___srcSetWebp',
-  RecordingResolutionsBase64 = 'recording___resolutions___base64',
-  RecordingResolutionsTracedSvg = 'recording___resolutions___tracedSVG',
-  RecordingResolutionsAspectRatio = 'recording___resolutions___aspectRatio',
-  RecordingResolutionsWidth = 'recording___resolutions___width',
-  RecordingResolutionsHeight = 'recording___resolutions___height',
-  RecordingResolutionsSrc = 'recording___resolutions___src',
-  RecordingResolutionsSrcSet = 'recording___resolutions___srcSet',
-  RecordingResolutionsSrcWebp = 'recording___resolutions___srcWebp',
-  RecordingResolutionsSrcSetWebp = 'recording___resolutions___srcSetWebp',
-  RecordingFluidBase64 = 'recording___fluid___base64',
-  RecordingFluidTracedSvg = 'recording___fluid___tracedSVG',
-  RecordingFluidAspectRatio = 'recording___fluid___aspectRatio',
-  RecordingFluidSrc = 'recording___fluid___src',
-  RecordingFluidSrcSet = 'recording___fluid___srcSet',
-  RecordingFluidSrcWebp = 'recording___fluid___srcWebp',
-  RecordingFluidSrcSetWebp = 'recording___fluid___srcSetWebp',
-  RecordingFluidSizes = 'recording___fluid___sizes',
-  RecordingSizesBase64 = 'recording___sizes___base64',
-  RecordingSizesTracedSvg = 'recording___sizes___tracedSVG',
-  RecordingSizesAspectRatio = 'recording___sizes___aspectRatio',
-  RecordingSizesSrc = 'recording___sizes___src',
-  RecordingSizesSrcSet = 'recording___sizes___srcSet',
-  RecordingSizesSrcWebp = 'recording___sizes___srcWebp',
-  RecordingSizesSrcSetWebp = 'recording___sizes___srcSetWebp',
-  RecordingSizesSizes = 'recording___sizes___sizes',
-  RecordingResizeBase64 = 'recording___resize___base64',
-  RecordingResizeTracedSvg = 'recording___resize___tracedSVG',
-  RecordingResizeSrc = 'recording___resize___src',
-  RecordingResizeWidth = 'recording___resize___width',
-  RecordingResizeHeight = 'recording___resize___height',
-  RecordingResizeAspectRatio = 'recording___resize___aspectRatio',
+  Recording = 'recording',
   DescriptionId = 'description___id',
   DescriptionParentId = 'description___parent___id',
   DescriptionParentParentId = 'description___parent___parent___id',
@@ -1064,7 +928,7 @@ export type ContentfulCompositionFilterInput = {
   children: Maybe<NodeFilterListInput>,
   internal: Maybe<InternalFilterInput>,
   title: Maybe<StringQueryOperatorInput>,
-  recording: Maybe<ContentfulAssetFilterInput>,
+  recording: Maybe<StringQueryOperatorInput>,
   description: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
@@ -4006,14 +3870,12 @@ export type Query = {
   allSitePage: SitePageConnection,
   imageSharp: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
-  contentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNode>,
-  allContentfulCompositionDescriptionRichTextNode: ContentfulCompositionDescriptionRichTextNodeConnection,
-  githubData: Maybe<GithubData>,
-  allGithubData: GithubDataConnection,
-  contentfulComposition: Maybe<ContentfulComposition>,
-  allContentfulComposition: ContentfulCompositionConnection,
   contentfulAsset: Maybe<ContentfulAsset>,
   allContentfulAsset: ContentfulAssetConnection,
+  contentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNode>,
+  allContentfulCompositionDescriptionRichTextNode: ContentfulCompositionDescriptionRichTextNodeConnection,
+  contentfulComposition: Maybe<ContentfulComposition>,
+  allContentfulComposition: ContentfulCompositionConnection,
   contentfulSchool: Maybe<ContentfulSchool>,
   allContentfulSchool: ContentfulSchoolConnection,
   contentfulJobDescriptionRichTextNode: Maybe<ContentfulJobDescriptionRichTextNode>,
@@ -4022,6 +3884,8 @@ export type Query = {
   allContentfulJob: ContentfulJobConnection,
   contentfulContentType: Maybe<ContentfulContentType>,
   allContentfulContentType: ContentfulContentTypeConnection,
+  githubData: Maybe<GithubData>,
+  allGithubData: GithubDataConnection,
   site: Maybe<Site>,
   allSite: SiteConnection,
   sitePlugin: Maybe<SitePlugin>,
@@ -4178,69 +4042,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryContentfulCompositionDescriptionRichTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  content: Maybe<ContentfulCompositionDescriptionRichTextNodeContentFilterListInput>,
-  nodeType: Maybe<StringQueryOperatorInput>,
-  description: Maybe<StringQueryOperatorInput>,
-  json: Maybe<JsonQueryOperatorInput>
-};
-
-
-export type QueryAllContentfulCompositionDescriptionRichTextNodeArgs = {
-  filter: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
-  sort: Maybe<ContentfulCompositionDescriptionRichTextNodeSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
-export type QueryGithubDataArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  data: Maybe<GithubDataDataFilterInput>
-};
-
-
-export type QueryAllGithubDataArgs = {
-  filter: Maybe<GithubDataFilterInput>,
-  sort: Maybe<GithubDataSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
-export type QueryContentfulCompositionArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  title: Maybe<StringQueryOperatorInput>,
-  recording: Maybe<ContentfulAssetFilterInput>,
-  description: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
-  spaceId: Maybe<StringQueryOperatorInput>,
-  contentful_id: Maybe<StringQueryOperatorInput>,
-  createdAt: Maybe<DateQueryOperatorInput>,
-  updatedAt: Maybe<DateQueryOperatorInput>,
-  sys: Maybe<ContentfulCompositionSysFilterInput>,
-  node_locale: Maybe<StringQueryOperatorInput>,
-  childContentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>
-};
-
-
-export type QueryAllContentfulCompositionArgs = {
-  filter: Maybe<ContentfulCompositionFilterInput>,
-  sort: Maybe<ContentfulCompositionSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
 export type QueryContentfulAssetArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -4263,6 +4064,52 @@ export type QueryContentfulAssetArgs = {
 export type QueryAllContentfulAssetArgs = {
   filter: Maybe<ContentfulAssetFilterInput>,
   sort: Maybe<ContentfulAssetSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryContentfulCompositionDescriptionRichTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  content: Maybe<ContentfulCompositionDescriptionRichTextNodeContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  json: Maybe<JsonQueryOperatorInput>
+};
+
+
+export type QueryAllContentfulCompositionDescriptionRichTextNodeArgs = {
+  filter: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+  sort: Maybe<ContentfulCompositionDescriptionRichTextNodeSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryContentfulCompositionArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  title: Maybe<StringQueryOperatorInput>,
+  recording: Maybe<StringQueryOperatorInput>,
+  description: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>,
+  spaceId: Maybe<StringQueryOperatorInput>,
+  contentful_id: Maybe<StringQueryOperatorInput>,
+  createdAt: Maybe<DateQueryOperatorInput>,
+  updatedAt: Maybe<DateQueryOperatorInput>,
+  sys: Maybe<ContentfulCompositionSysFilterInput>,
+  node_locale: Maybe<StringQueryOperatorInput>,
+  childContentfulCompositionDescriptionRichTextNode: Maybe<ContentfulCompositionDescriptionRichTextNodeFilterInput>
+};
+
+
+export type QueryAllContentfulCompositionArgs = {
+  filter: Maybe<ContentfulCompositionFilterInput>,
+  sort: Maybe<ContentfulCompositionSortInput>,
   skip: Maybe<Scalars['Int']>,
   limit: Maybe<Scalars['Int']>
 };
@@ -4370,6 +4217,23 @@ export type QueryContentfulContentTypeArgs = {
 export type QueryAllContentfulContentTypeArgs = {
   filter: Maybe<ContentfulContentTypeFilterInput>,
   sort: Maybe<ContentfulContentTypeSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryGithubDataArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  data: Maybe<GithubDataDataFilterInput>
+};
+
+
+export type QueryAllGithubDataArgs = {
+  filter: Maybe<GithubDataFilterInput>,
+  sort: Maybe<GithubDataSortInput>,
   skip: Maybe<Scalars['Int']>,
   limit: Maybe<Scalars['Int']>
 };
