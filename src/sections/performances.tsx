@@ -1,25 +1,25 @@
 import * as React from "react";
 import Section from "../components/section";
-import useCompositions from "../utils/useCompositions";
-import Composition from "../components/composition";
+import Performance from "../components/performance";
+import usePerformances from "../utils/usePerformances";
 
-const Compositions = () => {
-    const compositions = useCompositions();
+const Performances = () => {
+    const performances = usePerformances();
 
     return (
-        <Section title="Composition">
+        <Section title="Performance">
             <p className="is-tight-desktop" style={{marginBottom: "3rem"}}>
                 I occasionally compose and arrange music. I don&apos;t do it in any
                 professional capacity, but music is meant to be listened to, so here
                 are some of my favorite compositions and arrangements.
             </p>
             <div className="container">
-                {compositions.map((composition, i) => (
-                    <Composition composition={composition} key={i} />
+                {performances.map((performance, i) => (
+                    <Performance performance={performance} key={i} />
                 ))}
             </div>
         </Section>
     );
 };
 
-export default Compositions;
+export default Performances;

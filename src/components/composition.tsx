@@ -1,10 +1,10 @@
 import * as React from "react";
 import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 import SoundCloud from "./soundcloud";
-import {ContentfulComposition} from "../utils/schema";
+import {ContentfulMusic} from "../utils/schema";
 
 interface CompositionProps {
-    composition: ContentfulComposition;
+    composition: ContentfulMusic;
 }
 
 const Composition = ({composition}: CompositionProps) => {

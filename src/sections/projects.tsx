@@ -22,12 +22,10 @@ export default function Projects() {
             </p>
             <br />
             <br />
-            <div className="container">
-                <div className="columns is-multiline">
-                    {pinnedRepositories.map((repo, i) => (
-                        <Project repo={repo} key={i} />
-                    ))}
-                </div>
+            <div className="columns is-multiline">
+                {pinnedRepositories.map((repo, i) => (
+                    <Project repo={repo} key={i} />
+                ))}
             </div>
         </Section>
     );

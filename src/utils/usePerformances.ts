@@ -1,12 +1,12 @@
 import {graphql, useStaticQuery} from "gatsby";
 import {ContentfulMusic} from "./schema";
 
-export default function useCompositions(): ContentfulMusic[] {
+export default function usePerformances(): ContentfulMusic[] {
     const {
-        allContentfulMusic: {nodes: compositions},
+        allContentfulMusic: {nodes: performances},
     } = useStaticQuery(graphql`
-        query CompositionQuery {
-            allContentfulMusic(filter: {type: {eq: "Composition"}}) {
+        query PerformanceQuery {
+            allContentfulMusic(filter: {type: {eq: "Performance"}}) {
                 nodes {
                     title
                     description {
@@ -18,5 +18,5 @@ export default function useCompositions(): ContentfulMusic[] {
         }
     `);
 
-    return compositions;
+    return performances;
 }

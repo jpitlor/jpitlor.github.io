@@ -2,7 +2,7 @@ import * as React from "react";
 
 import Layout from "../components/layout";
 import Compositions from "../sections/compositions";
-import Performance from "../sections/performance";
+import Performance from "../sections/performances";
 
 const Music = () => (
     <Layout title="Music">

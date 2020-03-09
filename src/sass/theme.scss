@@ -39,3 +39,9 @@ p.is-tight-desktop {
     max-width: 40rem;
     margin: 0 auto;
 }
+
+@media(max-width: 1024px) {
+    .has-mobile-padding {
+        padding: 0 1rem;
+    }
+}
