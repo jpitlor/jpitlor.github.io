@@ -1,11 +1,8 @@
 import * as React from "react";
-import {useEffect, useMemo, useState} from "react";
+import {useState} from "react";
 import JobDetails from "../components/job-details";
-import _ from "lodash";
-import useJobs from "../utils/useJobs";
+import {Job, useJobs} from "../utils/useJobs";
 import Section from "../components/section";
-
-type GroupedJobs = [number, any[]][];
 
 const Months = [
     "January",
@@ -22,86 +19,21 @@ const Months = [
     "December",
 ];
 
-async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
-    const route = "https://maps.googleapis.com/maps/api/geocode/json";
-    const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
-    const fetchResult = await fetch(route + queryString);
-    const apiResult = await fetchResult.json();
-
-    return apiResult.results[0].place_id;
+interface ActiveJob {
+    group: number;
+    index: number;
+    job: Job;
 }
 
 export default function Experience() {
-    const rawJobs = useJobs();
-    const [moreDetailsJob, setMoreDetailsJob] = useState<any | null>(null);
-    const [locations, setLocations] = useState<Record<string, string>>({});
-    const onClickJob = (job: any) => () => setMoreDetailsJob(job);
-    const jobs: GroupedJobs = useMemo(() => {
-        const result: GroupedJobs = Object
-            .entries(
-                _.groupBy(
-                    rawJobs,
-                    job => Math.floor(Number(job.startDate.substr(0, 4)) / 5)
-                )
-            )
-            .map(([year, jobGroups]) => ([
-                Number(year) * 5,
-                jobGroups.map(j => ({
-                    ...j,
-                    startDate: new Date(j.startDate),
-                    endDate: j.endDate ? new Date(j.endDate) : null,
-                })),
-            ]));
+    const [moreDetailsJob, setMoreDetailsJob] = useState<ActiveJob | null>(null);
+    const onClickJob = (group: number, index: number, job: Job) => () => setMoreDetailsJob({group, index, job});
+    const jobs = useJobs();
 
-        result.sort((a, b) => {
-            const x = Number(a[0]);
-            const y = Number(b[0]);
-
-            if (x < y) return 1;
-            if (x === y) return 0;
-            return -1;
-        });
-        result.forEach(([, j]) => {
-            j.sort((a, b) => {
-                const x = a.startDate.getTime();
-                const y = b.startDate.getTime();
-
-                if (x < y) return 1;
-                if (x === y) return 0;
-                return -1;
-            });
-        });
-
-        return result;
-    }, []);
-    useEffect(() => {
-        async function doEffect() {
-            const locationIds = (await Promise
-                .all(jobs.map(async ([, jobDetails]) =>
-                    await Promise.all(
-                        jobDetails.map(async j => ([
-                            `${j.location.lat},${j.location.lon}`,
-                            await getGoogleMapLocation(j.location),
-                        ]))
-                    )
-                )))
-                .flat()
-                .reduce((acc, [key, value]) => ({
-                    ...acc,
-                    [key]: value,
-                }), {});
-
-            setLocations(locationIds);
-        }
-
-        doEffect();
-    }, []);
     const [[hji, hjj], setHoveredJob] = useState([-1, -1]);
-
     function onHover(i: number, j: number) {
         return () => setHoveredJob([i, j]);
     }
-
     function onExit() {
         setHoveredJob([-1, -1]);
     }
@@ -133,7 +65,7 @@ export default function Experience() {
                                                 margin: "-0.75rem 0 -0.75rem -0.75rem",
                                                 cursor: "pointer",
                                             }}
-                                            onClick={onClickJob(job)}
+                                            onClick={onClickJob(i, j, job)}
                                             onMouseEnter={onHover(i, j)}
                                             onMouseLeave={onExit}
                                         >
@@ -163,8 +95,8 @@ export default function Experience() {
                 </div>
                 <div className="column">
                     <JobDetails
-                        job={moreDetailsJob}
-                        locationId={locations[`${moreDetailsJob?.location.lat},${moreDetailsJob?.location.lon}`]}
+                        job={moreDetailsJob?.job}
+                        locationId={moreDetailsJob?.job.location}
                     />
                 </div>
             </div>

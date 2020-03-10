@@ -1,8 +1,8 @@
 import * as React from "react";
-// import {useJobs, useProjects, useSchools} from "../utils/useData";
+// import {useJobsRaw, useProjects, useSchools} from "../utils/useData";
 
 const PrintableResume = () => {
-    // const jobs = useJobs();
+    // const jobs = useJobsRaw();
     // const schools = useSchools();
     // const pinnedRepositories = useProjects();
     // console.log(jobs, schools, pinnedRepositories);

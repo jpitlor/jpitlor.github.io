@@ -1,10 +1,10 @@
 import * as React from "react";
-import {ContentfulJob} from "../utils/schema";
 import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
+import {Job} from "../utils/useJobs";
 
 interface JobDetailsProps {
-    job: ContentfulJob | null;
-    locationId: string;
+    job?: Job;
+    locationId?: string;
 }
 
 const JobDetails = ({job, locationId}: JobDetailsProps) => (
