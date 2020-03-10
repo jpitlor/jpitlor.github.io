@@ -14,9 +14,11 @@ const Performances = () => {
                 are some of my favorite compositions and arrangements.
             </p>
             <div className="container">
-                {performances.map((performance, i) => (
-                    <Performance performance={performance} key={i} />
-                ))}
+                <div className="columns is-multiline">
+                    {performances.map((performance, i) => (
+                        <Performance performance={performance} key={i} />
+                    ))}
+                </div>
             </div>
         </Section>
     );

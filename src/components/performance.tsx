@@ -9,16 +9,18 @@ interface PerformanceProps {
 
 const Performance = ({performance}: PerformanceProps) => {
     return (
-        <div className="box">
-            <div className="columns is-wrapped">
-                <div className="column">
+        <div className="column is-half">
+            <div className="card" style={{height: "100%"}}>
+                <div className="card-image">
+                    <div className="is-16by9">
+                        <Youtube video={performance.recording} />
+                    </div>
+                </div>
+                <div className="card-content">
                     <h3 className="title is-4">{performance.title}</h3>
                     <div className="content">
                         {documentToReactComponents(performance.description.json)}
                     </div>
-                </div>
-                <div className="column">
-                    <Youtube video={performance.recording} />
                 </div>
             </div>
         </div>
