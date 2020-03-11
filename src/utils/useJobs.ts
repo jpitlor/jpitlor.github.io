@@ -2,7 +2,6 @@ import {graphql, useStaticQuery} from "gatsby";
 import {
     ContentfulJob,
     ContentfulJobDescriptionRichTextNode,
-    ContentfulJobLocation,
 } from "./schema";
 import {useEffect, useState} from "react";
 import _ from "lodash";
@@ -36,12 +35,17 @@ export function useJobsRaw(): ContentfulJob[] {
     return jobs;
 }
 
+const cache: Record<string, string> = {};
+
 async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
+    if (cache[`${lat},${lon}`]) return cache[`${lat},${lon}`];
+
     const route = "https://maps.googleapis.com/maps/api/geocode/json";
     const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
     const fetchResult = await fetch(route + queryString);
     const apiResult = await fetchResult.json();
 
+    cache[`${lat},${lon}`] = apiResult.results[0]?.place_id || "";
     return apiResult.results[0].place_id;
 }
 
@@ -67,20 +71,28 @@ export function useJobs(): JobGroup[] {
 
     useEffect(() => {
         (async () => {
-            const transformedJobs: Job[] = _.sortBy(
+            const transformedJobs: Job[] = _.orderBy(
                 await Promise.all(rawJobs.map(async j => ({
                     ...j,
                     startDate: new Date(j.startDate),
                     endDate: j.endDate ? new Date(j.endDate) : undefined,
                     location: await getGoogleMapLocation(j.location),
                 }))),
-                "startDate"
+                "startDate",
+                "desc"
             );
-            const groupedJobs: Record<string, Job[]> = _.groupBy(transformedJobs, j => Math.floor(j.startDate.getFullYear() / 5));
-            const entries = Object.entries(groupedJobs).map(([key, val]) => ([Number(key), val]) as JobGroup);
+            const groupedJobs: Record<string, Job[]> = _.groupBy(
+                transformedJobs,
+                j => Math.floor(j.startDate.getFullYear() / 5)
+            );
+            const entries = _.orderBy(
+                Object.entries(groupedJobs).map(([key, val]) => ([Number(key) * 5, val]) as JobGroup),
+                "0",
+                "desc"
+            );
             setJobs(entries);
         })();
-    });
+    }, []);
 
     return jobs;
 }

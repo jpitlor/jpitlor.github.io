@@ -9,7 +9,7 @@ const Youtube = ({video}: YoutubeProps) => {
         <iframe
             width="100%"
             height="100%"
-            style={{minHeight: "15rem"}}
+            style={{minHeight: "15rem", backgroundColor: "#000"}}
             src={video}
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
