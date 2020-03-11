@@ -254,7 +254,6 @@ export enum ContentfulAssetFieldsEnum {
   LocalFileBlksize = 'localFile___blksize',
   LocalFileBlocks = 'localFile___blocks',
   LocalFileUrl = 'localFile___url',
-  LocalFilePublicUrl = 'localFile___publicURL',
   LocalFileChildImageSharpFixedBase64 = 'localFile___childImageSharp___fixed___base64',
   LocalFileChildImageSharpFixedTracedSvg = 'localFile___childImageSharp___fixed___tracedSVG',
   LocalFileChildImageSharpFixedAspectRatio = 'localFile___childImageSharp___fixed___aspectRatio',
@@ -470,333 +469,6 @@ export type ContentfulAssetGroupConnection = {
 export type ContentfulAssetSortInput = {
   fields: Maybe<Array<Maybe<ContentfulAssetFieldsEnum>>>,
   order: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type ContentfulComposition = Node & {
-   __typename?: 'ContentfulComposition',
-  id: Scalars['ID'],
-  parent: Maybe<Node>,
-  children: Array<Node>,
-  internal: Internal,
-  title: Maybe<Scalars['String']>,
-  recording: Maybe<Scalars['String']>,
-  description: Maybe<ContentfulMusicDescriptionRichTextNode>,
-  spaceId: Maybe<Scalars['String']>,
-  contentful_id: Maybe<Scalars['String']>,
-  createdAt: Maybe<Scalars['Date']>,
-  updatedAt: Maybe<Scalars['Date']>,
-  sys: Maybe<ContentfulCompositionSys>,
-  node_locale: Maybe<Scalars['String']>,
-  childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNode>,
-};
-
-
-export type ContentfulCompositionCreatedAtArgs = {
-  formatString: Maybe<Scalars['String']>,
-  fromNow: Maybe<Scalars['Boolean']>,
-  difference: Maybe<Scalars['String']>,
-  locale: Maybe<Scalars['String']>
-};
-
-
-export type ContentfulCompositionUpdatedAtArgs = {
-  formatString: Maybe<Scalars['String']>,
-  fromNow: Maybe<Scalars['Boolean']>,
-  difference: Maybe<Scalars['String']>,
-  locale: Maybe<Scalars['String']>
-};
-
-export type ContentfulCompositionConnection = {
-   __typename?: 'ContentfulCompositionConnection',
-  totalCount: Scalars['Int'],
-  edges: Array<ContentfulCompositionEdge>,
-  nodes: Array<ContentfulComposition>,
-  pageInfo: PageInfo,
-  distinct: Array<Scalars['String']>,
-  group: Array<ContentfulCompositionGroupConnection>,
-};
-
-
-export type ContentfulCompositionConnectionDistinctArgs = {
-  field: ContentfulCompositionFieldsEnum
-};
-
-
-export type ContentfulCompositionConnectionGroupArgs = {
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>,
-  field: ContentfulCompositionFieldsEnum
-};
-
-export type ContentfulCompositionEdge = {
-   __typename?: 'ContentfulCompositionEdge',
-  next: Maybe<ContentfulComposition>,
-  node: ContentfulComposition,
-  previous: Maybe<ContentfulComposition>,
-};
-
-export enum ContentfulCompositionFieldsEnum {
-  Id = 'id',
-  ParentId = 'parent___id',
-  ParentParentId = 'parent___parent___id',
-  ParentParentParentId = 'parent___parent___parent___id',
-  ParentParentParentChildren = 'parent___parent___parent___children',
-  ParentParentChildren = 'parent___parent___children',
-  ParentParentChildrenId = 'parent___parent___children___id',
-  ParentParentChildrenChildren = 'parent___parent___children___children',
-  ParentParentInternalContent = 'parent___parent___internal___content',
-  ParentParentInternalContentDigest = 'parent___parent___internal___contentDigest',
-  ParentParentInternalDescription = 'parent___parent___internal___description',
-  ParentParentInternalFieldOwners = 'parent___parent___internal___fieldOwners',
-  ParentParentInternalIgnoreType = 'parent___parent___internal___ignoreType',
-  ParentParentInternalMediaType = 'parent___parent___internal___mediaType',
-  ParentParentInternalOwner = 'parent___parent___internal___owner',
-  ParentParentInternalType = 'parent___parent___internal___type',
-  ParentChildren = 'parent___children',
-  ParentChildrenId = 'parent___children___id',
-  ParentChildrenParentId = 'parent___children___parent___id',
-  ParentChildrenParentChildren = 'parent___children___parent___children',
-  ParentChildrenChildren = 'parent___children___children',
-  ParentChildrenChildrenId = 'parent___children___children___id',
-  ParentChildrenChildrenChildren = 'parent___children___children___children',
-  ParentChildrenInternalContent = 'parent___children___internal___content',
-  ParentChildrenInternalContentDigest = 'parent___children___internal___contentDigest',
-  ParentChildrenInternalDescription = 'parent___children___internal___description',
-  ParentChildrenInternalFieldOwners = 'parent___children___internal___fieldOwners',
-  ParentChildrenInternalIgnoreType = 'parent___children___internal___ignoreType',
-  ParentChildrenInternalMediaType = 'parent___children___internal___mediaType',
-  ParentChildrenInternalOwner = 'parent___children___internal___owner',
-  ParentChildrenInternalType = 'parent___children___internal___type',
-  ParentInternalContent = 'parent___internal___content',
-  ParentInternalContentDigest = 'parent___internal___contentDigest',
-  ParentInternalDescription = 'parent___internal___description',
-  ParentInternalFieldOwners = 'parent___internal___fieldOwners',
-  ParentInternalIgnoreType = 'parent___internal___ignoreType',
-  ParentInternalMediaType = 'parent___internal___mediaType',
-  ParentInternalOwner = 'parent___internal___owner',
-  ParentInternalType = 'parent___internal___type',
-  Children = 'children',
-  ChildrenId = 'children___id',
-  ChildrenParentId = 'children___parent___id',
-  ChildrenParentParentId = 'children___parent___parent___id',
-  ChildrenParentParentChildren = 'children___parent___parent___children',
-  ChildrenParentChildren = 'children___parent___children',
-  ChildrenParentChildrenId = 'children___parent___children___id',
-  ChildrenParentChildrenChildren = 'children___parent___children___children',
-  ChildrenParentInternalContent = 'children___parent___internal___content',
-  ChildrenParentInternalContentDigest = 'children___parent___internal___contentDigest',
-  ChildrenParentInternalDescription = 'children___parent___internal___description',
-  ChildrenParentInternalFieldOwners = 'children___parent___internal___fieldOwners',
-  ChildrenParentInternalIgnoreType = 'children___parent___internal___ignoreType',
-  ChildrenParentInternalMediaType = 'children___parent___internal___mediaType',
-  ChildrenParentInternalOwner = 'children___parent___internal___owner',
-  ChildrenParentInternalType = 'children___parent___internal___type',
-  ChildrenChildren = 'children___children',
-  ChildrenChildrenId = 'children___children___id',
-  ChildrenChildrenParentId = 'children___children___parent___id',
-  ChildrenChildrenParentChildren = 'children___children___parent___children',
-  ChildrenChildrenChildren = 'children___children___children',
-  ChildrenChildrenChildrenId = 'children___children___children___id',
-  ChildrenChildrenChildrenChildren = 'children___children___children___children',
-  ChildrenChildrenInternalContent = 'children___children___internal___content',
-  ChildrenChildrenInternalContentDigest = 'children___children___internal___contentDigest',
-  ChildrenChildrenInternalDescription = 'children___children___internal___description',
-  ChildrenChildrenInternalFieldOwners = 'children___children___internal___fieldOwners',
-  ChildrenChildrenInternalIgnoreType = 'children___children___internal___ignoreType',
-  ChildrenChildrenInternalMediaType = 'children___children___internal___mediaType',
-  ChildrenChildrenInternalOwner = 'children___children___internal___owner',
-  ChildrenChildrenInternalType = 'children___children___internal___type',
-  ChildrenInternalContent = 'children___internal___content',
-  ChildrenInternalContentDigest = 'children___internal___contentDigest',
-  ChildrenInternalDescription = 'children___internal___description',
-  ChildrenInternalFieldOwners = 'children___internal___fieldOwners',
-  ChildrenInternalIgnoreType = 'children___internal___ignoreType',
-  ChildrenInternalMediaType = 'children___internal___mediaType',
-  ChildrenInternalOwner = 'children___internal___owner',
-  ChildrenInternalType = 'children___internal___type',
-  InternalContent = 'internal___content',
-  InternalContentDigest = 'internal___contentDigest',
-  InternalDescription = 'internal___description',
-  InternalFieldOwners = 'internal___fieldOwners',
-  InternalIgnoreType = 'internal___ignoreType',
-  InternalMediaType = 'internal___mediaType',
-  InternalOwner = 'internal___owner',
-  InternalType = 'internal___type',
-  Title = 'title',
-  Recording = 'recording',
-  DescriptionId = 'description___id',
-  DescriptionParentId = 'description___parent___id',
-  DescriptionParentParentId = 'description___parent___parent___id',
-  DescriptionParentParentChildren = 'description___parent___parent___children',
-  DescriptionParentChildren = 'description___parent___children',
-  DescriptionParentChildrenId = 'description___parent___children___id',
-  DescriptionParentChildrenChildren = 'description___parent___children___children',
-  DescriptionParentInternalContent = 'description___parent___internal___content',
-  DescriptionParentInternalContentDigest = 'description___parent___internal___contentDigest',
-  DescriptionParentInternalDescription = 'description___parent___internal___description',
-  DescriptionParentInternalFieldOwners = 'description___parent___internal___fieldOwners',
-  DescriptionParentInternalIgnoreType = 'description___parent___internal___ignoreType',
-  DescriptionParentInternalMediaType = 'description___parent___internal___mediaType',
-  DescriptionParentInternalOwner = 'description___parent___internal___owner',
-  DescriptionParentInternalType = 'description___parent___internal___type',
-  DescriptionChildren = 'description___children',
-  DescriptionChildrenId = 'description___children___id',
-  DescriptionChildrenParentId = 'description___children___parent___id',
-  DescriptionChildrenParentChildren = 'description___children___parent___children',
-  DescriptionChildrenChildren = 'description___children___children',
-  DescriptionChildrenChildrenId = 'description___children___children___id',
-  DescriptionChildrenChildrenChildren = 'description___children___children___children',
-  DescriptionChildrenInternalContent = 'description___children___internal___content',
-  DescriptionChildrenInternalContentDigest = 'description___children___internal___contentDigest',
-  DescriptionChildrenInternalDescription = 'description___children___internal___description',
-  DescriptionChildrenInternalFieldOwners = 'description___children___internal___fieldOwners',
-  DescriptionChildrenInternalIgnoreType = 'description___children___internal___ignoreType',
-  DescriptionChildrenInternalMediaType = 'description___children___internal___mediaType',
-  DescriptionChildrenInternalOwner = 'description___children___internal___owner',
-  DescriptionChildrenInternalType = 'description___children___internal___type',
-  DescriptionInternalContent = 'description___internal___content',
-  DescriptionInternalContentDigest = 'description___internal___contentDigest',
-  DescriptionInternalDescription = 'description___internal___description',
-  DescriptionInternalFieldOwners = 'description___internal___fieldOwners',
-  DescriptionInternalIgnoreType = 'description___internal___ignoreType',
-  DescriptionInternalMediaType = 'description___internal___mediaType',
-  DescriptionInternalOwner = 'description___internal___owner',
-  DescriptionInternalType = 'description___internal___type',
-  DescriptionContent = 'description___content',
-  DescriptionContentContent = 'description___content___content',
-  DescriptionContentContentMarks = 'description___content___content___marks',
-  DescriptionContentContentValue = 'description___content___content___value',
-  DescriptionContentContentNodeType = 'description___content___content___nodeType',
-  DescriptionContentContentContent = 'description___content___content___content',
-  DescriptionContentNodeType = 'description___content___nodeType',
-  DescriptionNodeType = 'description___nodeType',
-  DescriptionDescription = 'description___description',
-  DescriptionJson = 'description___json',
-  SpaceId = 'spaceId',
-  ContentfulId = 'contentful_id',
-  CreatedAt = 'createdAt',
-  UpdatedAt = 'updatedAt',
-  SysRevision = 'sys___revision',
-  SysContentTypeSysType = 'sys___contentType___sys___type',
-  SysContentTypeSysLinkType = 'sys___contentType___sys___linkType',
-  SysContentTypeSysId = 'sys___contentType___sys___id',
-  SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
-  NodeLocale = 'node_locale',
-  ChildContentfulMusicDescriptionRichTextNodeId = 'childContentfulMusicDescriptionRichTextNode___id',
-  ChildContentfulMusicDescriptionRichTextNodeParentId = 'childContentfulMusicDescriptionRichTextNode___parent___id',
-  ChildContentfulMusicDescriptionRichTextNodeParentParentId = 'childContentfulMusicDescriptionRichTextNode___parent___parent___id',
-  ChildContentfulMusicDescriptionRichTextNodeParentParentChildren = 'childContentfulMusicDescriptionRichTextNode___parent___parent___children',
-  ChildContentfulMusicDescriptionRichTextNodeParentChildren = 'childContentfulMusicDescriptionRichTextNode___parent___children',
-  ChildContentfulMusicDescriptionRichTextNodeParentChildrenId = 'childContentfulMusicDescriptionRichTextNode___parent___children___id',
-  ChildContentfulMusicDescriptionRichTextNodeParentChildrenChildren = 'childContentfulMusicDescriptionRichTextNode___parent___children___children',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalContent = 'childContentfulMusicDescriptionRichTextNode___parent___internal___content',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalContentDigest = 'childContentfulMusicDescriptionRichTextNode___parent___internal___contentDigest',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalDescription = 'childContentfulMusicDescriptionRichTextNode___parent___internal___description',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalFieldOwners = 'childContentfulMusicDescriptionRichTextNode___parent___internal___fieldOwners',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalIgnoreType = 'childContentfulMusicDescriptionRichTextNode___parent___internal___ignoreType',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalMediaType = 'childContentfulMusicDescriptionRichTextNode___parent___internal___mediaType',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalOwner = 'childContentfulMusicDescriptionRichTextNode___parent___internal___owner',
-  ChildContentfulMusicDescriptionRichTextNodeParentInternalType = 'childContentfulMusicDescriptionRichTextNode___parent___internal___type',
-  ChildContentfulMusicDescriptionRichTextNodeChildren = 'childContentfulMusicDescriptionRichTextNode___children',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenId = 'childContentfulMusicDescriptionRichTextNode___children___id',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenParentId = 'childContentfulMusicDescriptionRichTextNode___children___parent___id',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenParentChildren = 'childContentfulMusicDescriptionRichTextNode___children___parent___children',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenChildren = 'childContentfulMusicDescriptionRichTextNode___children___children',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenChildrenId = 'childContentfulMusicDescriptionRichTextNode___children___children___id',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenChildrenChildren = 'childContentfulMusicDescriptionRichTextNode___children___children___children',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalContent = 'childContentfulMusicDescriptionRichTextNode___children___internal___content',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalContentDigest = 'childContentfulMusicDescriptionRichTextNode___children___internal___contentDigest',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalDescription = 'childContentfulMusicDescriptionRichTextNode___children___internal___description',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalFieldOwners = 'childContentfulMusicDescriptionRichTextNode___children___internal___fieldOwners',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalIgnoreType = 'childContentfulMusicDescriptionRichTextNode___children___internal___ignoreType',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalMediaType = 'childContentfulMusicDescriptionRichTextNode___children___internal___mediaType',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalOwner = 'childContentfulMusicDescriptionRichTextNode___children___internal___owner',
-  ChildContentfulMusicDescriptionRichTextNodeChildrenInternalType = 'childContentfulMusicDescriptionRichTextNode___children___internal___type',
-  ChildContentfulMusicDescriptionRichTextNodeInternalContent = 'childContentfulMusicDescriptionRichTextNode___internal___content',
-  ChildContentfulMusicDescriptionRichTextNodeInternalContentDigest = 'childContentfulMusicDescriptionRichTextNode___internal___contentDigest',
-  ChildContentfulMusicDescriptionRichTextNodeInternalDescription = 'childContentfulMusicDescriptionRichTextNode___internal___description',
-  ChildContentfulMusicDescriptionRichTextNodeInternalFieldOwners = 'childContentfulMusicDescriptionRichTextNode___internal___fieldOwners',
-  ChildContentfulMusicDescriptionRichTextNodeInternalIgnoreType = 'childContentfulMusicDescriptionRichTextNode___internal___ignoreType',
-  ChildContentfulMusicDescriptionRichTextNodeInternalMediaType = 'childContentfulMusicDescriptionRichTextNode___internal___mediaType',
-  ChildContentfulMusicDescriptionRichTextNodeInternalOwner = 'childContentfulMusicDescriptionRichTextNode___internal___owner',
-  ChildContentfulMusicDescriptionRichTextNodeInternalType = 'childContentfulMusicDescriptionRichTextNode___internal___type',
-  ChildContentfulMusicDescriptionRichTextNodeContent = 'childContentfulMusicDescriptionRichTextNode___content',
-  ChildContentfulMusicDescriptionRichTextNodeContentContent = 'childContentfulMusicDescriptionRichTextNode___content___content',
-  ChildContentfulMusicDescriptionRichTextNodeContentContentMarks = 'childContentfulMusicDescriptionRichTextNode___content___content___marks',
-  ChildContentfulMusicDescriptionRichTextNodeContentContentValue = 'childContentfulMusicDescriptionRichTextNode___content___content___value',
-  ChildContentfulMusicDescriptionRichTextNodeContentContentNodeType = 'childContentfulMusicDescriptionRichTextNode___content___content___nodeType',
-  ChildContentfulMusicDescriptionRichTextNodeContentContentContent = 'childContentfulMusicDescriptionRichTextNode___content___content___content',
-  ChildContentfulMusicDescriptionRichTextNodeContentNodeType = 'childContentfulMusicDescriptionRichTextNode___content___nodeType',
-  ChildContentfulMusicDescriptionRichTextNodeNodeType = 'childContentfulMusicDescriptionRichTextNode___nodeType',
-  ChildContentfulMusicDescriptionRichTextNodeDescription = 'childContentfulMusicDescriptionRichTextNode___description',
-  ChildContentfulMusicDescriptionRichTextNodeJson = 'childContentfulMusicDescriptionRichTextNode___json'
-}
-
-export type ContentfulCompositionFilterInput = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  title: Maybe<StringQueryOperatorInput>,
-  recording: Maybe<StringQueryOperatorInput>,
-  description: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
-  spaceId: Maybe<StringQueryOperatorInput>,
-  contentful_id: Maybe<StringQueryOperatorInput>,
-  createdAt: Maybe<DateQueryOperatorInput>,
-  updatedAt: Maybe<DateQueryOperatorInput>,
-  sys: Maybe<ContentfulCompositionSysFilterInput>,
-  node_locale: Maybe<StringQueryOperatorInput>,
-  childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
-};
-
-export type ContentfulCompositionGroupConnection = {
-   __typename?: 'ContentfulCompositionGroupConnection',
-  totalCount: Scalars['Int'],
-  edges: Array<ContentfulCompositionEdge>,
-  nodes: Array<ContentfulComposition>,
-  pageInfo: PageInfo,
-  field: Scalars['String'],
-  fieldValue: Maybe<Scalars['String']>,
-};
-
-export type ContentfulCompositionSortInput = {
-  fields: Maybe<Array<Maybe<ContentfulCompositionFieldsEnum>>>,
-  order: Maybe<Array<Maybe<SortOrderEnum>>>,
-};
-
-export type ContentfulCompositionSys = {
-   __typename?: 'ContentfulCompositionSys',
-  revision: Maybe<Scalars['Int']>,
-  contentType: Maybe<ContentfulCompositionSysContentType>,
-};
-
-export type ContentfulCompositionSysContentType = {
-   __typename?: 'ContentfulCompositionSysContentType',
-  sys: Maybe<ContentfulCompositionSysContentTypeSys>,
-};
-
-export type ContentfulCompositionSysContentTypeFilterInput = {
-  sys: Maybe<ContentfulCompositionSysContentTypeSysFilterInput>,
-};
-
-export type ContentfulCompositionSysContentTypeSys = {
-   __typename?: 'ContentfulCompositionSysContentTypeSys',
-  type: Maybe<Scalars['String']>,
-  linkType: Maybe<Scalars['String']>,
-  id: Maybe<Scalars['String']>,
-  contentful_id: Maybe<Scalars['String']>,
-};
-
-export type ContentfulCompositionSysContentTypeSysFilterInput = {
-  type: Maybe<StringQueryOperatorInput>,
-  linkType: Maybe<StringQueryOperatorInput>,
-  id: Maybe<StringQueryOperatorInput>,
-  contentful_id: Maybe<StringQueryOperatorInput>,
-};
-
-export type ContentfulCompositionSysFilterInput = {
-  revision: Maybe<IntQueryOperatorInput>,
-  contentType: Maybe<ContentfulCompositionSysContentTypeFilterInput>,
 };
 
 export type ContentfulContentType = Node & {
@@ -1638,8 +1310,8 @@ export type ContentfulMusic = Node & {
   children: Array<Node>,
   internal: Internal,
   title: Maybe<Scalars['String']>,
+  group: Maybe<Scalars['String']>,
   recording: Maybe<Scalars['String']>,
-  type: Maybe<Scalars['String']>,
   description: Maybe<ContentfulMusicDescriptionRichTextNode>,
   spaceId: Maybe<Scalars['String']>,
   contentful_id: Maybe<Scalars['String']>,
@@ -1647,6 +1319,8 @@ export type ContentfulMusic = Node & {
   updatedAt: Maybe<Scalars['Date']>,
   sys: Maybe<ContentfulMusicSys>,
   node_locale: Maybe<Scalars['String']>,
+  choir: Maybe<Scalars['String']>,
+  year: Maybe<Scalars['Int']>,
   childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNode>,
 };
 
@@ -2026,8 +1700,8 @@ export enum ContentfulMusicFieldsEnum {
   InternalOwner = 'internal___owner',
   InternalType = 'internal___type',
   Title = 'title',
+  Group = 'group',
   Recording = 'recording',
-  Type = 'type',
   DescriptionId = 'description___id',
   DescriptionParentId = 'description___parent___id',
   DescriptionParentParentId = 'description___parent___parent___id',
@@ -2086,6 +1760,8 @@ export enum ContentfulMusicFieldsEnum {
   SysContentTypeSysId = 'sys___contentType___sys___id',
   SysContentTypeSysContentfulId = 'sys___contentType___sys___contentful_id',
   NodeLocale = 'node_locale',
+  Choir = 'choir',
+  Year = 'year',
   ChildContentfulMusicDescriptionRichTextNodeId = 'childContentfulMusicDescriptionRichTextNode___id',
   ChildContentfulMusicDescriptionRichTextNodeParentId = 'childContentfulMusicDescriptionRichTextNode___parent___id',
   ChildContentfulMusicDescriptionRichTextNodeParentParentId = 'childContentfulMusicDescriptionRichTextNode___parent___parent___id',
@@ -2142,8 +1818,8 @@ export type ContentfulMusicFilterInput = {
   children: Maybe<NodeFilterListInput>,
   internal: Maybe<InternalFilterInput>,
   title: Maybe<StringQueryOperatorInput>,
+  group: Maybe<StringQueryOperatorInput>,
   recording: Maybe<StringQueryOperatorInput>,
-  type: Maybe<StringQueryOperatorInput>,
   description: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
@@ -2151,6 +1827,8 @@ export type ContentfulMusicFilterInput = {
   updatedAt: Maybe<DateQueryOperatorInput>,
   sys: Maybe<ContentfulMusicSysFilterInput>,
   node_locale: Maybe<StringQueryOperatorInput>,
+  choir: Maybe<StringQueryOperatorInput>,
+  year: Maybe<IntQueryOperatorInput>,
   childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
 };
 
@@ -2514,7 +2192,6 @@ export enum ContentfulSchoolFieldsEnum {
   LogoLocalFileBlksize = 'logo___localFile___blksize',
   LogoLocalFileBlocks = 'logo___localFile___blocks',
   LogoLocalFileUrl = 'logo___localFile___url',
-  LogoLocalFilePublicUrl = 'logo___localFile___publicURL',
   LogoLocalFileChildImageSharpId = 'logo___localFile___childImageSharp___id',
   LogoLocalFileChildImageSharpChildren = 'logo___localFile___childImageSharp___children',
   LogoLocalFileId = 'logo___localFile___id',
@@ -2737,8 +2414,6 @@ export type Directory = Node & {
   ctime: Scalars['Date'],
   birthtime: Maybe<Scalars['Date']>,
   birthtimeMs: Maybe<Scalars['Float']>,
-  blksize: Maybe<Scalars['Int']>,
-  blocks: Maybe<Scalars['Int']>,
   id: Scalars['ID'],
   parent: Maybe<Node>,
   children: Array<Node>,
@@ -2862,8 +2537,6 @@ export enum DirectoryFieldsEnum {
   Ctime = 'ctime',
   Birthtime = 'birthtime',
   BirthtimeMs = 'birthtimeMs',
-  Blksize = 'blksize',
-  Blocks = 'blocks',
   Id = 'id',
   ParentId = 'parent___id',
   ParentParentId = 'parent___parent___id',
@@ -2984,8 +2657,6 @@ export type DirectoryFilterInput = {
   ctime: Maybe<DateQueryOperatorInput>,
   birthtime: Maybe<DateQueryOperatorInput>,
   birthtimeMs: Maybe<FloatQueryOperatorInput>,
-  blksize: Maybe<IntQueryOperatorInput>,
-  blocks: Maybe<IntQueryOperatorInput>,
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
   children: Maybe<NodeFilterListInput>,
@@ -3049,7 +2720,6 @@ export type File = Node & {
   blksize: Maybe<Scalars['Int']>,
   blocks: Maybe<Scalars['Int']>,
   url: Maybe<Scalars['String']>,
-  publicURL: Maybe<Scalars['String']>,
   childImageSharp: Maybe<ImageSharp>,
   id: Scalars['ID'],
   parent: Maybe<Node>,
@@ -3177,7 +2847,6 @@ export enum FileFieldsEnum {
   Blksize = 'blksize',
   Blocks = 'blocks',
   Url = 'url',
-  PublicUrl = 'publicURL',
   ChildImageSharpFixedBase64 = 'childImageSharp___fixed___base64',
   ChildImageSharpFixedTracedSvg = 'childImageSharp___fixed___tracedSVG',
   ChildImageSharpFixedAspectRatio = 'childImageSharp___fixed___aspectRatio',
@@ -3392,7 +3061,6 @@ export type FileFilterInput = {
   blksize: Maybe<IntQueryOperatorInput>,
   blocks: Maybe<IntQueryOperatorInput>,
   url: Maybe<StringQueryOperatorInput>,
-  publicURL: Maybe<StringQueryOperatorInput>,
   childImageSharp: Maybe<ImageSharpFilterInput>,
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -4253,14 +3921,12 @@ export type Query = {
   allSitePage: SitePageConnection,
   imageSharp: Maybe<ImageSharp>,
   allImageSharp: ImageSharpConnection,
+  contentfulAsset: Maybe<ContentfulAsset>,
+  allContentfulAsset: ContentfulAssetConnection,
   contentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNode>,
   allContentfulMusicDescriptionRichTextNode: ContentfulMusicDescriptionRichTextNodeConnection,
   contentfulMusic: Maybe<ContentfulMusic>,
   allContentfulMusic: ContentfulMusicConnection,
-  contentfulAsset: Maybe<ContentfulAsset>,
-  allContentfulAsset: ContentfulAssetConnection,
-  contentfulComposition: Maybe<ContentfulComposition>,
-  allContentfulComposition: ContentfulCompositionConnection,
   contentfulSchool: Maybe<ContentfulSchool>,
   allContentfulSchool: ContentfulSchoolConnection,
   contentfulJobDescriptionRichTextNode: Maybe<ContentfulJobDescriptionRichTextNode>,
@@ -4313,7 +3979,6 @@ export type QueryFileArgs = {
   blksize: Maybe<IntQueryOperatorInput>,
   blocks: Maybe<IntQueryOperatorInput>,
   url: Maybe<StringQueryOperatorInput>,
-  publicURL: Maybe<StringQueryOperatorInput>,
   childImageSharp: Maybe<ImageSharpFilterInput>,
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -4362,8 +4027,6 @@ export type QueryDirectoryArgs = {
   ctime: Maybe<DateQueryOperatorInput>,
   birthtime: Maybe<DateQueryOperatorInput>,
   birthtimeMs: Maybe<FloatQueryOperatorInput>,
-  blksize: Maybe<IntQueryOperatorInput>,
-  blocks: Maybe<IntQueryOperatorInput>,
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
   children: Maybe<NodeFilterListInput>,
@@ -4427,53 +4090,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryContentfulMusicDescriptionRichTextNodeArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  content: Maybe<ContentfulMusicDescriptionRichTextNodeContentFilterListInput>,
-  nodeType: Maybe<StringQueryOperatorInput>,
-  description: Maybe<StringQueryOperatorInput>,
-  json: Maybe<JsonQueryOperatorInput>
-};
-
-
-export type QueryAllContentfulMusicDescriptionRichTextNodeArgs = {
-  filter: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
-  sort: Maybe<ContentfulMusicDescriptionRichTextNodeSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
-export type QueryContentfulMusicArgs = {
-  id: Maybe<StringQueryOperatorInput>,
-  parent: Maybe<NodeFilterInput>,
-  children: Maybe<NodeFilterListInput>,
-  internal: Maybe<InternalFilterInput>,
-  title: Maybe<StringQueryOperatorInput>,
-  recording: Maybe<StringQueryOperatorInput>,
-  type: Maybe<StringQueryOperatorInput>,
-  description: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
-  spaceId: Maybe<StringQueryOperatorInput>,
-  contentful_id: Maybe<StringQueryOperatorInput>,
-  createdAt: Maybe<DateQueryOperatorInput>,
-  updatedAt: Maybe<DateQueryOperatorInput>,
-  sys: Maybe<ContentfulMusicSysFilterInput>,
-  node_locale: Maybe<StringQueryOperatorInput>,
-  childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>
-};
-
-
-export type QueryAllContentfulMusicArgs = {
-  filter: Maybe<ContentfulMusicFilterInput>,
-  sort: Maybe<ContentfulMusicSortInput>,
-  skip: Maybe<Scalars['Int']>,
-  limit: Maybe<Scalars['Int']>
-};
-
-
 export type QueryContentfulAssetArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
@@ -4501,27 +4117,50 @@ export type QueryAllContentfulAssetArgs = {
 };
 
 
-export type QueryContentfulCompositionArgs = {
+export type QueryContentfulMusicDescriptionRichTextNodeArgs = {
+  id: Maybe<StringQueryOperatorInput>,
+  parent: Maybe<NodeFilterInput>,
+  children: Maybe<NodeFilterListInput>,
+  internal: Maybe<InternalFilterInput>,
+  content: Maybe<ContentfulMusicDescriptionRichTextNodeContentFilterListInput>,
+  nodeType: Maybe<StringQueryOperatorInput>,
+  description: Maybe<StringQueryOperatorInput>,
+  json: Maybe<JsonQueryOperatorInput>
+};
+
+
+export type QueryAllContentfulMusicDescriptionRichTextNodeArgs = {
+  filter: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
+  sort: Maybe<ContentfulMusicDescriptionRichTextNodeSortInput>,
+  skip: Maybe<Scalars['Int']>,
+  limit: Maybe<Scalars['Int']>
+};
+
+
+export type QueryContentfulMusicArgs = {
   id: Maybe<StringQueryOperatorInput>,
   parent: Maybe<NodeFilterInput>,
   children: Maybe<NodeFilterListInput>,
   internal: Maybe<InternalFilterInput>,
   title: Maybe<StringQueryOperatorInput>,
+  group: Maybe<StringQueryOperatorInput>,
   recording: Maybe<StringQueryOperatorInput>,
   description: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>,
   spaceId: Maybe<StringQueryOperatorInput>,
   contentful_id: Maybe<StringQueryOperatorInput>,
   createdAt: Maybe<DateQueryOperatorInput>,
   updatedAt: Maybe<DateQueryOperatorInput>,
-  sys: Maybe<ContentfulCompositionSysFilterInput>,
+  sys: Maybe<ContentfulMusicSysFilterInput>,
   node_locale: Maybe<StringQueryOperatorInput>,
+  choir: Maybe<StringQueryOperatorInput>,
+  year: Maybe<IntQueryOperatorInput>,
   childContentfulMusicDescriptionRichTextNode: Maybe<ContentfulMusicDescriptionRichTextNodeFilterInput>
 };
 
 
-export type QueryAllContentfulCompositionArgs = {
-  filter: Maybe<ContentfulCompositionFilterInput>,
-  sort: Maybe<ContentfulCompositionSortInput>,
+export type QueryAllContentfulMusicArgs = {
+  filter: Maybe<ContentfulMusicFilterInput>,
+  sort: Maybe<ContentfulMusicSortInput>,
   skip: Maybe<Scalars['Int']>,
   limit: Maybe<Scalars['Int']>
 };
@@ -5090,7 +4729,6 @@ export enum SitePageFieldsEnum {
   PluginCreatorName = 'pluginCreator___name',
   PluginCreatorVersion = 'pluginCreator___version',
   PluginCreatorPluginOptionsName = 'pluginCreator___pluginOptions___name',
-  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsShortName = 'pluginCreator___pluginOptions___short_name',
   PluginCreatorPluginOptionsStartUrl = 'pluginCreator___pluginOptions___start_url',
   PluginCreatorPluginOptionsBackgroundColor = 'pluginCreator___pluginOptions___background_color',
@@ -5101,6 +4739,7 @@ export enum SitePageFieldsEnum {
   PluginCreatorPluginOptionsSpaceId = 'pluginCreator___pluginOptions___spaceId',
   PluginCreatorPluginOptionsAccessToken = 'pluginCreator___pluginOptions___accessToken',
   PluginCreatorPluginOptionsDownloadLocal = 'pluginCreator___pluginOptions___downloadLocal',
+  PluginCreatorPluginOptionsPath = 'pluginCreator___pluginOptions___path',
   PluginCreatorPluginOptionsPathCheck = 'pluginCreator___pluginOptions___pathCheck',
   PluginCreatorNodeApIs = 'pluginCreator___nodeAPIs',
   PluginCreatorBrowserApIs = 'pluginCreator___browserAPIs',
@@ -5294,7 +4933,6 @@ export enum SitePluginFieldsEnum {
   Name = 'name',
   Version = 'version',
   PluginOptionsName = 'pluginOptions___name',
-  PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsShortName = 'pluginOptions___short_name',
   PluginOptionsStartUrl = 'pluginOptions___start_url',
   PluginOptionsBackgroundColor = 'pluginOptions___background_color',
@@ -5305,6 +4943,7 @@ export enum SitePluginFieldsEnum {
   PluginOptionsSpaceId = 'pluginOptions___spaceId',
   PluginOptionsAccessToken = 'pluginOptions___accessToken',
   PluginOptionsDownloadLocal = 'pluginOptions___downloadLocal',
+  PluginOptionsPath = 'pluginOptions___path',
   PluginOptionsPathCheck = 'pluginOptions___pathCheck',
   NodeApIs = 'nodeAPIs',
   BrowserApIs = 'browserAPIs',
@@ -5426,7 +5065,6 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
    __typename?: 'SitePluginPluginOptions',
   name: Maybe<Scalars['String']>,
-  path: Maybe<Scalars['String']>,
   short_name: Maybe<Scalars['String']>,
   start_url: Maybe<Scalars['String']>,
   background_color: Maybe<Scalars['String']>,
@@ -5437,12 +5075,12 @@ export type SitePluginPluginOptions = {
   spaceId: Maybe<Scalars['String']>,
   accessToken: Maybe<Scalars['String']>,
   downloadLocal: Maybe<Scalars['Boolean']>,
+  path: Maybe<Scalars['String']>,
   pathCheck: Maybe<Scalars['Boolean']>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
   name: Maybe<StringQueryOperatorInput>,
-  path: Maybe<StringQueryOperatorInput>,
   short_name: Maybe<StringQueryOperatorInput>,
   start_url: Maybe<StringQueryOperatorInput>,
   background_color: Maybe<StringQueryOperatorInput>,
@@ -5453,6 +5091,7 @@ export type SitePluginPluginOptionsFilterInput = {
   spaceId: Maybe<StringQueryOperatorInput>,
   accessToken: Maybe<StringQueryOperatorInput>,
   downloadLocal: Maybe<BooleanQueryOperatorInput>,
+  path: Maybe<StringQueryOperatorInput>,
   pathCheck: Maybe<BooleanQueryOperatorInput>,
 };
 

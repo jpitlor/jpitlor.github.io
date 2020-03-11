@@ -3,23 +3,24 @@ import {Link, useStaticQuery, graphql} from "gatsby";
 
 const Header = () => {
     const {
-        file: {
-            childImageSharp: {
-                fixed: {
+        allContentfulAsset: {
+            nodes: [{
+                resize: {
                     src: profile,
                 },
-            },
+            }],
         },
     } = useStaticQuery(graphql`
-        query MyQuery {
-            file(relativePath: {eq: "me.jpg"}) {
-                childImageSharp {
-                    fixed(height: 1000, width: 1000) {
+        query HeaderQuery {
+            allContentfulAsset(filter: {title: {eq: "Profile"}}) {
+                nodes {
+                    resize(height: 1000, width: 1000, cropFocus: FACE) {
                         src
                     }
                 }
             }
         }
+
     `);
 
     return (

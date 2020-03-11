@@ -6,7 +6,7 @@ export default function useCompositions(): ContentfulMusic[] {
         allContentfulMusic: {nodes: compositions},
     } = useStaticQuery(graphql`
         query CompositionQuery {
-            allContentfulMusic(filter: {type: {eq: "Composition"}}) {
+            allContentfulMusic(filter: {group: {eq: "Composition"}}) {
                 nodes {
                     title
                     description {

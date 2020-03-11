@@ -2,7 +2,7 @@ require(`dotenv`).config();
 module.exports = {
     siteMetadata: {
         title: `Jordan Pitlor`,
-        description: `Software Engineer. Contact me at jordan@pitlor.dev!`,
+        description: `Software Engineer. Say hi at jordan@pitlor.dev!`,
         author: `Jordan Pitlor`,
     },
     plugins: [
@@ -16,15 +16,6 @@ module.exports = {
         `gatsby-plugin-purgecss`,
         `gatsby-plugin-typescript`,
         `gatsby-plugin-react-helmet`,
-        {
-            resolve: `gatsby-source-filesystem`,
-            options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
-            },
-        },
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
