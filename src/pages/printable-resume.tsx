@@ -1,4 +1,5 @@
 import * as React from "react";
+import SEO from "../components/seo";
 // import {useJobsRaw, useProjects, useSchools} from "../utils/useData";
 
 const PrintableResume = () => {
@@ -8,7 +9,16 @@ const PrintableResume = () => {
     // console.log(jobs, schools, pinnedRepositories);
 
     return (
-        <h1>This is different text!</h1>
+        <div
+            style={{
+                width: "8.5in",
+                height: "11in",
+                padding: "0.25in",
+            }}
+        >
+            <SEO title="Resume" />
+            <h1>This is different text!</h1>
+        </div>
     )
 };
 
