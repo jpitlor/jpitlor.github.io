@@ -36,16 +36,14 @@ const Header = () => {
                     </Link>
                 </span>
                 <span className="level-item">
-                    <Link to="/about">
-                        <img
-                            src={profile}
-                            alt="About"
-                            style={{
-                                borderRadius: "100%",
-                                maxHeight: "200px",
-                            }}
-                        />
-                    </Link>
+                    <img
+                        src={profile}
+                        alt="About"
+                        style={{
+                            borderRadius: "100%",
+                            maxHeight: "200px",
+                        }}
+                    />
                 </span>
                 <span className="level-item">
                     <Link to="/music" className="button is-white is-medium">
