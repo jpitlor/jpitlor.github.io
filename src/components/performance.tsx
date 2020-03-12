@@ -18,6 +18,7 @@ const Performance = ({performance}: PerformanceProps) => {
                 </div>
                 <div className="card-content">
                     <h3 className="title is-4">{performance.title}</h3>
+                    <p className="subtitle is-6">{performance.group}</p>
                     <div className="content">
                         {documentToReactComponents(performance.description.json)}
                     </div>

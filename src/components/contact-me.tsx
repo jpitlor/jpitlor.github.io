@@ -5,8 +5,8 @@ const ContactMe = () => {
     return (
         <Section title="Contact Me">
             <p className="is-tight-desktop">
-                Come say hi! I respond on all platforms, but if you&apos;re reaching out about
-                employment, please use email.
+                Please say hi! I respond on all platforms, so don&apos;t be afraid to reach out. If you send me
+                a message, I&apos;ll typically respond within one or two days.
             </p>
             <br />
             <br />

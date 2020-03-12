@@ -4,31 +4,22 @@ import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
+import Notification from "../components/notification";
 
 const IndexPage = () => {
-    function removeNotification() {
-        const notification = document.querySelector(".notification");
-        if (notification && notification.parentElement) {
-            notification.parentElement.removeChild(notification);
-        }
-    }
-
     return (
         <Layout title="Resume">
-            <div className="container has-mobile-padding">
-                <div className="notification is-info">
-                    <button className="delete" onClick={removeNotification} />
-                    Looking for a PDF version?&nbsp;
-                    <a
-                        href="/Jordan%20Pitlor%20Resume.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        Click here
-                    </a>
-                    !
-                </div>
-            </div>
+            <Notification>
+                Looking for a PDF version?&nbsp;
+                <a
+                    href="/Jordan%20Pitlor%20Resume.pdf"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    Click here
+                </a>
+                !
+            </Notification>
 
             <section className="hero">
                 <div className="hero-body">

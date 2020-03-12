@@ -1,4 +1,5 @@
 import {graphql, useStaticQuery} from "gatsby";
+import _ from "lodash";
 import {ContentfulMusic} from "./schema";
 
 export default function usePerformances(): ContentfulMusic[] {
@@ -9,6 +10,8 @@ export default function usePerformances(): ContentfulMusic[] {
             allContentfulMusic(filter: {group: {nin: "Composition"}}) {
                 nodes {
                     title
+                    group
+                    year
                     description {
                         json
                     }
@@ -18,5 +21,5 @@ export default function usePerformances(): ContentfulMusic[] {
         }
     `);
 
-    return performances;
+    return _.orderBy(performances, "year", "desc");
 }

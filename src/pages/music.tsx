@@ -11,7 +11,7 @@ const Music = () => (
                 <Performance />
             </div>
         </section>
-        <section className="hero">
+        <section className="hero is-light">
             <div className="hero-body">
                 <Compositions />
             </div>
