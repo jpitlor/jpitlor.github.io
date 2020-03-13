@@ -15,7 +15,7 @@ export function useJobsRaw(): RawJobs {
     const {
         allContentfulJob: {nodes: allJobs},
         allContentfulFeatured: {
-            nodes: [resumeJobs],
+            nodes: [{resumeJobs}],
         },
     } = useStaticQuery(graphql`
         query JobQuery {
