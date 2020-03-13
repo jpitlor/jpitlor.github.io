@@ -1,15 +1,11 @@
 import * as React from "react";
 import SEO from "../components/seo";
-import useSchools from "../utils/useSchools";
-import useProjects from "../utils/useProjects";
-import {useJobs} from "../utils/useJobs";
-import ResumeSection from "../components/resume-section";
+import Section from "../components/resume/section";
+import Education from "../sections/resume/education";
+import Experience from "../sections/resume/experience";
+import Projects from "../sections/resume/projects";
 
 const PrintableResume = () => {
-    const jobs = useJobs().flatMap(g => g[1]).filter(j => j.useInResume);
-    const schools = useSchools();
-    const pinnedRepositories = useProjects();
-
     return (
         <div
             style={{
@@ -17,11 +13,17 @@ const PrintableResume = () => {
                 height: "11in",
                 padding: "0.25in",
                 overflow: "hidden",
+                border: "1px solid black",
             }}
         >
             <SEO title="Resume" />
             <div className="level">
-                <h1 className="title is-1 level-item">Jordan Pitlor</h1>
+                {/* <h1 className="title is-1 level-item" style={{fontFamily: "Jetbrains Mono, monospace"}}> */}
+                {/*    Jordan Pitlor */}
+                {/* </h1> */}
+                <span className="subtitle is-5 level-item">
+                    This resume is under construction. Please visit jordanpitlor.com/resume
+                </span>
             </div>
             <div className="level">
                 <span className="level-item">
@@ -40,27 +42,15 @@ const PrintableResume = () => {
                     <span className="subtitle is-5">(216) 403-8126</span>
                 </span>
             </div>
-            <ResumeSection title="Experience">
-                {jobs.map(job => (
-                    <div key={job.company}>
-                        {job.company}
-                    </div>
-                ))}
-            </ResumeSection>
-            <ResumeSection title="Projects">
-                {pinnedRepositories.map(repo => (
-                    <div key={repo.name}>
-                        {repo.name}
-                    </div>
-                ))}
-            </ResumeSection>
-            <ResumeSection title="Education">
-                {schools.map(school => (
-                    <div key={school.name}>
-                        {school.name}
-                    </div>
-                ))}
-            </ResumeSection>
+            <Section title="Experience">
+                <Experience />
+            </Section>
+            <Section title="Projects">
+                <Projects />
+            </Section>
+            <Section title="Education">
+                <Education />
+            </Section>
         </div>
     )
 };

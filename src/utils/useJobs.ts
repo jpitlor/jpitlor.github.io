@@ -97,7 +97,7 @@ export function useJobs(): JobGroup[] {
                     startDate: new Date(j.startDate),
                     endDate: j.endDate ? new Date(j.endDate) : undefined,
                     location: await getGoogleMapLocation(j.location),
-                    useInResume: resumeJobs.find(k => k.company === j.company) !== null,
+                    useInResume: resumeJobs.find(k => k.company === j.company) !== undefined,
                 } as Job))),
                 "startDate",
                 "desc"

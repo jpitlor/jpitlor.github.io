@@ -5,12 +5,12 @@ interface ResumeSectionProps {
     children: React.ReactNode;
 }
 
-const ResumeSection = ({title, children}: ResumeSectionProps) => {
+const Section = ({title, children}: ResumeSectionProps) => {
     return (
         <React.Fragment>
             <h2
-                className="subtitle column has-text-centered"
-                style={{width: "100%", backgroundColor: "whitesmoke"}}
+                className="title is-4 has-text-centered"
+                style={{width: "100%", padding: "0.75rem", backgroundColor: "whitesmoke"}}
             >
                 {title}
             </h2>
@@ -21,4 +21,4 @@ const ResumeSection = ({title, children}: ResumeSectionProps) => {
     );
 };
 
-export default ResumeSection;
+export default Section;
