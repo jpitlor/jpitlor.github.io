@@ -6,9 +6,17 @@ import {
 import {useEffect, useState} from "react";
 import _ from "lodash";
 
-export function useJobsRaw(): ContentfulJob[] {
+interface RawJobs {
+    allJobs: ContentfulJob[];
+    resumeJobs: ContentfulJob[];
+}
+
+export function useJobsRaw(): RawJobs {
     const {
-        allContentfulJob: {nodes: jobs},
+        allContentfulJob: {nodes: allJobs},
+        allContentfulFeatured: {
+            nodes: [resumeJobs],
+        },
     } = useStaticQuery(graphql`
         query JobQuery {
             allContentfulJob {
@@ -29,16 +37,27 @@ export function useJobsRaw(): ContentfulJob[] {
                     }
                 }
             }
+
+            allContentfulFeatured {
+                nodes {
+                    resumeJobs {
+                        company
+                    }
+                }
+            }
         }
     `);
 
-    return jobs;
+    return {
+        allJobs,
+        resumeJobs,
+    };
 }
 
 const cache: Record<string, string> = {};
 
 async function getGoogleMapLocation({lat, lon}: any): Promise<string> {
-    if (cache[`${lat},${lon}`]) return cache[`${lat},${lon}`];
+    if (cache[`${lat},${lon}`] || !fetch) return cache[`${lat},${lon}`];
 
     const route = "https://maps.googleapis.com/maps/api/geocode/json";
     const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
@@ -61,23 +80,25 @@ export interface Job {
     description: ContentfulJobDescriptionRichTextNode;
     endDate?: Date;
     endPay: number;
+    useInResume: boolean;
 }
 
 type JobGroup = [number, Job[]];
 
 export function useJobs(): JobGroup[] {
-    const rawJobs = useJobsRaw();
+    const {allJobs, resumeJobs} = useJobsRaw();
     const [jobs, setJobs] = useState<JobGroup[]>([]);
 
     useEffect(() => {
         (async () => {
             const transformedJobs: Job[] = _.orderBy(
-                await Promise.all(rawJobs.map(async j => ({
+                await Promise.all(allJobs.map(async j => ({
                     ...j,
                     startDate: new Date(j.startDate),
                     endDate: j.endDate ? new Date(j.endDate) : undefined,
                     location: await getGoogleMapLocation(j.location),
-                }))),
+                    useInResume: resumeJobs.find(k => k.company === j.company) !== null,
+                } as Job))),
                 "startDate",
                 "desc"
             );

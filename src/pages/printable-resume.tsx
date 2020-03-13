@@ -2,11 +2,11 @@ import * as React from "react";
 import SEO from "../components/seo";
 import useSchools from "../utils/useSchools";
 import useProjects from "../utils/useProjects";
-import {useJobsRaw} from "../utils/useJobs";
+import {useJobs} from "../utils/useJobs";
 import ResumeSection from "../components/resume-section";
 
 const PrintableResume = () => {
-    const jobs = useJobsRaw();
+    const jobs = useJobs().flatMap(g => g[1]).filter(j => j.useInResume);
     const schools = useSchools();
     const pinnedRepositories = useProjects();
 
@@ -37,7 +37,7 @@ const PrintableResume = () => {
                 <span className="level-item">
                     <i className="far fa-phone fa-2x" />
                     &nbsp;&nbsp;
-                    <span className="subtitle is-53">(216) 403-8126</span>
+                    <span className="subtitle is-5">(216) 403-8126</span>
                 </span>
             </div>
             <ResumeSection title="Experience">

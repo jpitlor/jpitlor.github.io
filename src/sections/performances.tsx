@@ -6,12 +6,11 @@ import usePerformances from "../utils/usePerformances";
 import Notification from "../components/notification";
 
 const Performances = () => {
-    const allPerformances = _.groupBy(usePerformances(), "group");
+    const {allPerformances: ungroupedPerformances, featuredPerformances} = usePerformances();
+    const allPerformances = _.groupBy(ungroupedPerformances, "group");
     const [activeGroup, setActiveGroup] = useState("all groups");
     const [dropDownIsExpanded, setDropDownIsExpanded] = useState(false);
-    const performances = activeGroup === "all groups"
-        ? Object.values(allPerformances).map(x => x[0])
-        : allPerformances[activeGroup];
+    const performances = activeGroup === "all groups" ? featuredPerformances : allPerformances[activeGroup];
 
     function handleSetActiveGroup(group: string) {
         return () => setActiveGroup(group === "All Groups" ? "all groups" : group);
