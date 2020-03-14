@@ -8,7 +8,7 @@ const NotFoundPage = () => (
     <Layout title="404: Not Found">
         <Section title="This route doesn't exist">
             <p className="is-tight-desktop">
-                You can use any of the 3 links at the top of the page to find a page
+                You can use either of the links at the top of the page to find a page
                 that does exist. As a consolation for a lack of content, please enjoy
                 a picture of my dog.
             </p>
