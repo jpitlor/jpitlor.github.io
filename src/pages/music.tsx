@@ -6,7 +6,7 @@ import Performance from "../sections/performances";
 
 const Music = () => (
     <Layout title="Music">
-        <section className="hero">
+        <section className="hero is-light">
             <div className="hero-body">
                 <Performance />
             </div>

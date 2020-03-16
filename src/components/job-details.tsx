@@ -8,12 +8,21 @@ interface JobDetailsProps {
 }
 
 const JobDetails = ({job, locationId}: JobDetailsProps) => (
-    <div className="box is-shadowless" style={{width: "100%"}}>
+    <div
+        className="box"
+        style={{
+            width: "100%",
+            height: "100%",
+            boxShadow: "0 2px 0 hsla(0, 0%, 100%, 0.15), inset 0 2px 2px hsla(0, 0%, 0%, 0.1)",
+        }}
+    >
         {job ? (
             <React.Fragment>
-                <p className="title is-2">{job?.company}</p>
-                <p className="subtitle is-4">{job?.title}</p>
-                {documentToReactComponents(job?.description.json)}
+                <p className="title is-2">{job.company}</p>
+                <p className="subtitle is-4">{job.title}</p>
+                <div className="content">
+                    {documentToReactComponents(job.description?.json)}
+                </div>
 
                 <iframe
                     height="450"

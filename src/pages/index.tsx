@@ -9,19 +9,20 @@ import Notification from "../components/notification";
 const IndexPage = () => {
     return (
         <Layout title="Resume">
-            <Notification>
-                Looking for a PDF version?&nbsp;
-                <a
-                    href="/Jordan%20Pitlor%20Resume.pdf"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
-                    Click here
-                </a>
-                !
-            </Notification>
-
-            <section className="hero">
+            <section className="has-background-light">
+                <Notification>
+                    Looking for a PDF version?&nbsp;
+                    <a
+                        href="/Jordan%20Pitlor%20Resume.pdf"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                    >
+                        Click here
+                    </a>
+                    !
+                </Notification>
+            </section>
+            <section className="hero is-light">
                 <div className="hero-body">
                     <Experience />
                 </div>
@@ -31,7 +32,7 @@ const IndexPage = () => {
                     <Projects />
                 </div>
             </section>
-            <section className="hero">
+            <section className="hero is-light">
                 <div className="hero-body">
                     <Education />
                 </div>

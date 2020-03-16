@@ -24,14 +24,14 @@ const Header = () => {
     `);
 
     return (
-        <nav role="navigation" aria-label="main navigation" className="section">
+        <nav role="navigation" aria-label="main navigation" className="section has-background-light">
             <div className="level is-mobile is-tight-desktop">
                 {/*
                     Wrapping each of these in spans ensures only the button is a link,
                     not the entire container (which makes what is a link ambiguous)
                  */}
                 <span className="level-item">
-                    <Link to="/" className="button is-white is-medium">
+                    <Link to="/" className="button is-light is-medium">
                         Resume
                     </Link>
                 </span>
@@ -46,7 +46,7 @@ const Header = () => {
                     />
                 </span>
                 <span className="level-item">
-                    <Link to="/music" className="button is-white is-medium">
+                    <Link to="/music" className="button is-light is-medium">
                         Music
                     </Link>
                 </span>
