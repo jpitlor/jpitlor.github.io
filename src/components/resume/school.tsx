@@ -1,4 +1,6 @@
 import * as React from "react";
+import {View, Text} from "@react-pdf/renderer";
+
 import {ContentfulSchool} from "../../utils/schema";
 
 interface SchoolProps {
@@ -6,18 +8,18 @@ interface SchoolProps {
 }
 
 const School = ({school}: SchoolProps) => (
-    <div style={{marginBottom: "1.5rem"}}>
-        <span className="is-pulled-right">
+    <View>
+        <Text>
             {new Date(school.startDate).getFullYear()} - {new Date(school.endDate).getFullYear()}
-        </span>
-        <span className="is-size-4">{school.name} - B.S. {school.major.join(", ")}</span>
-        <br />
-        <strong>Campus:</strong> {school.city}
-        <br />
-        <strong>Minors:</strong> {school.minor.join(", ")}
-        <br />
-        <strong>Concentrations:</strong> {school.concentration.join(", ")}
-    </div>
+        </Text>
+        <Text>{school.name} - B.S. {school.major.join(", ")}</Text>
+        <Text>Campus:</Text>
+        <Text>{school.city}</Text>
+        <Text>Minors:</Text>
+        <Text>{school.minor.join(", ")}</Text>
+        <Text>Concentrations:</Text>
+        <Text>{school.concentration.join(", ")}</Text>
+    </View>
 );
 
 export default School;

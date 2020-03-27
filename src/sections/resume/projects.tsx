@@ -1,12 +1,15 @@
 import * as React from "react";
-import useProjects from "../../utils/useProjects";
 import Project from "../../components/resume/project";
+import {GithubDataDataUserPinnedItemsNodes} from "../../utils/schema";
 
-const Projects = () => {
-    const pinnedRepositories = useProjects();
+interface ProjectsProps {
+    data: GithubDataDataUserPinnedItemsNodes[];
+}
+
+const Projects = ({data}: ProjectsProps) => {
     return (
         <React.Fragment>
-            {pinnedRepositories.map(repo => <Project project={repo} key={repo.name} />)}
+            {data.map(repo => <Project project={repo} key={repo.name} />)}
         </React.Fragment>
     )
 };

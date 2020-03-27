@@ -1,12 +1,15 @@
 import * as React from "react";
-import useSchools from "../../utils/useSchools";
 import School from "../../components/resume/school";
+import {ContentfulSchool} from "../../utils/schema";
 
-const Education = () => {
-    const schools = useSchools();
+interface EducationProps {
+    data: ContentfulSchool[];
+}
+
+const Education = ({data}: EducationProps) => {
     return (
         <React.Fragment>
-            {schools.map(school => <School school={school} key={school.name} />)}
+            {data.map(school => <School school={school} key={school.name} />)}
         </React.Fragment>
     )
 };

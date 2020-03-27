@@ -5,8 +5,10 @@ import styled from "@react-pdf/styled-components";
 
 import Section from "../components/resume/section";
 import Experience from "../sections/resume/experience";
-// import Projects from "../sections/resume/projects";
-// import Education from "../sections/resume/education";
+import Projects from "../sections/resume/projects";
+import Education from "../sections/resume/education";
+import {JobGroup} from "../utils/useJobs";
+import {ContentfulSchool, GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
 
 // Font.register({
 //     family: "Jetbrains Mono",
@@ -28,7 +30,13 @@ const FontAwesomeIcon = styled.Image`
     height: 25px;
 `;
 
-const Resume = () => (
+interface ResumeProps {
+    jobs: JobGroup[];
+    projects: GithubDataDataUserPinnedItemsNodes[];
+    schools: ContentfulSchool[];
+}
+
+const Resume = ({jobs, projects, schools}: ResumeProps) => (
     <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
         <Page size="letter">
             <View>
@@ -50,14 +58,14 @@ const Resume = () => (
                     </View>
                 </View>
                 <Section title="Experience">
-                    <Experience />
+                    <Experience data={jobs} />
                 </Section>
-                {/* <Section title="Projects">*/}
-                {/*    <Projects />*/}
-                {/* </Section>*/}
-                {/* <Section title="Education">*/}
-                {/*    <Education />*/}
-                {/* </Section>*/}
+                <Section title="Projects">
+                    <Projects data={projects} />
+                </Section>
+                <Section title="Education">
+                    <Education data={schools} />
+                </Section>
             </View>
         </Page>
     </Document>

@@ -83,7 +83,7 @@ export interface Job {
     useInResume: boolean;
 }
 
-type JobGroup = [number, Job[]];
+export type JobGroup = [number, Job[]];
 
 export function useJobs(): JobGroup[] {
     const {allJobs, resumeJobs} = useJobsRaw();
