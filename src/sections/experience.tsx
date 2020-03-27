@@ -56,13 +56,13 @@ export default function Experience() {
                         <h3 className="subtitle has-text-weight-bold">
                             Past Jobs
                         </h3>
-                        <p className="panel-block">
+                        <div className="panel-block">
                             <div className="timeline">
-                                <header className="timeline-header">
+                                <div className="timeline-header">
                                     <span className="tag is-medium is-primary">
                                         Today
                                     </span>
-                                </header>
+                                </div>
                                 {jobs.map(([year, jobGroup], i) => (
                                     <React.Fragment key={i}>
                                         {jobGroup.map((job, j) => (
@@ -95,11 +95,11 @@ export default function Experience() {
                                                 </div>
                                             </div>
                                         ))}
-                                        <header className="timeline-header">
+                                        <div className="timeline-header">
                                             <span className="tag is-primary">
                                                 {year}
                                             </span>
-                                        </header>
+                                        </div>
                                     </React.Fragment>
                                 ))}
                                 <div className="timeline-item" />
@@ -109,7 +109,7 @@ export default function Experience() {
                                     </span>
                                 </div>
                             </div>
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div className="column">

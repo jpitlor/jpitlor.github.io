@@ -1,10 +1,12 @@
 import * as React from "react";
+import {PDFDownloadLink} from "@react-pdf/renderer";
 
 import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
 import Notification from "../components/notification";
+import Resume from "../templates/resume";
 
 const IndexPage = () => {
     return (
@@ -12,14 +14,9 @@ const IndexPage = () => {
             <section className="has-background-light">
                 <Notification>
                     Looking for a PDF version?&nbsp;
-                    <a
-                        href="/Jordan%20Pitlor%20Resume.pdf"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        Click here
-                    </a>
-                    !
+                    <PDFDownloadLink document={<Resume />} fileName="Jordan Pitlor Resume.pdf">
+                        {({loading}) => loading ? "Loading" : "Click here!"}
+                    </PDFDownloadLink>
                 </Notification>
             </section>
             <section className="hero is-light">

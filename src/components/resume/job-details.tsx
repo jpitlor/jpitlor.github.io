@@ -1,19 +1,35 @@
 import * as React from "react";
+import {StyleSheet, Text, View} from "@react-pdf/renderer";
+
 import {Job} from "../../utils/useJobs";
 
 interface JobProps {
     job: Job;
 }
 
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: "1.5rem",
+    },
+    date: {
+
+    },
+    company: {
+
+    },
+    title: {
+
+    },
+});
+
 const JobDetails = ({job}: JobProps) => (
-    <div style={{marginBottom: "1.5rem"}}>
-        <span className="is-pulled-right">
+    <View style={styles.container}>
+        <Text style={styles.date}>
             {new Date(job.startDate).getFullYear()} - {job.endDate ? new Date(job.endDate).getFullYear() : "Present"}
-        </span>
-        <span className="is-size-4">{job.company}</span>
-        <br />
-        <span className="is-size-6">{job.title}</span>
-    </div>
+        </Text>
+        <Text style={styles.company}>{job.company}</Text>
+        <Text style={styles.title}>{job.title}</Text>
+    </View>
 );
 
 export default JobDetails;

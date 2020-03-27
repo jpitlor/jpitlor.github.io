@@ -20,12 +20,6 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 @import "~@fortawesome/fontawesome-pro/scss/brands";
 @import "~@fortawesome/fontawesome-pro/scss/regular";
 
-// For some reason they override title colors inside heroes,
-// but we don't want this
-//.hero.is-light .title {
-//    color: $dark-blue;
-//}
-
 // To center the Instagram post - style prop isn't an option
 .has-margin-auto iframe {
     margin: 0 auto 3rem !important;
