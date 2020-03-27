@@ -1,12 +1,11 @@
 import * as React from "react";
-import {PDFDownloadLink} from "@react-pdf/renderer";
 
 import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
 import Notification from "../components/notification";
-import Resume from "../templates/resume";
+import {Link} from "gatsby";
 
 const IndexPage = () => {
     return (
@@ -14,9 +13,7 @@ const IndexPage = () => {
             <section className="has-background-light">
                 <Notification>
                     Looking for a PDF version?&nbsp;
-                    <PDFDownloadLink document={<Resume />} fileName="Jordan Pitlor Resume.pdf">
-                        {({loading}) => loading ? "Loading" : "Click here!"}
-                    </PDFDownloadLink>
+                    <Link to="/resume">Go here!</Link>
                 </Notification>
             </section>
             <section className="hero is-light">

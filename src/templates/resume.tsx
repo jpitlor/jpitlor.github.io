@@ -1,8 +1,10 @@
 import * as React from "react";
-import {View, Text, StyleSheet, Document, Page} from "@react-pdf/renderer";
+import {View, Text, Document, Page} from "@react-pdf/renderer";
+// @ts-ignore
+import styled from "@react-pdf/styled-components";
 
-// import Section from "../components/resume/section";
-// import Experience from "../sections/resume/experience";
+import Section from "../components/resume/section";
+import Experience from "../sections/resume/experience";
 // import Projects from "../sections/resume/projects";
 // import Education from "../sections/resume/education";
 
@@ -21,51 +23,35 @@ import {View, Text, StyleSheet, Document, Page} from "@react-pdf/renderer";
 //     src: "",
 // });
 
-const styles = StyleSheet.create({
-    page: {
-        padding: "0.25in",
-    },
-    nameContainer: {
-
-    },
-    name: {
-
-    },
-    infoContainer: {
-
-    },
-    infoItem: {
-
-    },
-    icon: {
-
-    },
-});
+const FontAwesomeIcon = styled.Image`
+    width: 25px;
+    height: 25px;
+`;
 
 const Resume = () => (
     <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
         <Page size="letter">
-            <View style={styles.page}>
-                <View style={styles.nameContainer}>
-                    <Text style={styles.name}>Jordan Pitlor</Text>
+            <View>
+                <View>
+                    <Text>Jordan Pitlor</Text>
                 </View>
-                <View style={styles.infoContainer}>
-                    <View style={styles.infoItem}>
-                        {/* <Image src="" style={styles.icon} />*/}
+                <View>
+                    <View>
+                        <FontAwesomeIcon src="/github.png" />
                         <Text>piticent123</Text>
                     </View>
-                    <View style={styles.infoItem}>
-                        {/* <Image src="" style={styles.icon} />*/}
+                    <View>
+                        <FontAwesomeIcon src="/envelope.png" />
                         <Text>jordan@pitlor.dev</Text>
                     </View>
-                    <View style={styles.infoItem}>
-                        {/* <Image src="" style={styles.icon} />*/}
+                    <View>
+                        <FontAwesomeIcon src="/phone-alt.png" />
                         <Text>(216) 403-8126</Text>
                     </View>
                 </View>
-                {/* <Section title="Experience">*/}
-                {/*    <Experience />*/}
-                {/* </Section>*/}
+                <Section title="Experience">
+                    <Experience />
+                </Section>
                 {/* <Section title="Projects">*/}
                 {/*    <Projects />*/}
                 {/* </Section>*/}
