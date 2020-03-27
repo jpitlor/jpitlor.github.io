@@ -13,7 +13,6 @@ const JobDetails = ({job, locationId}: JobDetailsProps) => (
         style={{
             width: "100%",
             height: "100%",
-            boxShadow: "0 2px 0 hsla(0, 0%, 100%, 0.15), inset 0 2px 2px hsla(0, 0%, 0%, 0.1)",
         }}
     >
         {job ? (
