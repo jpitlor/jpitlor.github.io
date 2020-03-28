@@ -1,5 +1,5 @@
 import * as React from "react";
-import {View, Text, Document, Page} from "@react-pdf/renderer";
+import {Document, Font} from "@react-pdf/renderer";
 // @ts-ignore
 import styled from "@react-pdf/styled-components";
 
@@ -10,24 +10,71 @@ import Education from "../sections/resume/education";
 import {JobGroup} from "../utils/useJobs";
 import {ContentfulSchool, GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
 
-// Font.register({
-//     family: "Jetbrains Mono",
-//     src: "",
-// });
-//
-// Font.register({
-//     family: "Merriweather",
-//     src: "",
-// });
-//
-// Font.register({
-//     family: "Rubik",
-//     src: "",
-// });
+Font.register({
+    family: "Ubuntu Mono",
+    src: "/UbuntuMono-Regular.ttf",
+});
+
+Font.register({
+    family: "Merriweather",
+    src: "/Merriweather-Regular.ttf",
+});
+
+Font.register({
+    family: "Rubik",
+    fonts: [
+        {src: "/Rubik-Regular.ttf"},
+        {src: "/Rubik-Italic.ttf", fontStyle: "italic"},
+        {src: "/Rubik-Bold.ttf", fontWeight: 700},
+    ],
+});
+
+const PaddedPage = styled.Page`
+    padding: 5mm 10mm;
+`;
+
+const IconContainer = styled.View`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+`;
 
 const FontAwesomeIcon = styled.Image`
-    width: 25px;
-    height: 25px;
+    width: 16px;
+    height: auto;
+`;
+
+const InfoText = styled.Text`
+    //line-height: 20px;
+    //font-size: 16px;
+    //height: 20px;
+    //width: 1in;
+    border: 1px solid blue;
+`
+
+const Title = styled.Text`
+    font-family: "Ubuntu Mono";
+    font-size: 36px;
+    width: 100%;
+    text-align: center;
+`;
+
+const InfoContainer = styled.View`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 2mm;
+    width: 100%;
+    height: 20px;
+`;
+
+const InfoItem = styled.View`
+    display: flex;
+    flex-direction: row;
 `;
 
 interface ResumeProps {
@@ -38,36 +85,38 @@ interface ResumeProps {
 
 const Resume = ({jobs, projects, schools}: ResumeProps) => (
     <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
-        <Page size="letter">
-            <View>
-                <View>
-                    <Text>Jordan Pitlor</Text>
-                </View>
-                <View>
-                    <View>
+        <PaddedPage size="letter">
+            <Title>Jordan Pitlor</Title>
+            <InfoContainer>
+                <InfoItem>
+                    <IconContainer>
                         <FontAwesomeIcon src="/github.png" />
-                        <Text>piticent123</Text>
-                    </View>
-                    <View>
+                    </IconContainer>
+                    <InfoText>piticent123</InfoText>
+                </InfoItem>
+                <InfoItem>
+                    <IconContainer>
                         <FontAwesomeIcon src="/envelope.png" />
-                        <Text>jordan@pitlor.dev</Text>
-                    </View>
-                    <View>
+                    </IconContainer>
+                    <InfoText>jordan@pitlor.dev</InfoText>
+                </InfoItem>
+                <InfoItem>
+                    <IconContainer>
                         <FontAwesomeIcon src="/phone-alt.png" />
-                        <Text>(216) 403-8126</Text>
-                    </View>
-                </View>
-                <Section title="Experience">
-                    <Experience data={jobs} />
-                </Section>
-                <Section title="Projects">
-                    <Projects data={projects} />
-                </Section>
-                <Section title="Education">
-                    <Education data={schools} />
-                </Section>
-            </View>
-        </Page>
+                    </IconContainer>
+                    <InfoText>(216) 403-8126</InfoText>
+                </InfoItem>
+            </InfoContainer>
+            <Section title="Experience">
+                <Experience data={jobs} />
+            </Section>
+            <Section title="Projects">
+                <Projects data={projects} />
+            </Section>
+            <Section title="Education">
+                <Education data={schools} />
+            </Section>
+        </PaddedPage>
     </Document>
 );
 

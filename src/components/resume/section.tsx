@@ -1,16 +1,28 @@
 import * as React from "react";
-import {Text, View} from "@react-pdf/renderer";
+// @ts-ignore
+import styled from "@react-pdf/styled-components";
 
 interface ResumeSectionProps {
     title: string;
     children: React.ReactNode;
 }
 
+const Title = styled.Text`
+    font-family: "Merriweather";
+    font-size: 16px;
+`;
+
+const Content = styled.View`
+    margin-bottom: 2rem;
+    font-family: "Rubik";
+    font-size: 12px;
+`;
+
 const Section = ({title, children}: ResumeSectionProps) => {
     return (
         <React.Fragment>
-            <Text>{title}</Text>
-            <View>{children}</View>
+            <Title>{title}</Title>
+            <Content>{children}</Content>
         </React.Fragment>
     );
 };
