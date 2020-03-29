@@ -1,7 +1,5 @@
 import * as React from "react";
-import {Document, Font} from "@react-pdf/renderer";
-// @ts-ignore
-import styled from "@react-pdf/styled-components";
+import {Document, Font, StyleSheet, Text, View, Image, Page} from "@react-pdf/renderer";
 
 import Section from "../components/resume/section";
 import Experience from "../sections/resume/experience";
@@ -29,53 +27,48 @@ Font.register({
     ],
 });
 
-const PaddedPage = styled.Page`
-    padding: 5mm 10mm;
-`;
-
-const IconContainer = styled.View`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-`;
-
-const FontAwesomeIcon = styled.Image`
-    width: 16px;
-    height: auto;
-`;
-
-const InfoText = styled.Text`
-    //line-height: 20px;
-    //font-size: 16px;
-    //height: 20px;
-    //width: 1in;
-    border: 1px solid blue;
-`
-
-const Title = styled.Text`
-    font-family: "Ubuntu Mono";
-    font-size: 36px;
-    width: 100%;
-    text-align: center;
-`;
-
-const InfoContainer = styled.View`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 2mm;
-    width: 100%;
-    height: 20px;
-`;
-
-const InfoItem = styled.View`
-    display: flex;
-    flex-direction: row;
-`;
+const styles = StyleSheet.create({
+    page: {
+        padding: "5mm 10mm",
+    },
+    iconContainer: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "20px",
+        height: "20px",
+        marginRight: "5px",
+    },
+    faIcon: {
+        width: "16px",
+        height: "auto",
+    },
+    infoText: {
+        height: "20px",
+        fontSize: "16px",
+        width: "2in",
+        fontFamily: "Rubik",
+    },
+    title: {
+        fontFamily: "Ubuntu Mono",
+        fontSize: "36px",
+        width: "100%",
+        textAlign: "center",
+    },
+    infoContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-around",
+        paddingTop: "2mm",
+        width: "100%",
+        height: "20px",
+    },
+    infoItem: {
+        display: "flex",
+        flexDirection: "row",
+    },
+});
 
 interface ResumeProps {
     jobs: JobGroup[];
@@ -85,28 +78,34 @@ interface ResumeProps {
 
 const Resume = ({jobs, projects, schools}: ResumeProps) => (
     <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
-        <PaddedPage size="letter">
-            <Title>Jordan Pitlor</Title>
-            <InfoContainer>
-                <InfoItem>
-                    <IconContainer>
-                        <FontAwesomeIcon src="/github.png" />
-                    </IconContainer>
-                    <InfoText>piticent123</InfoText>
-                </InfoItem>
-                <InfoItem>
-                    <IconContainer>
-                        <FontAwesomeIcon src="/envelope.png" />
-                    </IconContainer>
-                    <InfoText>jordan@pitlor.dev</InfoText>
-                </InfoItem>
-                <InfoItem>
-                    <IconContainer>
-                        <FontAwesomeIcon src="/phone-alt.png" />
-                    </IconContainer>
-                    <InfoText>(216) 403-8126</InfoText>
-                </InfoItem>
-            </InfoContainer>
+        <Page size="letter" style={styles.page}>
+            <Text style={styles.title}>Jordan Pitlor</Text>
+            {/* <View style={styles.infoContainer}>*/}
+            {/* <View style={styles.infoItem}>*/}
+            {/*    <View style={styles.iconContainer}>*/}
+            {/*        <Image style={styles.faIcon} src="/github.png" />*/}
+            {/*    </View>*/}
+            <Text style={styles.infoText} debug={true}>
+                piticent123
+            </Text>
+            {/* </View>*/}
+            {/* <View style={styles.infoItem}>*/}
+            {/*    <View style={styles.iconContainer}>*/}
+            {/*        <Image style={styles.faIcon} src="/envelope.png" />*/}
+            {/*    </View>*/}
+            {/*    <Text style={styles.infoText}>*/}
+            {/*        jordan@pitlor.dev*/}
+            {/*    </Text>*/}
+            {/* </View>*/}
+            {/* <View style={styles.infoItem}>*/}
+            {/*    <View style={styles.iconContainer}>*/}
+            {/*        <Image style={styles.faIcon} src="/phone-alt.png" />*/}
+            {/*    </View>*/}
+            {/*    <Text style={styles.infoText}>*/}
+            {/*        (216) 403-8126*/}
+            {/*    </Text>*/}
+            {/* </View>*/}
+            {/* </View>*/}
             <Section title="Experience">
                 <Experience data={jobs} />
             </Section>
@@ -116,7 +115,7 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
             <Section title="Education">
                 <Education data={schools} />
             </Section>
-        </PaddedPage>
+        </Page>
     </Document>
 );
 
