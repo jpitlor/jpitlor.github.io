@@ -28,6 +28,8 @@ export function useJobsRaw(): RawJobs {
                     startPay
                     title
                     company
+                    city
+                    state
                     location {
                         lat
                         lon

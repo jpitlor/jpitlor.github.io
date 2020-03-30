@@ -23,7 +23,7 @@ const ResumePage = () => {
 
     useEffect(() => {
         setInBrowser(true);
-    }, []);
+    }, [jobs]);
 
     return (
         <Container>

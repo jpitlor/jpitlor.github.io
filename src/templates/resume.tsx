@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-around",
-        paddingTop: "2mm",
+        padding: "5mm 0 8mm",
         width: "100%",
         height: "20px",
     },
@@ -80,32 +80,32 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
     <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
         <Page size="letter" style={styles.page}>
             <Text style={styles.title}>Jordan Pitlor</Text>
-            {/* <View style={styles.infoContainer}>*/}
-            {/* <View style={styles.infoItem}>*/}
-            {/*    <View style={styles.iconContainer}>*/}
-            {/*        <Image style={styles.faIcon} src="/github.png" />*/}
-            {/*    </View>*/}
-            <Text style={styles.infoText} debug={true}>
-                piticent123
-            </Text>
-            {/* </View>*/}
-            {/* <View style={styles.infoItem}>*/}
-            {/*    <View style={styles.iconContainer}>*/}
-            {/*        <Image style={styles.faIcon} src="/envelope.png" />*/}
-            {/*    </View>*/}
-            {/*    <Text style={styles.infoText}>*/}
-            {/*        jordan@pitlor.dev*/}
-            {/*    </Text>*/}
-            {/* </View>*/}
-            {/* <View style={styles.infoItem}>*/}
-            {/*    <View style={styles.iconContainer}>*/}
-            {/*        <Image style={styles.faIcon} src="/phone-alt.png" />*/}
-            {/*    </View>*/}
-            {/*    <Text style={styles.infoText}>*/}
-            {/*        (216) 403-8126*/}
-            {/*    </Text>*/}
-            {/* </View>*/}
-            {/* </View>*/}
+            <View style={styles.infoContainer}>
+                <View style={styles.infoItem}>
+                    <View style={styles.iconContainer}>
+                        <Image style={styles.faIcon} src="/github.png" />
+                    </View>
+                    <Text style={styles.infoText}>
+                        piticent123
+                    </Text>
+                </View>
+                <View style={styles.infoItem}>
+                    <View style={styles.iconContainer}>
+                        <Image style={styles.faIcon} src="/envelope.png" />
+                    </View>
+                    <Text style={styles.infoText}>
+                        jordan@pitlor.dev
+                    </Text>
+                </View>
+                <View style={styles.infoItem}>
+                    <View style={styles.iconContainer}>
+                        <Image style={styles.faIcon} src="/phone-alt.png" />
+                    </View>
+                    <Text style={styles.infoText}>
+                        (216) 403-8126
+                    </Text>
+                </View>
+            </View>
             <Section title="Experience">
                 <Experience data={jobs} />
             </Section>

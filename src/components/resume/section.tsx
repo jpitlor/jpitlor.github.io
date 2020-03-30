@@ -8,23 +8,38 @@ interface ResumeSectionProps {
 
 const styles = StyleSheet.create({
     title: {
+        padding: "0 4mm",
         fontFamily: "Merriweather",
         fontSize: "16px",
-        width: "100%",
-        textAlign: "center",
-        padding: "6mm 0 3mm",
     },
     content: {
-        marginBottom: "2rem",
         fontFamily: "Rubik",
         fontSize: "12px",
+    },
+    titleContainer: {
+        paddingBottom: "4mm 0 2mm",
+        position: "relative",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "row",
+    },
+    line: {
+        flex: 1,
+        height: 0,
+        borderBottom: "1px solid black",
     },
 });
 
 const Section = ({title, children}: ResumeSectionProps) => {
     return (
         <React.Fragment>
-            <Text style={styles.title}>{title}</Text>
+            <View style={styles.titleContainer}>
+                <View style={styles.line} />
+                <Text style={styles.title}>{title}</Text>
+                <View style={styles.line} />
+            </View>
             <View style={styles.content}>{children}</View>
         </React.Fragment>
     );

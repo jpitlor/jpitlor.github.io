@@ -1,20 +1,51 @@
 import * as React from "react";
-import {View, Text} from "@react-pdf/renderer";
+import {View, Text, StyleSheet} from "@react-pdf/renderer";
 
 import {GithubDataDataUserPinnedItemsNodes} from "../../utils/schema";
 import useReadme from "../../utils/useReadme";
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: "3mm",
+        position: "relative",
+    },
+    label: {
+        fontWeight: "bold",
+    },
+    description: {
+        marginTop: "1mm",
+        width: "100%",
+    },
+    shortDescription: {
+        color: "#888888",
+        fontStyle: "italic",
+    },
+});
 
 interface ProjectProps {
     project: GithubDataDataUserPinnedItemsNodes;
 }
 
 const Project = ({project}: ProjectProps) => {
-    const {title} = useReadme(project.object.text);
+    const {title, longDescription} = useReadme(project.object.text);
+
+    function unmarked(md: string): string {
+        return md
+            .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+            .replace(/\n/g, " ")
+            .replace(/[ ][ ]/g, " ");
+    }
 
     return (
-        <View>
-            <Text>{title}</Text>
-            <Text>{project.description}</Text>
+        <View style={styles.container}>
+            <Text>
+                <Text style={styles.label}>{title}</Text>
+                &nbsp;-&nbsp;
+                <Text style={styles.shortDescription}>{project.description}</Text>
+            </Text>
+            <Text style={styles.description}>
+                {unmarked(longDescription)}
+            </Text>
         </View>
     );
 };
