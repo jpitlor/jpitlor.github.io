@@ -11,15 +11,10 @@
         "plugin:react/recommended"
     ],
     "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "jest",
-        "no-for-of-loops",
-        "react"
-    ],
+    "plugins": ["react"],
     "env": {
         "browser": true,
         "node": true,
-        "jest": true,
         "es6": true
     },
     "parserOptions": {
@@ -33,25 +28,13 @@
         "no-console": "off",
         "accessor-pairs": "off",
         "arrow-spacing": "error",
-        "brace-style": [
-            "error",
-            "1tbs"
-        ],
-        "comma-dangle": [
-            "error",
-            "always-multiline"
-        ],
+        "brace-style": ["error", "1tbs"],
+        "comma-dangle": ["error", "always-multiline"],
         "consistent-return": "off",
-        "dot-location": [
-            "error",
-            "property"
-        ],
+        "dot-location": ["error", "property"],
         "dot-notation": "error",
         "eol-last": "error",
-        "eqeqeq": [
-            "error",
-            "allow-null"
-        ],
+        "eqeqeq": ["error", "allow-null"],
         "indent": [
             "error",
             4,
@@ -59,13 +42,8 @@
                 "SwitchCase": 1
             }
         ],
-        "jsx-quotes": [
-            "error",
-            "prefer-double"
-        ],
-        "key-spacing": [
-            "error"
-        ],
+        "jsx-quotes": ["error", "prefer-double"],
+        "key-spacing": "error",
         "keyword-spacing": [
             "error",
             {
@@ -74,10 +52,7 @@
             }
         ],
         "no-bitwise": "off",
-        "no-inner-declarations": [
-            "error",
-            "functions"
-        ],
+        "no-inner-declarations": ["error", "functions"],
         "no-multi-spaces": "error",
         "no-multiple-empty-lines": [
             "error",
@@ -85,10 +60,7 @@
                 "max": 1
             }
         ],
-        "no-restricted-syntax": [
-            "error",
-            "WithStatement"
-        ],
+        "no-restricted-syntax": ["error", "WithStatement"],
         "no-shadow": "warn",
         "no-unused-expressions": "error",
         "no-unused-vars": "off",
@@ -114,13 +86,8 @@
         ],
         "space-before-blocks": "error",
         "space-before-function-paren": "off",
-        "space-infix-ops": [
-            "error"
-        ],
-        "space-in-parens": [
-            "error",
-            "never"
-        ],
+        "space-infix-ops": "error",
+        "space-in-parens": ["error", "never"],
         "spaced-comment": [
             "error",
             "always",
@@ -140,10 +107,7 @@
         "no-var": "error",
         "strict": "error",
         "valid-jsdoc": "warn",
-        "react/jsx-boolean-value": [
-            "error",
-            "always"
-        ],
+        "react/jsx-boolean-value": ["error", "always"],
         "react/jsx-no-undef": "error",
         "react/jsx-sort-prop-types": "off",
         "react/jsx-tag-spacing": "error",
@@ -165,12 +129,7 @@
                 "ignoreCase": true
             }
         ],
-        "react/forbid-prop-types": [
-            "warn"
-        ],
-        // Prevent for...of loops because they require a Symbol polyfill.
-        // You can disable this rule for code that isn't shipped (e.g. build scripts and tests).
-        "no-for-of-loops/no-for-of-loops": "error",
+        "react/forbid-prop-types": "warn",
         "react/destructuring-assignment": "error"
     }
 }

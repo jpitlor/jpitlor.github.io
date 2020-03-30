@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import _ from "lodash";
+import groupBy from "lodash.groupby";
+
 import Section from "../components/section";
 import Performance from "../components/performance";
 import usePerformances from "../utils/usePerformances";
@@ -7,7 +8,7 @@ import Notification from "../components/notification";
 
 const Performances = () => {
     const {allPerformances: ungroupedPerformances, featuredPerformances} = usePerformances();
-    const allPerformances = _.groupBy(ungroupedPerformances, "group");
+    const allPerformances = groupBy(ungroupedPerformances, "group");
     const [activeGroup, setActiveGroup] = useState("all groups");
     const [dropDownIsExpanded, setDropDownIsExpanded] = useState(false);
     const performances = activeGroup === "all groups" ? featuredPerformances : allPerformances[activeGroup];

@@ -1,10 +1,12 @@
 import {graphql, useStaticQuery} from "gatsby";
+import {useEffect, useState} from "react";
+import orderBy from "lodash.orderby";
+import groupBy from "lodash.groupby";
+
 import {
     ContentfulJob,
     ContentfulJobDescriptionRichTextNode,
 } from "./schema";
-import {useEffect, useState} from "react";
-import _ from "lodash";
 
 interface RawJobs {
     allJobs: ContentfulJob[];
@@ -93,7 +95,7 @@ export function useJobs(): JobGroup[] {
 
     useEffect(() => {
         (async () => {
-            const transformedJobs: Job[] = _.orderBy(
+            const transformedJobs: Job[] = orderBy(
                 await Promise.all(allJobs.map(async j => ({
                     ...j,
                     startDate: new Date(j.startDate),
@@ -104,11 +106,11 @@ export function useJobs(): JobGroup[] {
                 "startDate",
                 "desc"
             );
-            const groupedJobs: Record<string, Job[]> = _.groupBy(
+            const groupedJobs: Record<string, Job[]> = groupBy(
                 transformedJobs,
                 j => Math.floor(j.startDate.getFullYear() / 5)
             );
-            const entries = _.orderBy(
+            const entries = orderBy(
                 Object.entries(groupedJobs).map(([key, val]) => ([Number(key) * 5, val]) as JobGroup),
                 "0",
                 "desc"

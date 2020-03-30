@@ -1,35 +1,38 @@
-require(`dotenv`).config();
+require("dotenv").config();
 module.exports = {
     siteMetadata: {
-        title: `Jordan Pitlor`,
-        description: `Software Engineer. Say hi at jordan@pitlor.dev!`,
-        author: `Jordan Pitlor`,
+        title: "Jordan Pitlor",
+        description: "Software Engineer. Say hi at jordan@pitlor.dev!",
+        author: "Jordan Pitlor",
+        siteUrl: "https://www.pitlor.dev",
     },
     plugins: [
         {
-            resolve: `gatsby-plugin-eslint`,
+            resolve: "gatsby-plugin-eslint",
             options: {
                 test: /\.ts$|\.tsx$/,
             },
         },
-        `gatsby-plugin-sass`,
-        `gatsby-plugin-purgecss`,
-        `gatsby-plugin-typescript`,
-        `gatsby-plugin-react-helmet`,
+        "gatsby-plugin-sass",
+        "gatsby-plugin-purgecss",
+        "gatsby-plugin-typescript",
+        "gatsby-plugin-react-helmet",
+        "gatsby-plugin-sitemap",
+        "gatsby-plugin-offline",
         {
-            resolve: `gatsby-plugin-manifest`,
+            resolve: "gatsby-plugin-manifest",
             options: {
-                name: `Jordan Pitlor`,
-                short_name: `Jordan Pitlor`,
-                start_url: `/`,
-                background_color: `#663399`,
-                theme_color: `#663399`,
-                display: `minimal-ui`,
-                icon: `src/images/favicon.jpg`,
+                name: "Jordan Pitlor",
+                short_name: "Jordan Pitlor",
+                start_url: "/",
+                background_color: "hsl(209, 72%, 21%)",
+                theme_color: "hsl(191, 100%, 45%)",
+                display: "minimal-ui",
+                icon: "src/images/favicon.jpg",
             },
         },
         {
-            resolve: `gatsby-source-github-api`,
+            resolve: "gatsby-source-github-api",
             options: {
                 token: process.env.GITHUB_API_TOKEN,
                 variables: {},
@@ -57,9 +60,9 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-source-contentful`,
+            resolve: "gatsby-source-contentful",
             options: {
-                spaceId: `8lixs3gr7ad9`,
+                spaceId: "8lixs3gr7ad9",
                 accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
                 downloadLocal: true,
             },

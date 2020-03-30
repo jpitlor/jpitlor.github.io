@@ -1,5 +1,5 @@
 import {graphql, useStaticQuery} from "gatsby";
-import _ from "lodash";
+import orderBy from "lodash.orderby";
 import {ContentfulMusic} from "./schema";
 
 interface Performances {
@@ -43,6 +43,6 @@ export default function usePerformances(): Performances {
 
     return {
         featuredPerformances: featuredPerformances,
-        allPerformances: _.orderBy(performances, "year", "desc"),
+        allPerformances: orderBy(performances, "year", "desc"),
     };
 }
