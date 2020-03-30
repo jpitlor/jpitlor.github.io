@@ -1,5 +1,4 @@
-import * as React from "react";
-import {useState} from "react";
+import React, {useState} from "react";
 import JobDetails from "../components/job-details";
 import {Job, useJobs} from "../utils/useJobs";
 import Section from "../components/section";
@@ -37,6 +36,12 @@ export default function Experience() {
         <Section title="Experience">
             <br />
             <div className="columns">
+                <div className="column" style={{order: 2}}>
+                    <JobDetails
+                        job={moreDetailsJob}
+                        locationId={moreDetailsJob?.location}
+                    />
+                </div>
                 <div className="column is-5-desktop">
                     {currentJobs.length > 0 && (
                         <div style={{padding: "1.25rem"}}>
@@ -111,12 +116,6 @@ export default function Experience() {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="column">
-                    <JobDetails
-                        job={moreDetailsJob}
-                        locationId={moreDetailsJob?.location}
-                    />
                 </div>
             </div>
         </Section>
