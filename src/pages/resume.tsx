@@ -6,6 +6,7 @@ import Resume from "../templates/resume";
 import {useJobs} from "../utils/useJobs";
 import useSchools from "../utils/useSchools";
 import useProjects from "../utils/useProjects";
+import SEO from "../components/seo";
 
 const Container = styled.div`
     position: absolute;
@@ -27,6 +28,7 @@ const ResumePage = () => {
 
     return (
         <Container>
+            <SEO title="Resume" />
             {inBrowser && <PDFViewer height="100%" width="100%">
                 <Resume jobs={jobs} projects={projects} schools={schools} />
             </PDFViewer>}
