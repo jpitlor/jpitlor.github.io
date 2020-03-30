@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Rubik:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono&display=swap');
 
-$bright-blue: hsl(191, 100%, 55%);
+$bright-blue: hsl(191, 100%, 45%);
 $dark-blue: hsl(209, 72%, 21%);
 
-//$primary: $dark-blue;
-//$link: $bright-blue;
-//$link-hover: $dark-blue;
+$primary: $dark-blue;
+$link: $bright-blue;
+$link-hover: $dark-blue;
 $family-sans-serif: "Rubik", sans-serif;
 $title-family: "Merriweather", serif;
-//$title-color: $dark-blue;
 
 $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 
@@ -19,6 +18,11 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 @import "~@fortawesome/fontawesome-pro/scss/fontawesome";
 @import "~@fortawesome/fontawesome-pro/scss/brands";
 @import "~@fortawesome/fontawesome-pro/scss/regular";
+
+// Adds a bit of pizazz. Setting $title-color to $dark-blue doesn't change hero headers
+h2 {
+    color: $dark-blue !important;
+}
 
 // To center the Instagram post - style prop isn't an option
 .has-margin-auto iframe {
