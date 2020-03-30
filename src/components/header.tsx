@@ -35,7 +35,7 @@ const Header = () => {
                         Resume
                     </Link>
                 </span>
-                <span className="level-item">
+                <span className="level-item" style={{flexShrink: 1}}>
                     <img
                         src={profile}
                         alt="About"
