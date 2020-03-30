@@ -21,9 +21,7 @@ const School = ({school}: SchoolProps) => {
                             height: "100%",
                         }}
                     >
-                        <img src={school.logo.file.url} alt="" />
-                        <br />
-                        <br />
+                        <img src={school.logo.file.url} style={{padding: "2rem"}} alt="" />
                         <p className="subtitle is-5">{school.city} Campus</p>
                         <p className="subtitle is-5" style={{marginTop: "-1.25rem"}}>
                             Fall {new Date(school.startDate).getFullYear()}

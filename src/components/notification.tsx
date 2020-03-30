@@ -14,7 +14,7 @@ const Notification = ({children, showClose = false}: NotificationProps) => {
     }
 
     return (
-        <div className="container has-mobile-padding">
+        <div className="container">
             <div className="notification is-info">
                 {showClose && <button className="delete" onClick={removeNotification} />}
                 {children}

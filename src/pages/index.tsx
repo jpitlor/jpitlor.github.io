@@ -24,15 +24,17 @@ const IndexPage = () => {
     return (
         <Layout title="Resume">
             {inBrowser && <section className="has-background-light">
-                <Notification>
-                    Looking for a PDF version?&nbsp;
-                    <PDFDownloadLink
-                        document={<Resume jobs={jobs} projects={projects} schools={schools} />}
-                        fileName="Jordan Pitlor Resume.pdf"
-                    >
-                        {({loading}) => loading ? "Loading" : "Click here!"}
-                    </PDFDownloadLink>
-                </Notification>
+                <div className="hero-body" style={{paddingTop: 0, paddingBottom: 0}}>
+                    <Notification>
+                        Looking for a PDF version?&nbsp;
+                        <PDFDownloadLink
+                            document={<Resume jobs={jobs} projects={projects} schools={schools} />}
+                            fileName="Jordan Pitlor Resume.pdf"
+                        >
+                            {({loading}) => loading ? "Loading" : "Click here!"}
+                        </PDFDownloadLink>
+                    </Notification>
+                </div>
             </section>}
             <section className="hero is-light">
                 <div className="hero-body">
