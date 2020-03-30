@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     date: {
         position: "absolute",
         right: 0,
-        color: "#888888",
+        color: "#666666",
     },
     label: {
         fontWeight: "bold",
@@ -36,12 +36,8 @@ const School = ({school}: SchoolProps) => (
             &nbsp;
             <Text style={styles.shortDescription}>(B.S. {school.major.join(", ")}, {school.city} Campus)</Text>
         </Text>
-        <Text>
-            - Minors: {school.minor.join(", ")}
-        </Text>
-        <Text>
-            - Concentrations: {school.concentration.join(", ")}
-        </Text>
+        <Text>Minors: {school.minor.join(", ")}</Text>
+        <Text>Concentrations: {school.concentration.join(", ")}</Text>
     </View>
 );
 

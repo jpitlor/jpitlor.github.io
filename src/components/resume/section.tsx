@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         fontSize: "12px",
     },
     titleContainer: {
-        paddingBottom: "4mm 0 2mm",
+        padding: "4mm 0 2mm",
         position: "relative",
         width: "100%",
         display: "flex",

@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
     infoText: {
         height: "20px",
         fontSize: "16px",
-        width: "2in",
         fontFamily: "Rubik",
     },
     title: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-around",
-        padding: "5mm 0 8mm",
+        padding: "5mm 0 2mm",
         width: "100%",
         height: "20px",
     },
@@ -106,14 +105,14 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
                     </Text>
                 </View>
             </View>
+            <Section title="Education">
+                <Education data={schools} />
+            </Section>
             <Section title="Experience">
                 <Experience data={jobs} />
             </Section>
             <Section title="Projects">
                 <Projects data={projects} />
-            </Section>
-            <Section title="Education">
-                <Education data={schools} />
             </Section>
         </Page>
     </Document>

@@ -4,6 +4,8 @@ import {BLOCKS} from "@contentful/rich-text-types";
 import {documentToReactComponents} from "@contentful/rich-text-react-renderer";
 
 import {Job} from "../../utils/useJobs";
+import UL from "./UL";
+import LI from "./LI";
 
 const styles = StyleSheet.create({
     container: {
@@ -13,7 +15,7 @@ const styles = StyleSheet.create({
     date: {
         position: "absolute",
         right: 0,
-        color: "#888888",
+        color: "#666666",
     },
     label: {
         fontWeight: "bold",
@@ -40,17 +42,24 @@ const JobDetails = ({job}: JobProps) => (
             &nbsp;
             <Text style={styles.shortDescription}>({job.title} - {job.city}, {job.state})</Text>
         </Text>
-        <Text style={styles.description}>
+        <View style={styles.description}>
             {documentToReactComponents(job.description?.json, {
                 renderNode: {
-                    [BLOCKS.LIST_ITEM]: (node, children) => children,
-                    [BLOCKS.OL_LIST]: (node, children) => children,
-                    [BLOCKS.UL_LIST]: (node, children) => children,
-                    [BLOCKS.PARAGRAPH]: (node, children) => children,
+                    [BLOCKS.LIST_ITEM]: function li(node, children): React.ReactNode {
+                        return <LI>{children}</LI>;
+                    },
+                    [BLOCKS.OL_LIST]: function ol(node, children) {
+                        return <UL>{children}</UL>;
+                    },
+                    [BLOCKS.UL_LIST]: function ul(node, children): React.ReactNode {
+                        return <UL>{children}</UL>;
+                    },
+                    [BLOCKS.PARAGRAPH]: function p(node, children) {
+                        return <Text>{children}</Text>
+                    },
                 },
-                renderText: t => `- ${t}\n`,
             })}
-        </Text>
+        </View>
     </View>
 );
 

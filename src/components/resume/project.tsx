@@ -17,8 +17,7 @@ const styles = StyleSheet.create({
         width: "100%",
     },
     shortDescription: {
-        color: "#888888",
-        fontStyle: "italic",
+        color: "#666666",
     },
 });
 
@@ -40,7 +39,7 @@ const Project = ({project}: ProjectProps) => {
         <View style={styles.container}>
             <Text>
                 <Text style={styles.label}>{title}</Text>
-                &nbsp;-&nbsp;
+                &nbsp;
                 <Text style={styles.shortDescription}>{project.description}</Text>
             </Text>
             <Text style={styles.description}>
