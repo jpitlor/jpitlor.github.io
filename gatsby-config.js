@@ -32,6 +32,12 @@ module.exports = {
             },
         },
         {
+            resolve: "gatsby-plugin-google-analytics",
+            options: {
+                trackingId: "UA-72496195-1",
+            },
+        },
+        {
             resolve: "gatsby-source-github-api",
             options: {
                 token: process.env.GITHUB_API_TOKEN,
