@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     date: {
         position: "absolute",
         right: 0,
-        color: "#666666",
+        fontWeight: "bold",
     },
     label: {
         fontWeight: "bold",
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         marginLeft: "1mm",
     },
     shortDescription: {
-        fontStyle: "italic",
+        color: "#666666",
     },
 });
 
@@ -40,7 +40,7 @@ const JobDetails = ({job}: JobProps) => (
         <Text>
             <Text style={styles.label}>{job.company}</Text>
             &nbsp;
-            <Text style={styles.shortDescription}>({job.title} - {job.city}, {job.state})</Text>
+            <Text style={styles.shortDescription}>{job.title} - {job.city}, {job.state}</Text>
         </Text>
         <View style={styles.description}>
             {documentToReactComponents(job.description?.json, {

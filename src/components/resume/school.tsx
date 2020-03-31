@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     date: {
         position: "absolute",
         right: 0,
-        color: "#666666",
+        fontWeight: "bold",
     },
     label: {
         fontWeight: "bold",
     },
     shortDescription: {
-        fontStyle: "italic",
+        color: "#666666",
     },
 });
 
@@ -34,7 +34,7 @@ const School = ({school}: SchoolProps) => (
         <Text>
             <Text style={styles.label}>{school.name}</Text>
             &nbsp;
-            <Text style={styles.shortDescription}>(B.S. {school.major.join(", ")}, {school.city} Campus)</Text>
+            <Text style={styles.shortDescription}>B.S. {school.major.join(", ")}, {school.city} Campus</Text>
         </Text>
         <Text>Minors: {school.minor.join(", ")}</Text>
         <Text>Concentrations: {school.concentration.join(", ")}</Text>
