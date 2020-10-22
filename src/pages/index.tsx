@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
+import {PDFDownloadLink} from "@react-pdf/renderer";
 
 import Layout from "../components/layout";
 import Education from "../sections/education";
 import Projects from "../sections/projects";
 import Experience from "../sections/experience";
-import {PDFDownloadLink} from "@react-pdf/renderer";
 import Resume from "../templates/resume";
 import Notification from "../components/notification";
 import {useJobs} from "../utils/useJobs";
