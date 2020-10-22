@@ -6,8 +6,6 @@ name: Build
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
@@ -33,5 +31,9 @@ jobs:
         GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         GATSBY_GOOGLE_MAPS_API_TOKEN: ${{ secrets.GATSBY_GOOGLE_MAPS_API_TOKEN }}
+    - name: Rename Build Folder
+      run: mv build docs
     - name: Add & Commit
       uses: EndBug/add-and-commit@v4.4.0
+      with:
+        add: docs
