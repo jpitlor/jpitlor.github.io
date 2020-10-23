@@ -23,10 +23,14 @@ const Project = ({
 
     return (
         <Layout title={name}>
-            <div
-                className="content container is-tight-desktop has-background-light"
-                dangerouslySetInnerHTML={{__html}}
-            />
+            <section className="hero is-light">
+                <div className="hero-body">
+                    <div
+                        className="content is-tight-desktop"
+                        dangerouslySetInnerHTML={{__html}}
+                    />
+                </div>
+            </section>
         </Layout>
     );
 };
