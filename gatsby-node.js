@@ -1,5 +1,3 @@
-import { Job } from "src/utils/useJobs";
-
 const path = require("path");
 const fs = require("fs");
 
@@ -91,7 +89,7 @@ exports.createPages = async ({graphql, actions}) => {
         ...j,
         startDate: new Date(j.startDate),
         endDate: j.endDate ? new Date(j.endDate) : undefined,
-        useInResume: resumeJobs.find(k => k.company === j.company) !== undefined,
+        useInResume: true,
     }));
     
     fs.writeFileSync("resume-data.json", JSON.stringify({jobs, projects, schools}));
