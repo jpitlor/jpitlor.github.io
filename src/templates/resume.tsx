@@ -1,29 +1,38 @@
+import { Document, Font, Image, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import fs from "fs";
+import path from "path";
 import * as React from "react";
-import {Document, Font, StyleSheet, Text, View, Image, Page} from "@react-pdf/renderer";
 
 import Section from "../components/resume/section";
+import Education from "../sections/resume/education";
 import Experience from "../sections/resume/experience";
 import Projects from "../sections/resume/projects";
-import Education from "../sections/resume/education";
-import {JobGroup} from "../utils/useJobs";
-import {ContentfulSchool, GithubDataDataUserPinnedItemsNodes} from "../utils/schema";
+import { ContentfulSchool, GithubDataDataUserPinnedItemsNodes } from "../utils/schema";
+import { Job } from "../utils/useJobs";
+
+function readImage(file: string): any {
+    return {
+        data: fs.readFileSync(path.join(__dirname, "..", "..", "static", file)),
+        format: 'png',
+    };
+}
 
 Font.register({
     family: "Ubuntu Mono",
-    src: "/UbuntuMono-Regular.ttf",
+    src: path.join(__dirname, "..", "..", "static", "UbuntuMono-Regular.ttf"),
 });
 
 Font.register({
     family: "Merriweather",
-    src: "/Merriweather-Regular.ttf",
+    src: path.join(__dirname, "..", "..", "static", "Merriweather-Regular.ttf"),
 });
 
 Font.register({
     family: "Rubik",
     fonts: [
-        {src: "/Rubik-Regular.ttf"},
-        {src: "/Rubik-Italic.ttf", fontStyle: "italic"},
-        {src: "/Rubik-Bold.ttf", fontWeight: 700},
+        {src: path.join(__dirname, "..", "..", "static", "Rubik-Regular.ttf")},
+        {src: path.join(__dirname, "..", "..", "static", "Rubik-Italic.ttf"), fontStyle: "italic"},
+        {src: path.join(__dirname, "..", "..", "static", "Rubik-Bold.ttf"), fontWeight: 700},
     ],
 });
 
@@ -70,7 +79,7 @@ const styles = StyleSheet.create({
 });
 
 interface ResumeProps {
-    jobs: JobGroup[];
+    jobs: Job[];
     projects: GithubDataDataUserPinnedItemsNodes[];
     schools: ContentfulSchool[];
 }
@@ -82,7 +91,10 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
             <View style={styles.infoContainer}>
                 <View style={styles.infoItem}>
                     <View style={styles.iconContainer}>
-                        <Image style={styles.faIcon} src="/github.png" />
+                        <Image
+                          style={styles.faIcon}
+                          src={readImage("github.png")}
+                        />
                     </View>
                     <Text style={styles.infoText}>
                         piticent123
@@ -90,7 +102,10 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
                 </View>
                 <View style={styles.infoItem}>
                     <View style={styles.iconContainer}>
-                        <Image style={styles.faIcon} src="/envelope.png" />
+                        <Image
+                          style={styles.faIcon}
+                          src={readImage("envelope.png")}
+                        />
                     </View>
                     <Text style={styles.infoText}>
                         jordan@pitlor.dev
@@ -98,7 +113,10 @@ const Resume = ({jobs, projects, schools}: ResumeProps) => (
                 </View>
                 <View style={styles.infoItem}>
                     <View style={styles.iconContainer}>
-                        <Image style={styles.faIcon} src="/phone-alt.png" />
+                        <Image
+                          style={styles.faIcon}
+                          src={readImage("phone-alt.png")}
+                        />
                     </View>
                     <Text style={styles.infoText}>
                         (216) 403-8126

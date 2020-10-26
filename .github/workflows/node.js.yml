@@ -35,6 +35,8 @@ jobs:
       run: |
         rm -rf docs
         mv public docs
+    - name: Build Resume
+      run: npm run build-resume
     - name: Add & Commit
       uses: EndBug/add-and-commit@v4.4.0
       with:

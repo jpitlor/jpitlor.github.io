@@ -37,6 +37,12 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
     "@graphql-codegen/cli": "^1.13.1",
     "@graphql-codegen/typescript": "^1.13.1",
     "@types/lodash.groupby": "^4.6.6",
@@ -57,6 +63,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build-resume": "babel-node --extensions \".tsx,.ts,.js\" build-resume.js",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",

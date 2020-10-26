@@ -1,13 +1,13 @@
 import * as React from "react";
-import {JobGroup} from "../../utils/useJobs";
 import JobDetails from "../../components/resume/job-details";
+import { Job } from "../../utils/useJobs";
 
 interface ExperienceProps {
-    data: JobGroup[];
+    data: Job[];
 }
 
 const Experience = ({data}: ExperienceProps) => {
-    const jobs = data.flatMap(g => g[1]).filter(j => j.useInResume);
+    const jobs = data.filter(j => j.useInResume);
 
     return (
         <React.Fragment>
