@@ -7,14 +7,13 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^13.4.0",
     "@fortawesome/fontawesome-pro": "^5.13.0",
-    "@react-pdf/renderer": "^2.0.0-beta.5",
+    "@react-pdf/renderer": "^2.0.0-beta.15",
     "@typescript-eslint/parser": "^2.25.0",
     "bulma": "^0.8.1",
     "bulma-block-list": "^0.2.0",
     "bulma-extensions": "^6.2.7",
     "dotenv": "^8.2.0",
-    "eslint-loader": "^3.0.3",
-    "gatsby": "^2.20.7",
+    "gatsby": "^2.24.89",
     "gatsby-plugin-google-analytics": "^2.2.2",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
@@ -25,7 +24,6 @@
     "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-source-contentful": "^2.2.5",
     "gatsby-source-github-api": "^0.2.0",
-    "graphql": "^14.6.0",
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
     "marked": "^0.8.2",
@@ -34,8 +32,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-instagram-embed": "^1.5.0",
-    "typescript": "^3.8.3",
-    "webpack": "^5.2.0"
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
@@ -64,7 +61,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "build-resume": "babel-node --extensions \".tsx,.ts,.js\" build-resume.js",
+    "build-resume": "babel-node --presets '@babel/preset-env,@babel/preset-react,@babel/preset-typescript' --extensions \".tsx,.ts,.js\" build-resume.js",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",

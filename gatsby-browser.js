@@ -1,1 +1,1 @@
-require("./src/sass/theme.scss");
+import "./src/sass/theme.scss";

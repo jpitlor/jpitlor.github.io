@@ -91,9 +91,9 @@ exports.createPages = async ({graphql, actions}) => {
         endDate: j.endDate ? new Date(j.endDate) : undefined,
         useInResume: true,
     }));
-    
+
     fs.writeFileSync("resume-data.json", JSON.stringify({jobs, projects, schools}));
-    
+
     projects.forEach(repo => createPage({
         path: `projects/${repo.name}`,
         component: path.resolve("./src/templates/project.tsx"),
