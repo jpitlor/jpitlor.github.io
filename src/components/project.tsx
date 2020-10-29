@@ -21,7 +21,7 @@ const Project = ({
     const {title, longDescription} = useReadme(readme);
 
     return (
-        <div className="column is-half is-flex">
+        <div className="column is-full is-half-desktop is-flex">
             <div className="box" style={{width: "100%"}}>
                 <nav className="level">
                     <div className="level-left">
