@@ -32,6 +32,11 @@ export default function Experience() {
         setHoveredJob([-1, -1]);
     }
 
+    const [oldJobsVisible, setOldJobsVisible] = useState(false);
+    function toggleOldJobsVisible() {
+        setOldJobsVisible(!oldJobsVisible);
+    }
+
     return (
         <Section title="Experience">
             <br />
@@ -43,6 +48,23 @@ export default function Experience() {
                     />
                 </div>
                 <div className="column is-5-desktop">
+                    <div style={{padding: "1.25rem"}}>
+                        <div className="field">
+                            <input
+                                id="showOldJobs"
+                                type="checkbox"
+                                name="showOldJobs"
+                                className="switch is-rounded is-info is-rtl"
+                                checked={oldJobsVisible}
+                                onClick={toggleOldJobsVisible}
+                            />
+                            <label htmlFor="showOldJobs">
+                                <h3 className="subtitle has-text-weight-bold is-inline-block">
+                                    Show Old Jobs
+                                </h3>
+                            </label>
+                        </div>
+                    </div>
                     {currentJobs.length > 0 && (
                         <div style={{padding: "1.25rem"}}>
                             <h3 className="subtitle has-text-weight-bold">
@@ -70,7 +92,7 @@ export default function Experience() {
                                 </div>
                                 {jobs.map(([year, jobGroup], i) => (
                                     <React.Fragment key={i}>
-                                        {jobGroup.map((job, j) => (
+                                        {jobGroup.filter(j => oldJobsVisible || j.useInResume).map((job, j) => (
                                             <div className="timeline-item" key={job.startDate.getTime()}>
                                                 <div className="timeline-marker" />
                                                 <div className="timeline-content">
