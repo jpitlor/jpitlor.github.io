@@ -26,7 +26,6 @@ const Project = ({
                 <nav className="level">
                     <div className="level-left">
                         <strong className="level-item">{title}</strong>
-                        <small className="level-item is-hidden-tablet-only is-hidden-desktop-only is-block-widescreen">{description}</small>
                     </div>
                     <div className="level-right">
                         <div className="level is-mobile">
@@ -69,10 +68,7 @@ const Project = ({
                         </div>
                     </div>
                 </nav>
-                <nav
-                    className="level is-hidden-mobile is-hidden-widescreen is-block-tablet-only is-block-desktop-only"
-                    style={{marginTop: "-1.5rem"}}
-                >
+                <nav className="level" style={{marginTop: "-1.5rem"}}>
                     <small className="level-left">{description}</small>
                 </nav>
                 <p

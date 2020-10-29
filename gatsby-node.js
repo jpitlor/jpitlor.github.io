@@ -10,7 +10,7 @@ exports.createPages = async ({graphql, actions}) => {
                     data: {
                         user: {
                             pinnedItems: {
-                                nodes: projects,
+                                nodes: pinnedGithubRepos,
                             },
                         },
                     },
@@ -91,6 +91,7 @@ exports.createPages = async ({graphql, actions}) => {
         endDate: j.endDate ? new Date(j.endDate) : undefined,
         useInResume: true,
     }));
+    const projects = pinnedGithubRepos.slice(0, 3);
 
     fs.writeFileSync("resume-data.json", JSON.stringify({jobs, projects, schools}));
 
