@@ -1,6 +1,6 @@
 # Personal Website
 
-This is my personal website. It's made with Gatsby, Bulma, and `react-pdf`
+I wanted to make my personal website and resume from "scratch" (somewhere between vanilla HTML and a WYSIWYG editor). I landed on a stack of Gatsby, Bulma, `react-pdf`, Github Actions/Pages/API, and Contentful.
 
 ## Design/Development Process
 
