@@ -15,12 +15,6 @@ export default function Projects() {
                 visit <a href="https://github.com/piticent123">my profile</a>.
             </p>
             <br />
-            <p className="is-tight-desktop">
-                As a disclaimer, most of my projects are unfinished (as is the case
-                with most side projects). However, I try to delete the ones that
-                are practically just the boilerplate.
-            </p>
-            <br />
             <br />
             <div className="columns is-multiline">
                 {pinnedRepositories.map((repo, i) => (
