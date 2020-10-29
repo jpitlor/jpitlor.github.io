@@ -38,7 +38,7 @@ Font.register({
 
 const styles = StyleSheet.create({
     page: {
-        padding: "5mm 10mm",
+        padding: "10mm",
     },
     iconContainer: {
         display: "flex",
