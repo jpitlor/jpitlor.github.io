@@ -1,17 +1,19 @@
 import * as React from "react";
 import School from "../components/school";
-import {ContentfulSchool} from "../../utils/schema";
+import { ContentfulSchool } from "../../utils/schema";
 
 interface EducationProps {
-    data: ContentfulSchool[];
+  data: ContentfulSchool[];
 }
 
-const Education = ({data}: EducationProps) => {
-    return (
-        <React.Fragment>
-            {data.map(school => <School school={school} key={school.name} />)}
-        </React.Fragment>
-    )
+const Education = ({ data }: EducationProps) => {
+  return (
+    <React.Fragment>
+      {data.map((school) => (
+        <School school={school} key={school.name} />
+      ))}
+    </React.Fragment>
+  );
 };
 
 export default Education;

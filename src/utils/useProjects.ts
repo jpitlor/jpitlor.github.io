@@ -1,42 +1,42 @@
-import {graphql, useStaticQuery} from "gatsby";
-import {GithubDataDataUserPinnedItemsNodes} from "./schema";
+import { graphql, useStaticQuery } from "gatsby";
+import { GithubDataDataUserPinnedItemsNodes } from "./schema";
 
 export default function useProjects(): GithubDataDataUserPinnedItemsNodes[] {
-    const {
-        allGithubData: {
-            nodes: [{
-                data: {
-                    user: {
-                        pinnedItems: {
-                            nodes: repositories,
-                        },
-                    },
-                },
-            }],
+  const {
+    allGithubData: {
+      nodes: [
+        {
+          data: {
+            user: {
+              pinnedItems: { nodes: repositories },
+            },
+          },
         },
-    } = useStaticQuery(graphql`
-        query RepoQuery {
-            allGithubData {
+      ],
+    },
+  } = useStaticQuery(graphql`
+    query RepoQuery {
+      allGithubData {
+        nodes {
+          data {
+            user {
+              pinnedItems {
                 nodes {
-                    data {
-                        user {
-                            pinnedItems {
-                                nodes {
-                                    name
-                                    description
-                                    homepageUrl
-                                    url
-                                    object {
-                                        text
-                                    }
-                                }
-                            }
-                        }
-                    }
+                  name
+                  description
+                  homepageUrl
+                  url
+                  object {
+                    text
+                  }
                 }
+              }
             }
+          }
         }
-    `);
+      }
+    }
+  `);
 
-    return repositories;
+  return repositories;
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Rubik:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Rubik:ital,wght@0,400;0,700;1,400&family=Ubuntu+Mono&display=swap");
 
 $bright-blue: hsl(191, 100%, 45%);
 $dark-blue: hsl(209, 72%, 21%);
@@ -21,25 +21,25 @@ $fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
 
 // Adds a bit of pizazz. Setting $title-color to $dark-blue doesn't change hero headers
 h2 {
-    color: $dark-blue !important;
+  color: $dark-blue !important;
 }
 
 // To center the Instagram post - style prop isn't an option
 .has-margin-auto iframe {
-    margin: 0 auto 3rem !important;
+  margin: 0 auto 3rem !important;
 }
 
 p.is-tight-desktop {
-    line-height: 1.5;
+  line-height: 1.5;
 }
 
 .is-tight-desktop {
-    max-width: 40rem;
-    margin: 0 auto;
+  max-width: 40rem;
+  margin: 0 auto;
 }
 
-@media(max-width: 1024px) {
-    .has-mobile-padding {
-        padding: 0 1rem;
-    }
+@media (max-width: 1024px) {
+  .has-mobile-padding {
+    padding: 0 1rem;
+  }
 }

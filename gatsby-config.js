@@ -7,18 +7,9 @@ module.exports = {
         siteUrl: "https://www.pitlor.dev",
     },
     plugins: [
-        {
-            resolve: "gatsby-plugin-eslint",
-            options: {
-                test: /\.ts$|\.tsx$/,
-            },
-        },
         "gatsby-plugin-sass",
         "gatsby-plugin-purgecss",
-        "gatsby-plugin-typescript",
-        "gatsby-plugin-react-helmet",
-        "gatsby-plugin-sitemap",
-        "gatsby-plugin-offline",
+        "gatsby-plugin-image",
         {
             resolve: "gatsby-plugin-manifest",
             options: {
@@ -31,12 +22,7 @@ module.exports = {
                 icon: "src/images/favicon.jpg",
             },
         },
-        {
-            resolve: "gatsby-plugin-google-analytics",
-            options: {
-                trackingId: "UA-72496195-1",
-            },
-        },
+        "gatsby-plugin-offline",
         {
             resolve: "gatsby-source-github-api",
             options: {
@@ -44,7 +30,7 @@ module.exports = {
                 variables: {},
                 graphQLQuery: `
 					query {
-						user(login: "piticent123") {
+						user(login: "jpitlor") {
 							pinnedItems(first: 6) {
 								nodes {
 									... on Repository {
