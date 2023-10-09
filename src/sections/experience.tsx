@@ -132,7 +132,7 @@ export default function Experience() {
                                 <div className="timeline-item" />
                                 <div className="timeline-header">
                                     <span className="tag is-medium is-primary">
-                                        January 1, 1970
+                                        Career Epoch
                                     </span>
                                 </div>
                             </div>

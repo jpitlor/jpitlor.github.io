@@ -28,9 +28,6 @@ const School = ({school}: SchoolProps) => {
                             &nbsp;-
                             Spring {new Date(school.endDate).getFullYear()}
                         </p>
-                        <p className="subtitle is-5" style={{marginTop: "-1.25rem"}}>
-                            GPA: {school.gpa.toFixed(1)}
-                        </p>
                     </div>
                 </div>
                 <div className="column">
