@@ -1,7 +1,6 @@
 import * as React from "react";
 import { View, Text, StyleSheet } from "@react-pdf/renderer";
 
-import { GithubDataDataUserPinnedItemsNodes } from "../../utils/schema";
 import useReadme from "../../utils/useReadme";
 
 const styles = StyleSheet.create({
@@ -22,11 +21,11 @@ const styles = StyleSheet.create({
 });
 
 interface ProjectProps {
-  project: GithubDataDataUserPinnedItemsNodes;
+  project: Queries.GithubDataDataUserPinnedItemsNodes;
 }
 
 const Project = ({ project }: ProjectProps) => {
-  const { title, longDescription } = useReadme(project.object.text);
+  const { title, longDescription } = useReadme(project.object?.text ?? "");
 
   function unmarked(md: string): string {
     return md
@@ -42,7 +41,7 @@ const Project = ({ project }: ProjectProps) => {
         &nbsp;
         <Text style={styles.shortDescription}>{project.description}</Text>
       </Text>
-      <Text style={styles.description}>{unmarked(longDescription)}</Text>
+      <Text style={styles.description}>{unmarked(longDescription ?? "")}</Text>
     </View>
   );
 };

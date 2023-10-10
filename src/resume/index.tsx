@@ -14,7 +14,7 @@ import * as React from "react";
 import Section from "./components/section";
 import Education from "./sections/education";
 import Experience from "./sections/experience";
-import Projects from "./sections/projects";
+// import Projects from "./sections/projects";
 import { Job } from "../utils/useJobs";
 
 function readImage(file: string): any {
@@ -115,15 +115,15 @@ const Index = ({ jobs, projects, schools }: ResumeProps) => (
           <Text style={styles.infoText}>jordan@pitlor.dev</Text>
         </View>
       </View>
-      <Section title="Education">
-        <Education data={schools} />
-      </Section>
       <Section title="Experience">
         <Experience data={jobs} />
       </Section>
-      <Section title="Projects">
-        <Projects data={projects} />
+      <Section title="Education">
+        <Education data={schools} />
       </Section>
+      {/*<Section title="Projects">*/}
+      {/*  <Projects data={projects} />*/}
+      {/*</Section>*/}
     </Page>
   </Document>
 );
