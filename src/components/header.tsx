@@ -14,7 +14,7 @@ const Header = () => {
     query HeaderQuery {
       allContentfulAsset(filter: { title: { eq: "Profile" } }) {
         nodes {
-          resize(height: 250, width: 250, cropFocus: FACE) {
+          resize(height: 250, width: 250, cropFocus: FACES) {
             src
           }
         }

@@ -8,10 +8,8 @@
     "@contentful/rich-text-react-renderer": "^15.18.0",
     "@fortawesome/fontawesome-pro": "^6.4.2",
     "@react-pdf/renderer": "^3.1.12",
-    "@typescript-eslint/parser": "^6.7.4",
     "bulma": "^0.9.4",
     "bulma-block-list": "^0.7.0",
-    "bulma-extensions": "^6.2.7",
     "dotenv": "^16.3.1",
     "gatsby": "^5.12.5",
     "gatsby-plugin-image": "^3.12.1",
@@ -27,7 +25,6 @@
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2"
   },
@@ -38,17 +35,11 @@
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.0",
-    "@graphql-codegen/cli": "^5.0.0",
-    "@graphql-codegen/typescript": "^4.0.1",
     "@types/lodash.groupby": "^4.6.7",
     "@types/lodash.orderby": "^4.6.7",
     "@types/marked": "^3.0.4",
     "@types/react": "^18.2.25",
     "@types/react-dom": "^18.2.11",
-    "@types/react-helmet": "^6.1.7",
-    "eslint-plugin-react": "^7.33.2",
-    "graphql-cli": "^4.1.0",
-    "graphql-config": "^5.0.3",
     "prettier": "^3.0.3"
   },
   "keywords": [
@@ -62,8 +53,7 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "generate-schema": "graphql get-schema && graphql-codegen"
+    "clean": "gatsby clean"
   },
   "repository": {
     "type": "git",

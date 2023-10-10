@@ -12,11 +12,11 @@ const Project = ({ pageContext: { repo } }: any) => {
     object: { text: readme },
   } = repo;
 
-  // For SEO reasons, headers need to be knocked down one level,
+  // For Seo reasons, headers need to be knocked down one level,
   // but they can keep their styles
   const __html = marked(readme).replace(
     /<h(\d) /g,
-    (_: any, n: number) => `<h${Number(n) + 1} class="is-${n}" `
+    (_: any, n: number) => `<h${Number(n) + 1} class="is-${n}" `,
   );
 
   return (
