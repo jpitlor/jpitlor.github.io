@@ -30,26 +30,26 @@ module.exports = {
         token: process.env.GITHUB_API_TOKEN,
         variables: {},
         graphQLQuery: `
-					query {
-						user(login: "jpitlor") {
-							pinnedItems(first: 6) {
-								nodes {
-									... on Repository {
-										name
-										url
-										description
-										homepageUrl
-										object(expression: "master:README.md") {
-											... on Blob {
-												text
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				`,
+          query {
+            user(login: "jpitlor") {
+              pinnedItems(first: 6) {
+                nodes {
+                  ... on Repository {
+                    name
+                    url
+                    description
+                    homepageUrl
+                    object(expression: "master:README.md") {
+                      ... on Blob {
+                        text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+      `,
       },
     },
     {

@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import orderBy from "lodash.orderby";
 import groupBy from "lodash.groupby";
 
-import { ContentfulJob, ContentfulJobDescriptionRichTextNode } from "./schema";
-
 interface RawJobs {
-  allJobs: ContentfulJob[];
-  resumeJobs: ContentfulJob[];
+  allJobs: Queries.ContentfulJob[];
+  resumeJobs: Queries.ContentfulJob[];
 }
 
 export function useJobsRaw(): RawJobs {
@@ -34,7 +32,7 @@ export function useJobsRaw(): RawJobs {
             lon
           }
           description {
-            json
+            raw
           }
         }
       }
@@ -65,8 +63,8 @@ async function getGoogleMapLocation({ lat, lon }: any): Promise<string> {
   const fetchResult = await fetch(route + queryString);
   const apiResult = await fetchResult.json();
 
-  cache[`${lat},${lon}`] = apiResult.results[0]?.place_id || "";
-  return apiResult.results[0].place_id;
+  cache[`${lat},${lon}`] = apiResult.results?.[0]?.place_id || "";
+  return apiResult.results?.[0]?.place_id;
 }
 
 export interface Job {
@@ -78,7 +76,7 @@ export interface Job {
   isHourly: boolean;
   city: string;
   state: string;
-  description: ContentfulJobDescriptionRichTextNode;
+  description: Queries.ContentfulJobDescription;
   endDate?: Date;
   endPay: number;
   useInResume: boolean;
@@ -103,21 +101,21 @@ export function useJobs(): JobGroup[] {
                 location: await getGoogleMapLocation(j.location),
                 useInResume:
                   resumeJobs.find((k) => k.company === j.company) !== undefined,
-              } as Job)
-          )
+              }) as Job,
+          ),
         ),
         "startDate",
-        "desc"
+        "desc",
       );
       const groupedJobs: Record<string, Job[]> = groupBy(transformedJobs, (j) =>
-        Math.floor(j.startDate.getFullYear() / 5)
+        Math.floor(j.startDate.getFullYear() / 5),
       );
       const entries = orderBy(
         Object.entries(groupedJobs).map(
-          ([key, val]) => [Number(key) * 5, val] as JobGroup
+          ([key, val]) => [Number(key) * 5, val] as JobGroup,
         ),
         "0",
-        "desc"
+        "desc",
       );
       setJobs(entries);
     })();

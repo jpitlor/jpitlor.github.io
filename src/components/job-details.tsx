@@ -27,7 +27,7 @@ const JobDetails = ({ job, locationId }: JobDetailsProps) => (
           }}
         >
           <div className="content" style={{ flex: 1 }}>
-            {documentToReactComponents(job.description?.json)}
+            {documentToReactComponents(JSON.parse(job.description?.raw ?? ""))}
           </div>
 
           <iframe
