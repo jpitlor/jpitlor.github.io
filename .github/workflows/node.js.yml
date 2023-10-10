@@ -10,13 +10,13 @@ jobs:
       matrix:
         node-version: [18.x]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v4
+    - name: Use Node.js
+      uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
     - name: Install NPM Dependencies
-      run: npm install -f
+      run: npm ci
       env:
         FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
     - name: Build Site
@@ -35,6 +35,6 @@ jobs:
       env:
         FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
     - name: Add & Commit
-      uses: EndBug/add-and-commit@v4.4.0
+      uses: EndBug/add-and-commit@v9
       with:
         add: docs
