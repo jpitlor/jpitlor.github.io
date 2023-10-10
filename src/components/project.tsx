@@ -1,24 +1,16 @@
 import * as React from "react";
 import { marked } from "marked";
-import { Link } from "gatsby";
 
 import useReadme from "../utils/useReadme";
-import { GithubDataDataUserPinnedItemsNodes } from "../utils/schema";
 
 interface RepositoryProps {
-  repo: GithubDataDataUserPinnedItemsNodes;
+  repo: Queries.GithubDataDataUserPinnedItemsNodes;
 }
 
 const Project = ({
-  repo: {
-    name,
-    description,
-    homepageUrl,
-    url,
-    object: { text: readme },
-  },
+  repo: { description, homepageUrl, url, object: readme },
 }: RepositoryProps) => {
-  const { title, longDescription } = useReadme(readme);
+  const { title, longDescription } = useReadme(readme?.text ?? "");
 
   return (
     <div className="column is-full is-half-desktop is-flex">
@@ -29,20 +21,11 @@ const Project = ({
           </div>
           <div className="level-right">
             <div className="level is-mobile">
-              <a href={url} className="level-item" aria-label="github">
+              <a href={url ?? ""} className="level-item" aria-label="github">
                 <span className="icon">
                   <i className="fab fa-github" aria-hidden="true" />
                 </span>
               </a>
-              <Link
-                to={`/projects/${name}`}
-                className="level-item"
-                aria-label="read me"
-              >
-                <span className="icon">
-                  <i className="far fa-book-open" aria-hidden="true" />
-                </span>
-              </Link>
               {homepageUrl && (
                 <a
                   href={homepageUrl}
@@ -62,7 +45,7 @@ const Project = ({
         </nav>
         <p
           dangerouslySetInnerHTML={{
-            __html: marked(longDescription).slice(3, -5),
+            __html: marked(longDescription ?? "").slice(3, -5),
           }}
         />
       </div>

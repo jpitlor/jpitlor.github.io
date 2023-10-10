@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
 const Header = () => {
   const {
@@ -29,15 +29,6 @@ const Header = () => {
       className="section has-background-light"
     >
       <div className="level is-mobile is-tight-desktop">
-        {/*
-                    Wrapping each of these in spans ensures only the button is a link,
-                    not the entire container (which makes what is a link ambiguous)
-                 */}
-        <span className="level-item">
-          <Link to="/" className="button is-light is-medium">
-            Resume
-          </Link>
-        </span>
         <span className="level-item" style={{ flexShrink: 1 }}>
           <img
             src={profile}
@@ -48,11 +39,7 @@ const Header = () => {
             }}
           />
         </span>
-        <span className="level-item">
-          <Link to="/music" className="button is-light is-medium">
-            Music
-          </Link>
-        </span>
+        <h1 className="level-item title is-1">Jordan Pitlor</h1>
       </div>
     </nav>
   );

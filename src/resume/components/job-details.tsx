@@ -46,7 +46,7 @@ const JobDetails = ({ job }: JobProps) => (
       </Text>
     </Text>
     <View style={styles.description}>
-      {documentToReactComponents(job.description?.json, {
+      {documentToReactComponents(JSON.parse(job.description?.raw ?? ""), {
         renderNode: {
           [BLOCKS.LIST_ITEM]: function li(node, children): React.ReactNode {
             return <LI>{children}</LI>;

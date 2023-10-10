@@ -1,9 +1,8 @@
 import * as React from "react";
 import School from "../components/school";
-import { ContentfulSchool } from "../../utils/schema";
 
 interface EducationProps {
-  data: ContentfulSchool[];
+  data: Queries.ContentfulSchool[];
 }
 
 const Education = ({ data }: EducationProps) => {

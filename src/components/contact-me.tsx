@@ -9,7 +9,7 @@ const ContactMe = () => (
     </p>
     <br />
     <br />
-    <div className="columns is-mobile">
+    <div className="columns is-tight-desktop is-mobile">
       <div className="icon is-large column has-text-centered">
         <a href="mailto:jordan@pitlor.dev">
           <i className="far fa-envelope is-size-1 is-size-3-mobile" />

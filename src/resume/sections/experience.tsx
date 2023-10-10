@@ -7,11 +7,9 @@ interface ExperienceProps {
 }
 
 const Experience = ({ data }: ExperienceProps) => {
-  const jobs = data.filter((j) => j.useInResume);
-
   return (
     <React.Fragment>
-      {jobs.map((job) => (
+      {data.map((job) => (
         <JobDetails job={job} key={job.company} />
       ))}
     </React.Fragment>

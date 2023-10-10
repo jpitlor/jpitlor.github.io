@@ -20,24 +20,10 @@ const Months = [
 
 export default function Experience() {
   const [moreDetailsJob, setMoreDetailsJob] = useState<Job | undefined>(
-    undefined
+    undefined,
   );
-  const onClickJob = (job: Job) => () => setMoreDetailsJob(job);
   const jobs = useJobs();
-  const currentJobs = jobs.flatMap((x) => x[1]).filter((j) => !j.endDate);
-
   const [[hji, hjj], setHoveredJob] = useState([-1, -1]);
-  function onHover(i: number, j: number) {
-    return () => setHoveredJob([i, j]);
-  }
-  function onExit() {
-    setHoveredJob([-1, -1]);
-  }
-
-  const [oldJobsVisible, setOldJobsVisible] = useState(false);
-  function toggleOldJobsVisible() {
-    setOldJobsVisible(!oldJobsVisible);
-  }
 
   return (
     <Section title="Experience">
@@ -51,36 +37,26 @@ export default function Experience() {
         </div>
         <div className="column is-5-desktop">
           <div style={{ padding: "1.25rem" }}>
-            <div className="field">
-              <input
-                id="showOldJobs"
-                type="checkbox"
-                name="showOldJobs"
-                className="switch is-rounded is-info is-rtl"
-                checked={oldJobsVisible}
-                onClick={toggleOldJobsVisible}
-              />
-              <label htmlFor="showOldJobs">
-                <h3 className="subtitle has-text-weight-bold is-inline-block">
-                  Show Old Jobs
-                </h3>
-              </label>
-            </div>
+            <h3 className="subtitle has-text-weight-bold">Current Jobs</h3>
+            <ul>
+              {jobs
+                .flatMap((x) => x[1])
+                .filter((j) => !j.endDate)
+                .map((job) => {
+                  function onClick() {
+                    setMoreDetailsJob(job);
+                  }
+
+                  return (
+                    <li key={job.company}>
+                      <a onClick={onClick}>
+                        {job.company} ({job.title})
+                      </a>
+                    </li>
+                  );
+                })}
+            </ul>
           </div>
-          {currentJobs.length > 0 && (
-            <div style={{ padding: "1.25rem" }}>
-              <h3 className="subtitle has-text-weight-bold">Current Jobs</h3>
-              <ul>
-                {currentJobs.map((job) => (
-                  <li key={job.company}>
-                    <a onClick={onClickJob(job)}>
-                      {job.company} ({job.title})
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
           <div style={{ padding: "1.25rem" }}>
             <h3 className="subtitle has-text-weight-bold">Past Jobs</h3>
             <div className="panel-block">
@@ -90,9 +66,20 @@ export default function Experience() {
                 </div>
                 {jobs.map(([year, jobGroup], i) => (
                   <React.Fragment key={i}>
-                    {jobGroup
-                      .filter((j) => oldJobsVisible || j.useInResume)
-                      .map((job, j) => (
+                    {jobGroup.map((job, j) => {
+                      function onMouseEnter() {
+                        setHoveredJob([i, j]);
+                      }
+
+                      function onMouseLeave() {
+                        setHoveredJob([-1, -1]);
+                      }
+
+                      function onClick() {
+                        setMoreDetailsJob(job);
+                      }
+
+                      return (
                         <div
                           className="timeline-item"
                           key={job.startDate.getTime()}
@@ -112,9 +99,9 @@ export default function Experience() {
                                 margin: "-0.75rem 0 -0.75rem -0.75rem",
                                 cursor: "pointer",
                               }}
-                              onClick={onClickJob(job)}
-                              onMouseEnter={onHover(i, j)}
-                              onMouseLeave={onExit}
+                              onClick={onClick}
+                              onMouseEnter={onMouseEnter}
+                              onMouseLeave={onMouseLeave}
                             >
                               <p className="heading">
                                 {Months[job.startDate.getMonth()]}
@@ -127,7 +114,8 @@ export default function Experience() {
                             </div>
                           </div>
                         </div>
-                      ))}
+                      );
+                    })}
                     <div className="timeline-header">
                       <span className="tag is-primary">{year}</span>
                     </div>

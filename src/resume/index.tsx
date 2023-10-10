@@ -15,10 +15,6 @@ import Section from "./components/section";
 import Education from "./sections/education";
 import Experience from "./sections/experience";
 import Projects from "./sections/projects";
-import {
-  ContentfulSchool,
-  GithubDataDataUserPinnedItemsNodes,
-} from "../utils/schema";
 import { Job } from "../utils/useJobs";
 
 function readImage(file: string): any {
@@ -97,32 +93,26 @@ const styles = StyleSheet.create({
 
 interface ResumeProps {
   jobs: Job[];
-  projects: GithubDataDataUserPinnedItemsNodes[];
-  schools: ContentfulSchool[];
+  projects: Queries.GithubDataDataUserPinnedItemsNodes[];
+  schools: Queries.ContentfulSchool[];
 }
 
 const Index = ({ jobs, projects, schools }: ResumeProps) => (
   <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
-    <Page size="letter" style={styles.page}>
+    <Page size="LETTER" style={styles.page}>
       <Text style={styles.title}>Jordan Pitlor</Text>
       <View style={styles.infoContainer}>
         <View style={styles.infoItem}>
           <View style={styles.iconContainer}>
             <Image style={styles.faIcon} src={readImage("github.png")} />
           </View>
-          <Text style={styles.infoText}>piticent123</Text>
+          <Text style={styles.infoText}>jpitlor</Text>
         </View>
         <View style={styles.infoItem}>
           <View style={styles.iconContainer}>
             <Image style={styles.faIcon} src={readImage("envelope.png")} />
           </View>
           <Text style={styles.infoText}>jordan@pitlor.dev</Text>
-        </View>
-        <View style={styles.infoItem}>
-          <View style={styles.iconContainer}>
-            <Image style={styles.faIcon} src={readImage("phone-alt.png")} />
-          </View>
-          <Text style={styles.infoText}>(216) 403-8126</Text>
         </View>
       </View>
       <Section title="Education">
