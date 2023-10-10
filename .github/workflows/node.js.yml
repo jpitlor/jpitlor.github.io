@@ -16,7 +16,7 @@ jobs:
       with:
         cache: 'npm'
     - name: Install NPM Dependencies
-      run: npm ci
+      run: npm install --legacy-peer-deps
       env:
         FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
     - name: Build Site
