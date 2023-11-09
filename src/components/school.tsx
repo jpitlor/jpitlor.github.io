@@ -1,8 +1,7 @@
 import * as React from "react";
-import { ContentfulSchool } from "../utils/schema";
 
 interface SchoolProps {
-  school: ContentfulSchool;
+  school: Queries.ContentfulSchool;
 }
 
 const School = ({ school }: SchoolProps) => {
@@ -22,14 +21,14 @@ const School = ({ school }: SchoolProps) => {
             }}
           >
             <img
-              src={school.logo.file.url}
+              src={school.logo?.file?.url ?? ""}
               style={{ padding: "2rem" }}
               alt=""
             />
             <p className="subtitle is-5">{school.city} Campus</p>
             <p className="subtitle is-5" style={{ marginTop: "-1.25rem" }}>
-              Fall {new Date(school.startDate).getFullYear()}
-              &nbsp;- Spring {new Date(school.endDate).getFullYear()}
+              Fall {new Date(school.startDate ?? "").getFullYear()}
+              &nbsp;- Spring {new Date(school.endDate ?? "").getFullYear()}
             </p>
           </div>
         </div>
@@ -45,7 +44,7 @@ const School = ({ school }: SchoolProps) => {
               <h4 className="subtitle is-block" style={{ width: "100%" }}>
                 Minors
               </h4>
-              {school.minor.map((tag) => (
+              {school.minor?.map((tag) => (
                 <span className="tag is-info is-light is-medium" key={tag}>
                   {tag}
                 </span>
@@ -55,7 +54,7 @@ const School = ({ school }: SchoolProps) => {
               <h4 className="subtitle is-block" style={{ width: "100%" }}>
                 Concentrations
               </h4>
-              {school.concentration.map((tag) => (
+              {school.concentration?.map((tag) => (
                 <span className="tag is-info is-light is-medium" key={tag}>
                   {tag}
                 </span>

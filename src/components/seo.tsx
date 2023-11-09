@@ -17,7 +17,9 @@ function Seo({ title }: { title: string }) {
   return (
     <>
       <html lang="en" />
-      <title>{title || site.siteMetadata.title}</title>
+      <title>
+        {title} | {site.siteMetadata.title}
+      </title>
       <meta name="description" content={site.siteMetadata.description} />
       <meta property="og:title" content={title || site.siteMetadata.title} />
       <meta property="og:description" content={site.siteMetadata.description} />

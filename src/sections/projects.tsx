@@ -12,7 +12,14 @@ export default function Projects() {
         These are some of the projects I&apos;ve been working on that I want to
         showcase! This page is generated from my list of pinned repositories on
         Github, but if you want to see other things I&apos;ve done, you can
-        visit <a href="https://github.com/piticent123">my profile</a>.
+        visit&nbsp;
+        <a
+          className="is-underlined has-text-primary"
+          href="https://github.com/jpitlor"
+        >
+          my profile
+        </a>
+        .
       </p>
       <br />
       <br />
