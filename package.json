@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Jordan Pitlor <jordan@pitlor.dev>",
   "dependencies": {
+    "@babel/eslint-parser": "^7.23.3",
     "@contentful/rich-text-react-renderer": "^15.18.0",
     "@fortawesome/fontawesome-pro": "^6.4.2",
     "@react-pdf/renderer": "^3.1.13",
