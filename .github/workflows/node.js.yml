@@ -30,6 +30,7 @@ jobs:
       run: |
         rm -rf docs
         mv public docs
+        touch docs/.nojekyll
     - name: Build Resume
       run: npm run build-resume
       env:
