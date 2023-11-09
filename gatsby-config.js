@@ -39,7 +39,7 @@ module.exports = {
                     url
                     description
                     homepageUrl
-                    object(expression: "master:README.md") {
+                    object(expression: "HEAD:README.md") {
                       ... on Blob {
                         text
                       }
