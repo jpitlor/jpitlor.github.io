@@ -51,7 +51,6 @@
     "build": "gatsby build",
     "build-resume": "babel-node --presets \"@babel/preset-env,@babel/preset-react,@babel/preset-typescript\" --extensions \".tsx,.ts,.js\" build-resume.js",
     "start": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
