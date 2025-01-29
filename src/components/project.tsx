@@ -2,6 +2,9 @@ import * as React from "react";
 import { marked } from "marked";
 
 import useReadme from "../utils/useReadme";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faExternalLink} from "@fortawesome/free-solid-svg-icons";
+import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
 interface RepositoryProps {
   repo: any;
@@ -23,7 +26,7 @@ const Project = ({
             <div className="level is-mobile">
               <a href={url ?? ""} className="level-item" aria-label="github">
                 <span className="icon">
-                  <i className="fab fa-github" aria-hidden="true" />
+                  <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
                 </span>
               </a>
               {homepageUrl && (
@@ -33,7 +36,7 @@ const Project = ({
                   aria-label="homepage"
                 >
                   <span className="icon">
-                    <i className="far fa-external-link" aria-hidden="true" />
+                    <FontAwesomeIcon icon={faExternalLink} aria-hidden="true" />
                   </span>
                 </a>
               )}
