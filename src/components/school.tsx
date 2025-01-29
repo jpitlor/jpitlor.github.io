@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface SchoolProps {
-  school: Queries.ContentfulSchool;
+  school: any;
 }
 
 const School = ({ school }: SchoolProps) => {

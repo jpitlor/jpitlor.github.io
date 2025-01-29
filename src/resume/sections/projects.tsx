@@ -2,7 +2,7 @@ import * as React from "react";
 import Project from "../components/project";
 
 interface ProjectsProps {
-  data: Queries.GithubDataDataUserPinnedItemsNodes[];
+  data: any[];
 }
 
 const Projects = ({ data }: ProjectsProps) => {

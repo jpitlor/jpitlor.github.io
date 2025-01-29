@@ -1,4 +1,3 @@
-const path = require("path");
 const fs = require("fs");
 
 exports.createPages = async ({ graphql }) => {
@@ -9,7 +8,7 @@ exports.createPages = async ({ graphql }) => {
           {
             data: {
               user: {
-                pinnedItems: { nodes: pinnedGithubRepos },
+                pinnedItems: { nodes: projects },
               },
             },
           },
@@ -90,7 +89,6 @@ exports.createPages = async ({ graphql }) => {
     endDate: j.endDate ? new Date(j.endDate) : undefined,
     useInResume: true,
   }));
-  const projects = pinnedGithubRepos.slice(0, 2);
 
   fs.writeFileSync(
     "resume-data.json",

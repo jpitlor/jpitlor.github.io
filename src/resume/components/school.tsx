@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 });
 
 interface SchoolProps {
-  school: Queries.ContentfulSchool;
+  school: any;
 }
 
 const School = ({ school }: SchoolProps) => (

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 });
 
 interface ProjectProps {
-  project: Queries.GithubDataDataUserPinnedItemsNodes;
+  project: any;
 }
 
 const Project = ({ project }: ProjectProps) => {

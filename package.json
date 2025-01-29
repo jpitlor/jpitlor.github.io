@@ -7,7 +7,6 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.23.3",
     "@contentful/rich-text-react-renderer": "^15.18.0",
-    "@fortawesome/fontawesome-pro": "^6.4.2",
     "@react-pdf/renderer": "^3.1.13",
     "bulma": "^0.9.4",
     "bulma-block-list": "^0.7.0",
@@ -24,9 +23,9 @@
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
     "marked": "^9.1.0",
-    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sass": "^1.83.4",
     "typescript": "^5.2.2",
     "webpack": "^5.88.2"
   },

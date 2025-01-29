@@ -9,15 +9,15 @@ $link-hover: $dark-blue;
 $family-sans-serif: "Rubik", sans-serif;
 $title-family: "Merriweather", serif;
 
-$fa-font-path: "../../node_modules/@fortawesome/fontawesome-pro/webfonts";
+$fa-font-path: "../vendor/fontawesome-pro/webfonts";
 
 @import "~bulma";
 @import "~bulma-block-list/src/block-list";
 @import "~bulma-timeline";
 
-@import "~@fortawesome/fontawesome-pro/scss/fontawesome";
-@import "~@fortawesome/fontawesome-pro/scss/brands";
-@import "~@fortawesome/fontawesome-pro/scss/regular";
+@import "../vendor/fontawesome-pro/scss/fontawesome";
+@import "../vendor/fontawesome-pro/scss/brands";
+@import "../vendor/fontawesome-pro/scss/regular";
 
 // Adds a bit of pizazz. Setting $title-color to $dark-blue doesn't change hero headers
 h2 {

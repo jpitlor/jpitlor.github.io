@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export default function useSchools(): Queries.ContentfulSchool[] {
+export default function useSchools(): any[] {
   const {
     allContentfulSchool: { nodes: schools },
   } = useStaticQuery(graphql`

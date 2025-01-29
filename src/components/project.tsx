@@ -4,7 +4,7 @@ import { marked } from "marked";
 import useReadme from "../utils/useReadme";
 
 interface RepositoryProps {
-  repo: Queries.GithubDataDataUserPinnedItemsNodes;
+  repo: any;
 }
 
 const Project = ({

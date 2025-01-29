@@ -5,3 +5,5 @@ node_modules/
 public
 src/gatsby-types.d.ts
 resume-data.json
+src/vendor/*
+!src/vendor/.gitkeep

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import orderBy from "lodash.orderby";
 import groupBy from "lodash.groupby";
 
-export function useJobsRaw(): Queries.ContentfulJob[] {
+export function useJobsRaw(): any[] {
   const {
     allContentfulFeatured: {
       nodes: [{ resumeJobs }],
@@ -61,7 +61,7 @@ export interface Job {
   isHourly: boolean;
   city: string;
   state: string;
-  description: Queries.ContentfulJobDescription;
+  description: any;
   endDate?: Date;
   endPay: number;
 }

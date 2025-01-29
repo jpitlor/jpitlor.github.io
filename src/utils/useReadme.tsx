@@ -1,5 +1,5 @@
 export default (readme: string) => {
-  const [, title, longDescription] = /^# (.*)\n([^#]+)/.exec(readme) || [];
+  const [, title, longDescription] = /^# (.*)\r?\n([^#]+)/.exec(readme) || [];
   return {
     title,
     longDescription,

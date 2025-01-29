@@ -14,7 +14,7 @@ import * as React from "react";
 import Section from "./components/section";
 import Education from "./sections/education";
 import Experience from "./sections/experience";
-// import Projects from "./sections/projects";
+import Projects from "./sections/projects";
 import { Job } from "../utils/useJobs";
 
 function readImage(file: string): any {
@@ -72,18 +72,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "Ubuntu Mono",
-    fontSize: "36px",
-    width: "100%",
-    textAlign: "center",
+    fontSize: "48px",
   },
-  infoContainer: {
+  infoContainerHorizontal: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-around",
-    padding: "5mm 0 2mm",
+    justifyContent: "space-between",
     width: "100%",
-    height: "20px",
+  },
+  infoContainerVertical: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "space-around",
+    height: "100%",
   },
   infoItem: {
     display: "flex",
@@ -93,37 +96,41 @@ const styles = StyleSheet.create({
 
 interface ResumeProps {
   jobs: Job[];
-  projects: Queries.GithubDataDataUserPinnedItemsNodes[];
-  schools: Queries.ContentfulSchool[];
+  projects: any[];
+  schools: any[];
 }
 
 const Index = ({ jobs, projects, schools }: ResumeProps) => (
   <Document title="Jordan Pitlor Resume" author="Jordan Pitlor">
     <Page size="LETTER" style={styles.page}>
-      <Text style={styles.title}>Jordan Pitlor</Text>
-      <View style={styles.infoContainer}>
+      <View style={styles.infoContainerHorizontal}>
         <View style={styles.infoItem}>
-          <View style={styles.iconContainer}>
-            <Image style={styles.faIcon} src={readImage("github.png")} />
-          </View>
-          <Text style={styles.infoText}>jpitlor</Text>
+          <Text style={styles.title}>Jordan Pitlor</Text>
         </View>
-        <View style={styles.infoItem}>
+        <View style={styles.infoContainerVertical}>
+          <View style={styles.infoItem}>
+            <View style={styles.iconContainer}>
+              <Image style={styles.faIcon} src={readImage("github.png")} />
+            </View>
+            <Text style={styles.infoText}>jpitlor</Text>
+          </View>
+          <View style={styles.infoItem}>
           <View style={styles.iconContainer}>
             <Image style={styles.faIcon} src={readImage("envelope.png")} />
           </View>
           <Text style={styles.infoText}>jordan@pitlor.dev</Text>
         </View>
+        </View>
       </View>
       <Section title="Experience">
         <Experience data={jobs} />
       </Section>
+      <Section title="Projects">
+        <Projects data={projects} />
+      </Section>
       <Section title="Education">
         <Education data={schools} />
       </Section>
-      {/*<Section title="Projects">*/}
-      {/*  <Projects data={projects} />*/}
-      {/*</Section>*/}
     </Page>
   </Document>
 );

@@ -58,7 +58,7 @@ export default function Experience() {
             </ul>
           </div>
           <div style={{ padding: "1.25rem" }}>
-            <h3 className="subtitle has-text-weight-bold">Past Jobs</h3>
+            <h3 className="subtitle has-text-weight-bold">All Jobs</h3>
             <div className="panel-block">
               <div className="timeline">
                 <div className="timeline-header">

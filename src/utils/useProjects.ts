@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 
-export default function useProjects(): Queries.GithubDataDataUserPinnedItemsNodes[] {
+export default function useProjects(): any[] {
   const {
     allGithubData: {
       nodes: [

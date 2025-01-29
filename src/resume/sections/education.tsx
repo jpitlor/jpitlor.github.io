@@ -2,7 +2,7 @@ import * as React from "react";
 import School from "../components/school";
 
 interface EducationProps {
-  data: Queries.ContentfulSchool[];
+  data: any[];
 }
 
 const Education = ({ data }: EducationProps) => {
