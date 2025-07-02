@@ -1,45 +1,24 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 
 const Header = () => {
-  const {
-    allContentfulAsset: {
-      nodes: [
-        {
-          resize: { src: profile },
-        },
-      ],
-    },
-  } = useStaticQuery(graphql`
-    query HeaderQuery {
-      allContentfulAsset(filter: { title: { eq: "Profile" } }) {
-        nodes {
-          resize(height: 250, width: 250, cropFocus: FACES) {
-            src
-          }
-        }
-      }
-    }
-  `);
-
   return (
     <nav
       role="navigation"
       aria-label="main navigation"
       className="section has-background-light"
     >
-      <div className="level is-mobile is-tight-desktop">
-        <span className="level-item" style={{ flexShrink: 1 }}>
-          <img
-            src={profile}
-            alt="About"
-            style={{
-              borderRadius: "100%",
-              maxHeight: "200px",
-            }}
-          />
-        </span>
-        <h1 className="level-item title is-1">Jordan Pitlor</h1>
+      <div className="level columns is-desktop is-tight-desktop">
+        <div className="level-item column is-5">
+          <h1 className="title has-text-centered">Jordan Pitlor</h1>
+        </div>
+        <div className="level-item column is-7">
+          <div className="notification is-info">
+            Looking for a PDF version?&nbsp;
+            <a href="/Jordan Pitlor Resume.pdf" download>
+              Click here!
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   );

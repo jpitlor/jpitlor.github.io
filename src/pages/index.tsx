@@ -8,18 +8,6 @@ import Seo from "../components/seo";
 
 const IndexPage = () => (
   <Layout title="Resume">
-    <section className="has-background-light">
-      <div className="hero-body" style={{ paddingTop: 0, paddingBottom: 0 }}>
-        <div className="container">
-          <div className="notification is-info">
-            Looking for a PDF version?&nbsp;
-            <a href="/Jordan Pitlor Resume.pdf" download>
-              Click here!
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
     <section className="hero is-light">
       <div className="hero-body">
         <Experience />
