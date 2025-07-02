@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "@react-pdf/renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { Job } from "../../utils/useJobs";
@@ -26,6 +26,9 @@ const styles = StyleSheet.create({
   shortDescription: {
     color: "#666666",
   },
+  italic: {
+    fontStyle: "italic",
+  }
 });
 
 interface JobProps {
@@ -47,6 +50,11 @@ const JobDetails = ({ job }: JobProps) => (
     </Text>
     <View style={styles.description}>
       {documentToReactComponents(JSON.parse(job.description?.raw ?? ""), {
+        renderMark: {
+          [MARKS.ITALIC]: function em(text): React.ReactNode {
+            return <Text style={styles.italic}>{text}</Text>
+          }
+        },
         renderNode: {
           [BLOCKS.LIST_ITEM]: function li(node, children): React.ReactNode {
             return <LI>{children}</LI>;

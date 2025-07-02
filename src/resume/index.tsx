@@ -70,6 +70,12 @@ const styles = StyleSheet.create({
     fontSize: "16px",
     fontFamily: "Rubik",
   },
+  infoTextSmall: {
+    marginTop: "1mm",
+    fontSize: "10px",
+    fontFamily: "Rubik",
+    fontStyle: "italic",
+  },
   title: {
     fontFamily: "Ubuntu Mono",
     fontSize: "48px",
@@ -115,11 +121,14 @@ const Index = ({ jobs, projects, schools }: ResumeProps) => (
             <Text style={styles.infoText}>jpitlor</Text>
           </View>
           <View style={styles.infoItem}>
-          <View style={styles.iconContainer}>
-            <Image style={styles.faIcon} src={readImage("envelope.png")} />
+            <View style={styles.iconContainer}>
+              <Image style={styles.faIcon} src={readImage("envelope.png")} />
+            </View>
+            <Text style={styles.infoText}>jordan@pitlor.dev</Text>
           </View>
-          <Text style={styles.infoText}>jordan@pitlor.dev</Text>
-        </View>
+          <View style={styles.infoItem}>
+            <Text style={styles.infoTextSmall}>References available upon request</Text>
+          </View>
         </View>
       </View>
       <Section title="Experience">

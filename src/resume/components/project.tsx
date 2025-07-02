@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   description: {
-    marginTop: "1mm",
+    marginTop: "2pt",
     width: "100%",
   },
   shortDescription: {
