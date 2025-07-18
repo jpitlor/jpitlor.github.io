@@ -44,9 +44,10 @@ async function getGoogleMapLocation({ lat, lon }: any): Promise<string> {
   if (cache[`${lat},${lon}`] || !fetch) return cache[`${lat},${lon}`];
 
   const route = "https://maps.googleapis.com/maps/api/geocode/json";
-  const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GOOGLE_MAPS_API_TOKEN}`;
+  const queryString = `?latlng=${lat},${lon}&key=${process.env.GATSBY_GEOCODING_API_TOKEN}`;
   const fetchResult = await fetch(route + queryString);
   const apiResult = await fetchResult.json();
+  console.log(apiResult);
 
   cache[`${lat},${lon}`] = apiResult.results?.[0]?.place_id || "";
   return apiResult.results?.[0]?.place_id;
