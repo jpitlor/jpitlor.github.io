@@ -31,7 +31,7 @@
     "react-dom": "^18.2.0",
     "sass": "^1.83.4",
     "typescript": "^5.2.2",
-    "webpack": "^5.88.2"
+    "webpack": "^5.105.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
